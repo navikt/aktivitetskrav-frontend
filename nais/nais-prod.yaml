@@ -1,0 +1,62 @@
+apiVersion: "nais.io/v1alpha1"
+kind: "Application"
+metadata:
+  name: aktivitetskrav-frontend
+  namespace: team-esyfo
+  labels:
+    team: team-esyfo
+spec:
+  image: {{ image }}
+  replicas:
+    min: 2
+    max: 4
+    cpuThresholdPercentage: 90
+  port: 3000
+  tokenx:
+    enabled: true
+  idporten:
+    enabled: true
+    sidecar:
+      enabled: true
+  liveness:
+    path: syk/aktivitetskrav/api/isAlive
+    initialDelay: 20
+    timeout: 5
+    periodSeconds: 5
+    failureThreshold: 30
+  readiness:
+    path: syk/aktivitetskrav/api/isReady
+    initialDelay: 20
+    periodSeconds: 5
+    timeout: 5
+  prometheus:
+    enabled: true
+    path: actuator/metrics
+  resources:
+    limits:
+      cpu: 500m
+      memory: 512Mi
+    requests:
+      cpu: 200m
+      memory: 256Mi
+  ingresses:
+    - "https://www.nav.no/syk/aktivitetskrav"
+  env:
+    - name: DECORATOR_URL
+      value: "https://nav.no/dekoratoren"
+    - name: DECORATOR_ENV
+      value: "prod"
+    - name: AKTIVITETSKRAV_BACKEND_HOST
+      value: "http://aktivitetskrav-backend.team-esyfo"
+    - name: AKTIVITETSKRAV_BACKEND_CLIENT_ID
+      value: "prod-gcp:team-esyfo:aktivitetskrav-backend"
+    - name: BASE_PATH
+      value: "/syk/aktivitetskrav"
+  accessPolicy:
+    outbound:
+      rules:
+        - application: aktivitetskrav-backend
+        - application: nav-dekoratoren
+          namespace: personbruker
+      external:
+        - host: www.nav.no
