@@ -36,7 +36,7 @@ export const aktivitetskravVurderingSchema = union([
     journalpostId: string().optional(),
     sistVurdert: string().datetime(),
     fristDato: string().datetime(),
-    dokument: documentComponentSchema.nullable(),
+    dokument: z.array(documentComponentSchema).nullable(),
   }),
   object({
     status: z.literal("IKKE_OPPFYLT"),

@@ -1,8 +1,9 @@
 "use client";
 import { useQuery } from "@tanstack/react-query";
 import { fetchAktivitetskrav } from "@/api/fetchAktivitetskrav";
+import { Aktivitetskrav } from "@/components/Aktivitetskrav";
 
-export const Aktivitetskrav = () => {
+export const AktivitetskravPage = () => {
   const { data, error, isPending } = useQuery({
     queryKey: ["aktivitetskrav"],
     queryFn: fetchAktivitetskrav,
@@ -18,7 +19,7 @@ export const Aktivitetskrav = () => {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div>{data?.status}</div>
+      <Aktivitetskrav aktivitetskrav={data} />
     </main>
   );
 };

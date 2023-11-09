@@ -4,7 +4,7 @@ import {
   QueryClient,
 } from "@tanstack/react-query";
 import { fetchAktivitetskrav } from "@/api/fetchAktivitetskrav";
-import { Aktivitetskrav } from "@/app/aktivitetskrav/Aktivitetskrav";
+import { AktivitetskravPage } from "@/app/aktivitetskrav/AktivitetskravPage";
 
 export default async function Home() {
   const queryClient = new QueryClient();
@@ -16,7 +16,7 @@ export default async function Home() {
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <Aktivitetskrav />
+      <AktivitetskravPage />
     </HydrationBoundary>
   );
 }
