@@ -40,7 +40,7 @@ spec:
       cpu: 200m
       memory: 256Mi
   ingresses:
-    - "https://www.ekstern.dev.nav.no/syk/aktivitetskrav"
+    - "https://www.intern.dev.nav.no/syk/aktivitetskrav"
   env:
     - name: DECORATOR_URL
       value: "https://dekoratoren.dev.nav.no"
