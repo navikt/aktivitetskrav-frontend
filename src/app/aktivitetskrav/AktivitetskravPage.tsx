@@ -1,6 +1,6 @@
 "use client";
 import { useQuery } from "@tanstack/react-query";
-import { fetchAktivitetskrav } from "@/api/fetchAktivitetskrav";
+import { fetchAktivitetskrav } from "@/serverActions/fetchAktivitetskrav";
 import { Aktivitetskrav } from "@/components/Aktivitetskrav";
 
 export const AktivitetskravPage = () => {

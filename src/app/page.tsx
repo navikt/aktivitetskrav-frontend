@@ -3,7 +3,7 @@ import {
   HydrationBoundary,
   QueryClient,
 } from "@tanstack/react-query";
-import { fetchAktivitetskrav } from "@/api/fetchAktivitetskrav";
+import { fetchAktivitetskrav } from "@/serverActions/fetchAktivitetskrav";
 import { AktivitetskravPage } from "@/app/aktivitetskrav/AktivitetskravPage";
 
 export default async function Home() {
