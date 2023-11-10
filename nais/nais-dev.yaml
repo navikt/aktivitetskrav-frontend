@@ -54,7 +54,6 @@ spec:
       value: "dev-gcp:team-esyfo:aktivitetskrav-backend"
     - name: BASE_PATH
       value: "/syk/aktivitetskrav"
-
   accessPolicy:
     outbound:
       rules:
