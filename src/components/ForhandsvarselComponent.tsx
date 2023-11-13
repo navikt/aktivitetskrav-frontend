@@ -8,14 +8,14 @@ interface Props {
   journalpostId?: String;
   sistVurdert: String;
   fristDato: String;
-  dokument?: DocumentComponent[] | null;
+  document?: DocumentComponent[] | null;
 }
 
 export const ForhandsvarselComponent = ({
   journalpostId,
   sistVurdert,
   fristDato,
-  dokument,
+  document,
 }: Props) => {
   useEffect(() => {
     post(`${process.env.NEXT_PUBLIC_ESYFO_PROXY_API_URL!}/les`);
@@ -26,7 +26,7 @@ export const ForhandsvarselComponent = ({
       {/*<div>{fristDato}</div>*/}
 
       <div className="flex flex-col gap-4">
-        {dokument?.map((d) => {
+        {document?.map((d) => {
           switch (d.type) {
             case "HEADER_H1":
               return null;

@@ -11,7 +11,7 @@ export const Aktivitetskrav = ({ aktivitetskrav }: Props) => {
       return (
         <ForhandsvarselComponent
           fristDato={aktivitetskrav.fristDato}
-          dokument={aktivitetskrav.dokument}
+          document={aktivitetskrav.document}
           sistVurdert={aktivitetskrav.sistVurdert}
           journalpostId={aktivitetskrav.journalpostId}
         />

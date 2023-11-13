@@ -33,7 +33,7 @@ const forhaandsvarselVurdering: AktivitetskravVurdering = {
   sistVurdert: subtractDaysFromDate(new Date(), 5).toISOString(),
   journalpostId: "123",
   fristDato: addDaysToDate(new Date(), 14).toISOString(),
-  dokument: forhaandsvarselDocumentMock,
+  document: forhaandsvarselDocumentMock,
 };
 
 const fixtures = {
