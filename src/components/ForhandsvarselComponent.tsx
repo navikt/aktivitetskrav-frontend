@@ -75,19 +75,24 @@ export const ForhandsvarselComponent = ({
                 </div>
               );
             case "BULLET_POINTS":
-              <div>TODO</div>;
+              return (
+                <ul className="list-disc list-inside">
+                  {d.texts.map((text, index) => (
+                    <BodyLong size="small" key={index} as={"li"}>
+                      {text}
+                    </BodyLong>
+                  ))}
+                </ul>
+              );
             case "PARAGRAPH":
               return (
-                <div>
-                  {d.title && (
-                    <Heading size="xsmall" level="3" spacing>
-                      {d.title}
-                    </Heading>
-                  )}
+                <>
                   {d.texts.map((text, index) => (
-                    <BodyLong key={index}>{text}</BodyLong>
+                    <BodyLong size="small" key={index}>
+                      {text}
+                    </BodyLong>
                   ))}
-                </div>
+                </>
               );
           }
         })}
