@@ -48,7 +48,7 @@ spec:
       value: "dev"
     - name: AKTIVITETSKRAV_BACKEND_HOST
       value: "http://aktivitetskrav-backend.team-esyfo"
-    - name: ESYFO_PROXY_API_URL
+    - name: NEXT_PUBLIC_ESYFO_PROXY_API_URL
       value: "https://www.intern.dev.nav.no/esyfo-proxy/api/aktivitetsplikt"
     - name: AKTIVITETSKRAV_BACKEND_CLIENT_ID
       value: "dev-gcp:team-esyfo:aktivitetskrav-backend"

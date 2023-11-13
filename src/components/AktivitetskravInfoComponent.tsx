@@ -1,3 +1,4 @@
+"use client";
 import { Page } from "@/components/page/Page";
 import { useState } from "react";
 import { MedUtenArbeidsgiverToggleGroup } from "@/components/aktivitetskrav/MedUtenArbeidsgiverToggleGroup";
