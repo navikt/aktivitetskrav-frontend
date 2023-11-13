@@ -1,5 +1,6 @@
 import { AktivitetskravVurdering } from "@/schema/aktivitetskravVurderingSchema";
 import { addDaysToDate, subtractDaysFromDate } from "@/utils/dateUtils";
+import { forhaandsvarselDocumentMock } from "@/mocks/ForhaandsvarselDocumentMock";
 
 const nyKandidatVurdering: AktivitetskravVurdering = {
   status: "NY",
@@ -32,7 +33,7 @@ const forhaandsvarselVurdering: AktivitetskravVurdering = {
   sistVurdert: subtractDaysFromDate(new Date(), 5).toISOString(),
   journalpostId: "123",
   fristDato: addDaysToDate(new Date(), 14).toISOString(),
-  dokument: null //todo fiks
+  dokument: forhaandsvarselDocumentMock,
 };
 
 const fixtures = {

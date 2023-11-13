@@ -12,7 +12,7 @@ const documentComponentType = z.union([
 export const documentComponentSchema = object({
   type: documentComponentType,
   key: z.string().nullish(),
-  title: string().datetime(),
+  title: string().datetime().nullish(),
   texts: z.array(z.string()),
 });
 
