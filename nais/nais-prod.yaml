@@ -46,8 +46,6 @@ spec:
       value: "https://nav.no/dekoratoren"
     - name: DECORATOR_ENV
       value: "prod"
-    - name: NEXT_PUBLIC_ESYFO_PROXY_API_URL
-      value: "https://www.nav.no/esyfo-proxy/api/aktivitetsplikt"
     - name: AKTIVITETSKRAV_BACKEND_HOST
       value: "http://aktivitetskrav-backend.team-esyfo"
     - name: AKTIVITETSKRAV_BACKEND_CLIENT_ID
