@@ -7,7 +7,10 @@ export default function handler(
   _req: NextApiRequest,
   res: NextApiResponse<AktivitetskravVurdering | null>,
 ) {
-  if (process.env.NEXT_PUBLIC_RUNTIME_ENVIRONMENT === "local") {
+  if (
+    process.env.NEXT_PUBLIC_RUNTIME_ENVIRONMENT === "local" ||
+    process.env.NEXT_PUBLIC_RUNTIME_ENVIRONMENT === "demo"
+  ) {
     const testScenario: TestScenario = _req.headers[
       "testscenario"
     ] as TestScenario;
