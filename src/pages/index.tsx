@@ -19,14 +19,10 @@ const Home: NextPage = () => {
     throw error;
   }
 
-  return (
-    <div className="flex flex-col items-center justify-between md:p-8">
-      {isPending ? (
-        <AktivitetskravSkeletonComponent />
-      ) : (
-        <Aktivitetskrav aktivitetskrav={data} />
-      )}
-    </div>
+  return isPending ? (
+    <AktivitetskravSkeletonComponent />
+  ) : (
+    <Aktivitetskrav aktivitetskrav={data} />
   );
 };
 

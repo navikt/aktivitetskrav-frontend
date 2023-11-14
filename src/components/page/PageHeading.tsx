@@ -7,7 +7,7 @@ interface Props {
 
 export const PageHeading = ({ headerText }: Props) => {
     return (
-        <div className="flex flex-row bg-header-color p-8 items-center justify-center">
+        <div className="flex flex-row bg-white pt-4 items-center justify-center">
             <Heading size="xlarge" level="1">
                 {headerText}
             </Heading>
