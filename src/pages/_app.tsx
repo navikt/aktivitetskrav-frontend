@@ -1,11 +1,18 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import React, { useEffect, useState } from "react";
-import { DehydratedState, HydrationBoundary, QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import {
+  DehydratedState,
+  HydrationBoundary,
+  QueryClient,
+  QueryClientProvider,
+} from "@tanstack/react-query";
 import { configureLogger } from "@navikt/next-logger";
 import { minutesToMillis } from "@/utils/dateUtils";
 import { ErrorBoundary } from "@/components/error/ErrorBoundary";
 import { initFaro } from "@/faro/initFaro";
+import { TestScenarioSelector } from "@/components/testscenarioselector/TestScenarioSelector";
+import { getTestScenario, setTestScenario } from "@/utils/testScenarioUtils";
 
 configureLogger({
   basePath: "/syk/aktivitetskrav",
@@ -31,6 +38,21 @@ function MyApp({
     initFaro();
   }, []);
 
+  const TestScenarioDevTools = () => {
+    if (
+      process.env.NEXT_PUBLIC_RUNTIME_ENVIRONMENT === "local" ||
+      process.env.NEXT_PUBLIC_RUNTIME_ENVIRONMENT === "demo"
+    ) {
+      const hasActiveScenario = !!getTestScenario()
+      if (!hasActiveScenario) {
+        setTestScenario("INFOSIDE");
+      }
+
+      return <TestScenarioSelector />;
+    }
+    return null;
+  };
+
   return (
     <ErrorBoundary>
       <QueryClientProvider client={queryClient}>
@@ -38,6 +60,7 @@ function MyApp({
           <HydrationBoundary state={pageProps.dehydratedState}>
             <Component {...pageProps} />
           </HydrationBoundary>
+          <TestScenarioDevTools />
         </main>
       </QueryClientProvider>
     </ErrorBoundary>

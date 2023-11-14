@@ -1,9 +1,29 @@
 import { loginUser } from "@/utils/urlUtils";
+import {
+  getTestScenario,
+  InfoSideTestScenario,
+} from "@/utils/testScenarioUtils";
 
-export const get = async <ResponseData>(path: string): Promise<ResponseData> => {
+const testScenarioHeaders = (): Record<string, string> | undefined => {
+  if (
+    process.env.NEXT_PUBLIC_RUNTIME_ENVIRONMENT === "local" ||
+    process.env.NEXT_PUBLIC_RUNTIME_ENVIRONMENT === "demo"
+  ) {
+    const headers: Record<string, string> = {
+      "testscenario": getTestScenario() || InfoSideTestScenario,
+    };
+
+    return headers
+  }
+};
+
+export const get = async <ResponseData>(
+  path: string,
+): Promise<ResponseData> => {
   const response = await fetch(path, {
     method: "GET",
     credentials: "include",
+    headers: testScenarioHeaders(),
   });
 
   if (response.status === 401) {
