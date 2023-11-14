@@ -56,7 +56,7 @@ function MyApp({
   return (
     <ErrorBoundary>
       <QueryClientProvider client={queryClient}>
-        <main tabIndex={-1} id="maincontent" className="min-h-screen">
+        <main tabIndex={-1} id="maincontent">
           <HydrationBoundary state={pageProps.dehydratedState}>
             <Component {...pageProps} />
           </HydrationBoundary>
