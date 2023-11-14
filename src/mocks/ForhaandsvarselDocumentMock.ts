@@ -22,7 +22,7 @@ export const forhaandsvarselDocumentMock: DocumentComponent[] = [
     "key": null,
     "title": null,
     "texts": [
-      "jhyug87g"
+      "Her kan veilederen skrive fritekst om begrunnelse.."
     ]
   },
   {

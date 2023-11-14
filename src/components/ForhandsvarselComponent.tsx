@@ -23,22 +23,11 @@ export const ForhandsvarselComponent = ({
 
   return (
     <Page headerText="Varsel om stans av sykepenger">
-      {/*<div>{fristDato}</div>*/}
-
       <div className="flex flex-col gap-4">
         {document?.map((d) => {
           switch (d.type) {
             case "HEADER_H1":
               return null;
-            // (
-            //   <div>
-            //     {d.texts.map((text, index) => (
-            //       <Heading size="xlarge" level="1" key={index}>
-            //         {text}
-            //       </Heading>
-            //     ))}
-            //   </div>
-            // );
             case "HEADER_H2":
               return (
                 <div className="mt-4">
