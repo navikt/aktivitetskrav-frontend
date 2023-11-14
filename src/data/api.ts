@@ -1,13 +1,13 @@
 import { loginUser } from "@/utils/urlUtils";
 
-export const get = async (path: string) => {
+export const get = async <ResponseData>(path: string): Promise<ResponseData> => {
   const response = await fetch(path, {
     method: "GET",
     credentials: "include",
   });
 
   if (response.status === 401) {
-    return loginUser();
+    loginUser();
   }
 
   if (!response.ok) {

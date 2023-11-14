@@ -7,7 +7,7 @@ export default function handler(
   res: NextApiResponse<AktivitetskravVurdering | null>,
 ) {
   if (process.env.NEXT_PUBLIC_RUNTIME_ENVIRONMENT === "local") {
-    res.status(200).json(fixtures.forhaandsvarselVurdering);
+    res.status(200).json(fixtures.nyKandidatVurdering);
   } else {
     res.status(404).json(null);
   }

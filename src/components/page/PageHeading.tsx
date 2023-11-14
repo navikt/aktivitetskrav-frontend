@@ -1,8 +1,8 @@
 import { Heading } from "@navikt/ds-react"
-import React from "react"
+import React, { ReactNode } from "react";
 
 interface Props {
-    headerText: string
+    headerText: ReactNode
 }
 
 export const PageHeading = ({ headerText }: Props) => {

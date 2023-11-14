@@ -1,12 +1,12 @@
 import Image from "next/image";
 import { Heading } from "@navikt/ds-react";
-import React from "react";
+import React, { ReactNode } from "react";
 import medarbeidsgiver from "../../../public/med_arbeidsgiver.svg";
 import utenarbeidsgiver from "../../../public/uten_arbeidsgiver.svg";
 import { MedUtenAGVisning } from "@/components/AktivitetskravInfoComponent";
 
 interface Props {
-  headerText: string;
+  headerText: ReactNode;
   image: MedUtenAGVisning;
 }
 

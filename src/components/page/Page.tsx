@@ -4,7 +4,7 @@ import { PageHeading } from "./PageHeading"
 import { MedUtenAGVisning } from "@/components/AktivitetskravInfoComponent";
 
 interface Props {
-    headerText: string
+    headerText: ReactNode
     image?: MedUtenAGVisning
     children: ReactNode
 }
