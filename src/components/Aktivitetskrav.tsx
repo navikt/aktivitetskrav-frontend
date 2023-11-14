@@ -7,7 +7,10 @@ interface Props {
 }
 export const Aktivitetskrav = ({ aktivitetskrav }: Props) => {
   switch (aktivitetskrav.status) {
-    case "FORHANDSVARSEL":
+    case "FORHANDSVARSEL": {
+      if (!aktivitetskrav.document) {
+        return <AktivitetskravInfoComponent />;
+      }
       return (
         <ForhandsvarselComponent
           fristDato={aktivitetskrav.fristDato}
@@ -16,6 +19,7 @@ export const Aktivitetskrav = ({ aktivitetskrav }: Props) => {
           journalpostId={aktivitetskrav.journalpostId}
         />
       );
+    }
     default: {
       return <AktivitetskravInfoComponent />;
     }
