@@ -17,10 +17,6 @@ export const AktivitetskravInfoComponent = () => {
       <AktivitetskravInfo
         harArbeidsgiver={visning === "MED_ARBEIDSGIVER"}
       />
-
-      <Link className="flex self-center" href={process.env.NEXT_PUBLIC_MIN_SIDE_URL}>
-        Naviger til Min side
-      </Link>
     </Page>
   )
 }

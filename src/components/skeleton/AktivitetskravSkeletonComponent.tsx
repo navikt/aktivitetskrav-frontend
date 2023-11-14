@@ -7,13 +7,6 @@ export const AktivitetskravSkeletonComponent = () => {
   return (
     <Page headerText={<Skeleton>Informasjon om aktivitetsplikt</Skeleton>}>
       <AktivitetskravInfo harArbeidsgiver={true} displaySkeleton={true} />
-
-      <Link
-        className="flex self-center"
-        href={process.env.NEXT_PUBLIC_MIN_SIDE_URL}
-      >
-        Naviger til Min side
-      </Link>
     </Page>
   );
 };
