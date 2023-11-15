@@ -1,7 +1,7 @@
 import { ToggleGroup } from "@navikt/ds-react"
 import React from "react"
 import { Buldings3Icon, PersonIcon } from "@navikt/aksel-icons"
-import { MedUtenAGVisning } from "@/components/AktivitetskravInfoComponent";
+import { MedUtenAGVisning } from "@/components/view/AktivitetskravInfoComponent";
 
 interface Props {
     setVisning(val: MedUtenAGVisning): void

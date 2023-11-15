@@ -1,8 +1,8 @@
 "use client";
 import { Page } from "@/components/page/Page";
 import { useState } from "react";
-import { MedUtenArbeidsgiverToggleGroup } from "@/components/aktivitetskrav/MedUtenArbeidsgiverToggleGroup";
-import { AktivitetskravInfo } from "@/components/aktivitetskrav/AktivitetskravInfo";
+import { MedUtenArbeidsgiverToggleGroup } from "@/components/view/aktivitetskravInfo/MedUtenArbeidsgiverToggleGroup";
+import { AktivitetskravInfo } from "@/components/view/aktivitetskravInfo/AktivitetskravInfo";
 
 export type MedUtenAGVisning = "MED_ARBEIDSGIVER" | "UTEN_ARBEIDSGIVER";
 export const infoSideHeaderText = "Informasjon om aktivitetsplikt";

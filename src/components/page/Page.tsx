@@ -1,8 +1,8 @@
 import React, { ReactNode } from "react";
 import { PageHeadingWithImage } from "./PageHeadingWithImage";
 import { PageHeading } from "./PageHeading";
-import { MedUtenAGVisning } from "@/components/AktivitetskravInfoComponent";
 import { Link } from "@navikt/ds-react";
+import { MedUtenAGVisning } from "@/components/view/AktivitetskravInfoComponent";
 
 interface Props {
   headerText: ReactNode;

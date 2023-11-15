@@ -1,6 +1,6 @@
-import { Button, Heading, Modal, Radio, RadioGroup } from "@navikt/ds-react";
+import { Button, Modal, Radio, RadioGroup } from "@navikt/ds-react";
 import SunImage from "../../../public/sun.svg";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import styles from "./testscenarioselector.module.css";
 import {
@@ -17,7 +17,7 @@ export const TestScenarioSelector = () => {
   const [selectedScenario, setSelectedScenario] = useState<
     TestScenario | undefined
   >();
-  const queryClient = useQueryClient()
+  const queryClient = useQueryClient();
 
   useEffect(() => {
     setSelectedScenario(getTestScenario());
@@ -32,7 +32,7 @@ export const TestScenarioSelector = () => {
         aria-label="Testdatavelger"
         onClose={() => setOpen(false)}
         header={{
-          heading: "Velg testscenario"
+          heading: "Velg testscenario",
         }}
       >
         <Modal.Body>
@@ -58,7 +58,7 @@ export const TestScenarioSelector = () => {
               // disabled={!setActiveTestScenario}
               onClick={() => {
                 setTestScenario(selectedScenario);
-                queryClient.invalidateQueries()
+                queryClient.invalidateQueries();
                 setOpen(false);
               }}
             >

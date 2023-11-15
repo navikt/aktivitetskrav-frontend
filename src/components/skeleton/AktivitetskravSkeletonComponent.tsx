@@ -1,7 +1,7 @@
 "use client";
 import { Page } from "@/components/page/Page";
-import { AktivitetskravInfo } from "@/components/aktivitetskrav/AktivitetskravInfo";
 import { Skeleton } from "@navikt/ds-react";
+import { AktivitetskravInfo } from "@/components/view/aktivitetskravInfo/AktivitetskravInfo";
 
 export const AktivitetskravSkeletonComponent = () => {
   return (
