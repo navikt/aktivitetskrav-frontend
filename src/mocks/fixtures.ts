@@ -36,12 +36,21 @@ const forhaandsvarselVurdering: AktivitetskravVurdering = {
   document: forhaandsvarselDocumentMock,
 };
 
+const forhaandsvarselVurderingWithoutDocument: AktivitetskravVurdering = {
+  status: "FORHANDSVARSEL",
+  sistVurdert: subtractDaysFromDate(new Date(), 5).toISOString(),
+  journalpostId: null,
+  fristDato: addDaysToDate(new Date(), 14).toISOString(),
+  document: null,
+};
+
 const fixtures = {
   nyKandidatVurdering,
   unntakVurdering,
   oppfyltVurdering,
   ikkeAktuellVurdering,
   forhaandsvarselVurdering,
+  forhaandsvarselVurderingWithoutDocument,
   avventVurdering,
 };
 

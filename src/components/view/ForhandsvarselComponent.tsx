@@ -9,6 +9,7 @@ interface Props {
 }
 
 const ferdigstiltSessionStorageKey = "ferdigstilt-forhandsvarsel";
+export const forhandsVarselHeaderText = "Varsel om stans av sykepenger";
 
 export const ForhandsvarselComponent = ({ document }: Props) => {
   useEffect(() => {
@@ -22,7 +23,7 @@ export const ForhandsvarselComponent = ({ document }: Props) => {
   }, []);
 
   return (
-    <Page headerText="Varsel om stans av sykepenger">
+    <Page headerText={forhandsVarselHeaderText}>
       <div className="flex flex-col gap-4">
         {document?.map((d) => {
           switch (d.type) {

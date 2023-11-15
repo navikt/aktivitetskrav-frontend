@@ -1,3 +1,6 @@
+import fixtures from "@/mocks/fixtures";
+import { AktivitetskravVurdering } from "@/schema/aktivitetskravVurderingSchema";
+
 export type TestScenario =
   | typeof InfoSideTestScenario
   | typeof ForhandsvarselTestScenario;
@@ -13,6 +16,19 @@ export const setTestScenario = (testScenario: TestScenario) => {
 
 export const getTestScenario = (): TestScenario | undefined => {
   if (typeof window !== "undefined") {
-    return sessionStorage.getItem("aktivitetskrav-testscenario") as TestScenario;
+    return sessionStorage.getItem(
+      "aktivitetskrav-testscenario",
+    ) as TestScenario;
+  }
+};
+
+export const getAktivitetskravVurderingForScenario = (testScenario: TestScenario): AktivitetskravVurdering => {
+  switch (testScenario) {
+    case "INFOSIDE": {
+      return fixtures.nyKandidatVurdering;
+    }
+    case "FORHANDSVARSEL": {
+      return fixtures.forhaandsvarselVurdering;
+    }
   }
 };

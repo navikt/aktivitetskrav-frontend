@@ -33,7 +33,7 @@ export const aktivitetskravVurderingSchema = union([
   }),
   object({
     status: z.literal("FORHANDSVARSEL"),
-    journalpostId: string().optional(),
+    journalpostId: string().nullish(),
     sistVurdert: string().datetime(),
     fristDato: string().datetime(),
     document: z.array(documentComponentSchema).nullable(),
