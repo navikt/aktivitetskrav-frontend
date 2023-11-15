@@ -44,8 +44,6 @@ spec:
   env:
     - name: DECORATOR_URL
       value: "https://dekoratoren.dev.nav.no"
-    - name: DECORATOR_ENV
-      value: "dev"
     - name: AKTIVITETSKRAV_BACKEND_HOST
       value: "http://aktivitetskrav-backend.team-esyfo"
     - name: AKTIVITETSKRAV_BACKEND_CLIENT_ID

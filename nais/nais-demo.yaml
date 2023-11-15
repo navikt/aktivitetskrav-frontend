@@ -43,8 +43,6 @@ spec:
   ingresses:
     - {{ingress}}
   env:
-    - name: DECORATOR_ENV
-      value: "prod"
     - name: AKTIVITETSKRAV_BACKEND_HOST
       value: "http://aktivitetskrav-backend.team-esyfo"
     - name: MIN_SIDE_ROOT

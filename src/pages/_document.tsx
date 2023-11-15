@@ -11,7 +11,6 @@ import Document, {
   NextScript,
 } from "next/document";
 import { AktivitetspliktCrumbs } from "@/breadcrumbs/breadcrumbs";
-import serverEnv from "@/env/serverEnv";
 
 // The 'head'-field of the document initialProps contains data from <head> (meta-tags etc)
 const getDocumentParameter = (
@@ -32,7 +31,8 @@ export default class MyDocument extends Document<Props> {
     const initialProps = await Document.getInitialProps(ctx);
 
     const Decorator = await fetchDecoratorReact({
-      env: serverEnv.DECORATOR_ENV,
+      env:
+        process.env.NEXT_PUBLIC_RUNTIME_ENVIRONMENT === "prod" ? "prod" : "dev",
       params: {
         context: "privatperson",
         chatbot: true,
