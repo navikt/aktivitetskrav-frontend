@@ -5,20 +5,20 @@ import { useEffect } from "react";
 import { post } from "@/data/api";
 
 interface Props {
-  journalpostId?: String;
-  sistVurdert: String;
-  fristDato: String;
   document?: DocumentComponent[] | null;
 }
 
-export const ForhandsvarselComponent = ({
-  journalpostId,
-  sistVurdert,
-  fristDato,
-  document,
-}: Props) => {
+const ferdigstiltSessionStorageKey = "ferdigstilt-forhandsvarsel";
+
+export const ForhandsvarselComponent = ({ document }: Props) => {
   useEffect(() => {
-    post(`${process.env.NEXT_PUBLIC_ESYFO_PROXY_API_URL!}/les`);
+    const hasAlreadyFerdigstilt = sessionStorage.getItem(
+      ferdigstiltSessionStorageKey,
+    );
+    if (!hasAlreadyFerdigstilt) {
+      post(`${process.env.NEXT_PUBLIC_ESYFO_PROXY_API_URL!}/les`);
+      sessionStorage.setItem(ferdigstiltSessionStorageKey, "true");
+    }
   }, []);
 
   return (

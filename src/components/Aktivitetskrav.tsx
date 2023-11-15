@@ -1,6 +1,6 @@
 import { AktivitetskravVurdering } from "@/schema/aktivitetskravVurderingSchema";
-import { ForhandsvarselComponent } from "@/components/ForhandsvarselComponent";
-import { AktivitetskravInfoComponent } from "@/components/AktivitetskravInfoComponent";
+import { AktivitetskravInfoComponent } from "@/components/view/AktivitetskravInfoComponent";
+import { ForhandsvarselComponent } from "@/components/view/ForhandsvarselComponent";
 
 interface Props {
   aktivitetskrav: AktivitetskravVurdering;
@@ -11,14 +11,7 @@ export const Aktivitetskrav = ({ aktivitetskrav }: Props) => {
       if (!aktivitetskrav.document) {
         return <AktivitetskravInfoComponent />;
       }
-      return (
-        <ForhandsvarselComponent
-          fristDato={aktivitetskrav.fristDato}
-          document={aktivitetskrav.document}
-          sistVurdert={aktivitetskrav.sistVurdert}
-          journalpostId={aktivitetskrav.journalpostId}
-        />
-      );
+      return <ForhandsvarselComponent document={aktivitetskrav.document} />;
     }
     default: {
       return <AktivitetskravInfoComponent />;
