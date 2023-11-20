@@ -1,19 +1,11 @@
 import React from "react";
 import { Aktivitetskrav } from "@/components/Aktivitetskrav";
-import { useQuery } from "@tanstack/react-query";
 import { NextPage } from "next";
-import { get } from "@/data/api";
-import { AktivitetskravVurdering } from "@/schema/aktivitetskravVurderingSchema";
 import { AktivitetskravSkeletonComponent } from "@/components/skeleton/AktivitetskravSkeletonComponent";
+import { useAktivitetskravData } from "@/data/dataHooks";
 
 const Home: NextPage = () => {
-  const { isPending, error, data } = useQuery({
-    queryKey: ["aktivitetskrav"],
-    queryFn: () =>
-      get<AktivitetskravVurdering>(
-        process.env.NEXT_PUBLIC_ESYFO_PROXY_API_URL!,
-      ),
-  });
+  const { isPending, error, data } = useAktivitetskravData();
 
   if (error) {
     throw error;

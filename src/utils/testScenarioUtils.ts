@@ -3,10 +3,18 @@ import { AktivitetskravVurdering } from "@/schema/aktivitetskravVurderingSchema"
 
 export type TestScenario =
   | typeof InfoSideTestScenario
+  | typeof IkkeAktuellTestScenario
+  | typeof IkkeOppfyltTestScenario
+  | typeof UnntakTestScenario
+  | typeof OppfyltTestScenario
   | typeof ForhandsvarselTestScenario;
 
 export const InfoSideTestScenario = "INFOSIDE";
 export const ForhandsvarselTestScenario = "FORHANDSVARSEL";
+export const IkkeAktuellTestScenario = "IKKEAKTUELL";
+export const IkkeOppfyltTestScenario = "IKKEOPPFYLT";
+export const UnntakTestScenario = "UNNTAK";
+export const OppfyltTestScenario = "OPPFYLT";
 
 export const setTestScenario = (testScenario: TestScenario) => {
   if (typeof window !== "undefined") {
@@ -22,13 +30,27 @@ export const getTestScenario = (): TestScenario | undefined => {
   }
 };
 
-export const getAktivitetskravVurderingForScenario = (testScenario: TestScenario): AktivitetskravVurdering => {
+export const getAktivitetskravVurderingForScenario = (
+  testScenario: TestScenario,
+): AktivitetskravVurdering[] => {
   switch (testScenario) {
     case "INFOSIDE": {
-      return fixtures.nyKandidatVurdering;
+      return fixtures.nyKandidatFixture;
     }
     case "FORHANDSVARSEL": {
-      return fixtures.forhaandsvarselVurdering;
+      return fixtures.forhaandsvarselFixture;
+    }
+    case "OPPFYLT": {
+      return fixtures.oppfyltFixture;
+    }
+    case "IKKEAKTUELL": {
+      return fixtures.ikkeAktuellFixture;
+    }
+    case "IKKEOPPFYLT": {
+      return fixtures.ikkeOppfyltFixture;
+    }
+    case "UNNTAK": {
+      return fixtures.unntakFixture;
     }
   }
 };

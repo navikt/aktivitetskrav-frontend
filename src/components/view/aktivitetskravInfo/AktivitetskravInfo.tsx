@@ -20,7 +20,7 @@ export const AktivitetskravInfo = ({
 }: Props) => {
   return (
     <div className="flex flex-col gap-8">
-      <div className="mb-4">
+      <div>
         <Skeletor displaySkeleton={displaySkeleton}>
           <BodyLong spacing>Hei!</BodyLong>
         </Skeletor>

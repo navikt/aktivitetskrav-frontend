@@ -3,7 +3,7 @@ import { Heading } from "@navikt/ds-react";
 import React, { ReactNode } from "react";
 import medarbeidsgiver from "../../../public/med_arbeidsgiver.svg";
 import utenarbeidsgiver from "../../../public/uten_arbeidsgiver.svg";
-import { MedUtenAGVisning } from "@/components/view/AktivitetskravInfoComponent";
+import { MedUtenAGVisning } from "@/components/view/UnderBehandlingComponent";
 
 interface Props {
   headerText: ReactNode;

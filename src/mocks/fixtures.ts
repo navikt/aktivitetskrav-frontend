@@ -1,57 +1,152 @@
 import { AktivitetskravVurdering } from "@/schema/aktivitetskravVurderingSchema";
-import { addDaysToDate, subtractDaysFromDate } from "@/utils/dateUtils";
+import { addDaysToDate, pastDateAsString } from "@/utils/dateUtils";
 import { forhaandsvarselDocumentMock } from "@/mocks/ForhaandsvarselDocumentMock";
 
-const nyKandidatVurdering: AktivitetskravVurdering = {
-  status: "NY",
+const nyKandidatVurdering = (
+  dagerSidenHendelse: number,
+): AktivitetskravVurdering => {
+  return {
+    status: "NY",
+    vurderingUuid: "12345",
+    createdAt: pastDateAsString(dagerSidenHendelse),
+  };
 };
 
-const unntakVurdering: AktivitetskravVurdering = {
-  status: "UNNTAK",
-  sistVurdert: subtractDaysFromDate(new Date(), 5).toISOString(),
-  arsaker: ["MEDISINSKE_GRUNNER"],
+const unntakVurdering = (
+  dagerSidenHendelse: number,
+): AktivitetskravVurdering => {
+  return {
+    status: "UNNTAK",
+    vurderingUuid: "12346585686585",
+    createdAt: pastDateAsString(dagerSidenHendelse),
+    sistVurdert: pastDateAsString(dagerSidenHendelse),
+    arsaker: ["MEDISINSKE_GRUNNER"],
+  };
 };
 
-const oppfyltVurdering: AktivitetskravVurdering = {
-  status: "OPPFYLT",
-  sistVurdert: subtractDaysFromDate(new Date(), 5).toISOString(),
-  arsaker: ["TILTAK"],
+const oppfyltVurdering = (
+  dagerSidenHendelse: number,
+): AktivitetskravVurdering => {
+  return {
+    status: "OPPFYLT",
+    vurderingUuid: "244365474",
+    createdAt: pastDateAsString(dagerSidenHendelse),
+    sistVurdert: pastDateAsString(dagerSidenHendelse),
+    arsaker: ["TILTAK"],
+  };
 };
 
-const ikkeAktuellVurdering: AktivitetskravVurdering = {
-  status: "IKKE_AKTUELL",
-  sistVurdert: subtractDaysFromDate(new Date(), 5).toISOString(),
+const ikkeAktuellVurdering = (
+  dagerSidenHendelse: number,
+): AktivitetskravVurdering => {
+  return {
+    status: "IKKE_AKTUELL",
+    vurderingUuid: "686868",
+    createdAt: pastDateAsString(dagerSidenHendelse),
+    sistVurdert: pastDateAsString(dagerSidenHendelse),
+  };
 };
 
-const avventVurdering: AktivitetskravVurdering = {
-  status: "AVVENT",
-  sistVurdert: subtractDaysFromDate(new Date(), 5).toISOString(),
+const ikkeOppfyltVurdering = (
+  dagerSidenHendelse: number,
+): AktivitetskravVurdering => {
+  return {
+    status: "IKKE_OPPFYLT",
+    vurderingUuid: "55554444",
+    createdAt: pastDateAsString(dagerSidenHendelse),
+    sistVurdert: pastDateAsString(dagerSidenHendelse),
+  };
 };
 
-const forhaandsvarselVurdering: AktivitetskravVurdering = {
-  status: "FORHANDSVARSEL",
-  sistVurdert: subtractDaysFromDate(new Date(), 5).toISOString(),
-  journalpostId: "123",
-  fristDato: addDaysToDate(new Date(), 14).toISOString(),
-  document: forhaandsvarselDocumentMock,
+const avventVurdering = (
+  dagerSidenHendelse: number,
+): AktivitetskravVurdering => {
+  return {
+    status: "AVVENT",
+    vurderingUuid: "77322357",
+    createdAt: pastDateAsString(dagerSidenHendelse),
+    sistVurdert: pastDateAsString(dagerSidenHendelse),
+  };
 };
 
-const forhaandsvarselVurderingWithoutDocument: AktivitetskravVurdering = {
-  status: "FORHANDSVARSEL",
-  sistVurdert: subtractDaysFromDate(new Date(), 5).toISOString(),
-  journalpostId: null,
-  fristDato: addDaysToDate(new Date(), 14).toISOString(),
-  document: null,
+const forhaandsvarselVurdering = (
+  dagerSidenHendelse: number,
+): AktivitetskravVurdering => {
+  return {
+    status: "FORHANDSVARSEL",
+    vurderingUuid: "457474547547",
+    createdAt: pastDateAsString(dagerSidenHendelse),
+    sistVurdert: pastDateAsString(dagerSidenHendelse),
+    journalpostId: "123",
+    fristDato: addDaysToDate(new Date(), 14).toISOString(),
+    document: forhaandsvarselDocumentMock,
+  };
 };
+
+const forhaandsvarselVurderingWithoutDocument = (
+  dagerSidenHendelse: number,
+): AktivitetskravVurdering => {
+  return {
+    status: "FORHANDSVARSEL",
+    vurderingUuid: "1231231313",
+    createdAt: pastDateAsString(dagerSidenHendelse),
+    sistVurdert: pastDateAsString(dagerSidenHendelse),
+    journalpostId: null,
+    fristDato: addDaysToDate(new Date(), 14).toISOString(),
+    document: null,
+  };
+};
+
+const forhaandsvarselFixtureWithoutDocument: AktivitetskravVurdering[] = [
+  nyKandidatVurdering(30),
+  avventVurdering(25),
+  forhaandsvarselVurderingWithoutDocument(10),
+];
+
+const nyKandidatFixture: AktivitetskravVurdering[] = [nyKandidatVurdering(12)];
+
+const unntakFixture: AktivitetskravVurdering[] = [
+  nyKandidatVurdering(33),
+  avventVurdering(24),
+  forhaandsvarselVurdering(15),
+  unntakVurdering(4),
+];
+
+const oppfyltFixture: AktivitetskravVurdering[] = [
+  nyKandidatVurdering(28),
+  avventVurdering(21),
+  forhaandsvarselVurdering(15),
+  oppfyltVurdering(1),
+];
+
+const ikkeOppfyltFixture: AktivitetskravVurdering[] = [
+  nyKandidatVurdering(14),
+  avventVurdering(7),
+  forhaandsvarselVurdering(4),
+  ikkeOppfyltVurdering(1),
+];
+
+const ikkeAktuellFixture: AktivitetskravVurdering[] = [
+  nyKandidatVurdering(29),
+  avventVurdering(28),
+  forhaandsvarselVurdering(20),
+  ikkeAktuellVurdering(13),
+];
+
+const forhaandsvarselFixture: AktivitetskravVurdering[] = [
+  nyKandidatVurdering(28),
+  avventVurdering(21),
+  forhaandsvarselVurdering(11),
+];
 
 const fixtures = {
-  nyKandidatVurdering,
-  unntakVurdering,
-  oppfyltVurdering,
-  ikkeAktuellVurdering,
-  forhaandsvarselVurdering,
-  forhaandsvarselVurderingWithoutDocument,
-  avventVurdering,
+  forhaandsvarselFixture,
+  forhaandsvarselFixtureWithoutDocument,
+  nyKandidatFixture,
+  unntakFixture,
+  ikkeAktuellFixture,
+  ikkeOppfyltFixture,
+  oppfyltFixture,
 };
 
 export default fixtures;

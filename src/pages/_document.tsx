@@ -10,7 +10,7 @@ import Document, {
   Main,
   NextScript,
 } from "next/document";
-import { AktivitetspliktCrumbs } from "@/breadcrumbs/breadcrumbs";
+import { AktivitetspliktBaseCrumbs } from "@/breadcrumbs/breadcrumbs";
 
 // The 'head'-field of the document initialProps contains data from <head> (meta-tags etc)
 const getDocumentParameter = (
@@ -41,7 +41,7 @@ export default class MyDocument extends Document<Props> {
         level: "Level4",
         urlLookupTable: false,
         logoutWarning: true,
-        breadcrumbs: AktivitetspliktCrumbs,
+        breadcrumbs: AktivitetspliktBaseCrumbs,
       },
     });
 

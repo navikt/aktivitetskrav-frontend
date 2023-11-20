@@ -7,7 +7,7 @@ import {
 
 export default function handler(
   _req: NextApiRequest,
-  res: NextApiResponse<AktivitetskravVurdering | null>,
+  res: NextApiResponse<AktivitetskravVurdering[] | null>,
 ) {
   if (
     process.env.NEXT_PUBLIC_RUNTIME_ENVIRONMENT === "local" ||

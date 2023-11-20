@@ -3,7 +3,7 @@ interface Breadcrumb {
   title: string;
 }
 
-export const AktivitetspliktCrumbs: Breadcrumb[] = [
+export const AktivitetspliktBaseCrumbs: Breadcrumb[] = [
   {
     url: process.env.NEXT_PUBLIC_MIN_SIDE_URL!,
     title: "Min side",
@@ -13,8 +13,26 @@ export const AktivitetspliktCrumbs: Breadcrumb[] = [
     title: "Ditt sykefravær",
   },
   {
-    url: "/aktivitetsplikt",
-    title: "Informasjon om aktivitetsplikt",
+    url: "/syk/aktivitetskrav",
+    title: "Din aktivitetsplikt",
   },
 ];
 
+export const AktivitetspliktHistorikkCrumbs: Breadcrumb[] = [
+  ...AktivitetspliktBaseCrumbs,
+  {
+    url: "/syk/aktivitetskrav",
+    title: "Historikk",
+  },
+];
+
+export function createBreadcrumbs(pathname: string) {
+  switch (pathname) {
+    case "/":
+      return AktivitetspliktBaseCrumbs;
+    case "/[uuid]":
+      return AktivitetspliktHistorikkCrumbs;
+    default:
+      return [];
+  }
+}
