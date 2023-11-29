@@ -48,3 +48,42 @@ export const mapVurderingToViewItem = (
     }
   }
 };
+
+interface SplittedAktivitetskrav {
+  activeVurdering: AktivitetskravViewItem | null;
+  historicVurderinger: AktivitetskravViewItem[] | null;
+}
+
+export const getViewItems = (
+  aktivitetskrav: AktivitetskravVurdering[],
+): SplittedAktivitetskrav => {
+  if (!aktivitetskrav) {
+    return {
+      activeVurdering: null,
+      historicVurderinger: null,
+    };
+  }
+
+  const copiedAktivitetskrav = [...aktivitetskrav];
+
+  const aktivitetsKravToViewItems =
+    mapVurderingerToViewItem(copiedAktivitetskrav);
+
+  const viewItemsWithoutDuplicates = aktivitetsKravToViewItems.filter(
+    (vurdering, index) => {
+      const previousVurdering = aktivitetsKravToViewItems[index - 1];
+
+      if (!previousVurdering) return true;
+
+      return previousVurdering.type !== vurdering.type;
+    },
+  );
+
+  const activeVurdering: AktivitetskravViewItem | null =
+    viewItemsWithoutDuplicates.pop() || null;
+
+  return {
+    activeVurdering: activeVurdering,
+    historicVurderinger: viewItemsWithoutDuplicates,
+  };
+};
