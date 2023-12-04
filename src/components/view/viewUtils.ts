@@ -80,7 +80,7 @@ export const getViewItems = (
   );
 
   const activeVurdering: AktivitetskravViewItem | null =
-    viewItemsWithoutDuplicates.pop() || null;
+    viewItemsWithoutDuplicates.shift() || null;
 
   return {
     activeVurdering: activeVurdering,

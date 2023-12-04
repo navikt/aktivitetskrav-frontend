@@ -98,45 +98,45 @@ const forhaandsvarselVurderingWithoutDocument = (
 };
 
 const forhaandsvarselFixtureWithoutDocument: AktivitetskravVurdering[] = [
-  nyKandidatVurdering(30),
-  avventVurdering(25),
   forhaandsvarselVurderingWithoutDocument(10),
+  avventVurdering(25),
+  nyKandidatVurdering(30),
 ];
 
 const nyKandidatFixture: AktivitetskravVurdering[] = [nyKandidatVurdering(12)];
 
 const unntakFixture: AktivitetskravVurdering[] = [
-  nyKandidatVurdering(33),
-  avventVurdering(24),
-  forhaandsvarselVurdering(15),
   unntakVurdering(4),
+  forhaandsvarselVurdering(15),
+  avventVurdering(24),
+  nyKandidatVurdering(33),
 ];
 
 const oppfyltFixture: AktivitetskravVurdering[] = [
-  nyKandidatVurdering(28),
-  avventVurdering(21),
-  forhaandsvarselVurdering(15),
   oppfyltVurdering(1),
+  forhaandsvarselVurdering(15),
+  avventVurdering(21),
+  nyKandidatVurdering(28),
 ];
 
 const ikkeOppfyltFixture: AktivitetskravVurdering[] = [
-  nyKandidatVurdering(14),
-  avventVurdering(7),
-  forhaandsvarselVurdering(4),
   ikkeOppfyltVurdering(1),
+  forhaandsvarselVurdering(4),
+  avventVurdering(7),
+  nyKandidatVurdering(14),
 ];
 
 const ikkeAktuellFixture: AktivitetskravVurdering[] = [
-  nyKandidatVurdering(29),
-  avventVurdering(28),
-  forhaandsvarselVurdering(20),
   ikkeAktuellVurdering(13),
+  forhaandsvarselVurdering(20),
+  avventVurdering(28),
+  nyKandidatVurdering(29),
 ];
 
 const forhaandsvarselFixture: AktivitetskravVurdering[] = [
-  nyKandidatVurdering(28),
-  avventVurdering(21),
   forhaandsvarselVurdering(11),
+  avventVurdering(21),
+  nyKandidatVurdering(28),
 ];
 
 const fixtures = {
