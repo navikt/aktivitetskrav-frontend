@@ -27,7 +27,7 @@ const oppfyltArsaker = z.union([
 export const BaseVurdering = object({
   status: VurderingStatusSchema,
   createdAt: string().datetime(),
-  vurderingUuid: string(),
+  internUuid: string(),
 });
 
 export const UnntakSchema = BaseVurdering.extend({

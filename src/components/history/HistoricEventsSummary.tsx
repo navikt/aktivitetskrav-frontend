@@ -33,7 +33,7 @@ export const HistoricEventsSummary = ({ historicVurderinger }: Props) => {
         {historicVurderinger.map((item, index) => {
           return (
             <LinkPanel
-              href={`/${item.vurdering.vurderingUuid}`}
+              href={`/${item.vurdering.internUuid}`}
               border
               as={NextLink}
               key={index}

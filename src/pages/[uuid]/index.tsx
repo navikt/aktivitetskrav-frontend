@@ -15,7 +15,7 @@ interface Props {
 }
 const DetailedView = ({ uuidToDisplay, vurderinger }: Props) => {
   const viewItem = vurderinger.find(
-    (vurdering) => vurdering.vurderingUuid === uuidToDisplay,
+    (vurdering) => vurdering.internUuid === uuidToDisplay,
   );
 
   if (viewItem) {

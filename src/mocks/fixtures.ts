@@ -7,7 +7,7 @@ const nyKandidatVurdering = (
 ): AktivitetskravVurdering => {
   return {
     status: "NY",
-    vurderingUuid: "12345",
+    internUuid: "12345",
     createdAt: pastDateAsString(dagerSidenHendelse),
   };
 };
@@ -17,7 +17,7 @@ const unntakVurdering = (
 ): AktivitetskravVurdering => {
   return {
     status: "UNNTAK",
-    vurderingUuid: "12346585686585",
+    internUuid: "12346585686585",
     createdAt: pastDateAsString(dagerSidenHendelse),
     sistVurdert: pastDateAsString(dagerSidenHendelse),
     arsaker: ["MEDISINSKE_GRUNNER"],
@@ -29,7 +29,7 @@ const oppfyltVurdering = (
 ): AktivitetskravVurdering => {
   return {
     status: "OPPFYLT",
-    vurderingUuid: "244365474",
+    internUuid: "244365474",
     createdAt: pastDateAsString(dagerSidenHendelse),
     sistVurdert: pastDateAsString(dagerSidenHendelse),
     arsaker: ["TILTAK"],
@@ -41,7 +41,7 @@ const ikkeAktuellVurdering = (
 ): AktivitetskravVurdering => {
   return {
     status: "IKKE_AKTUELL",
-    vurderingUuid: "686868",
+    internUuid: "686868",
     createdAt: pastDateAsString(dagerSidenHendelse),
     sistVurdert: pastDateAsString(dagerSidenHendelse),
   };
@@ -52,7 +52,7 @@ const ikkeOppfyltVurdering = (
 ): AktivitetskravVurdering => {
   return {
     status: "IKKE_OPPFYLT",
-    vurderingUuid: "55554444",
+    internUuid: "55554444",
     createdAt: pastDateAsString(dagerSidenHendelse),
     sistVurdert: pastDateAsString(dagerSidenHendelse),
   };
@@ -63,7 +63,7 @@ const avventVurdering = (
 ): AktivitetskravVurdering => {
   return {
     status: "AVVENT",
-    vurderingUuid: "77322357",
+    internUuid: "77322357",
     createdAt: pastDateAsString(dagerSidenHendelse),
     sistVurdert: pastDateAsString(dagerSidenHendelse),
   };
@@ -74,7 +74,7 @@ const forhaandsvarselVurdering = (
 ): AktivitetskravVurdering => {
   return {
     status: "FORHANDSVARSEL",
-    vurderingUuid: "457474547547",
+    internUuid: "457474547547",
     createdAt: pastDateAsString(dagerSidenHendelse),
     sistVurdert: pastDateAsString(dagerSidenHendelse),
     journalpostId: "123",
@@ -88,7 +88,7 @@ const forhaandsvarselVurderingWithoutDocument = (
 ): AktivitetskravVurdering => {
   return {
     status: "FORHANDSVARSEL",
-    vurderingUuid: "1231231313",
+    internUuid: "1231231313",
     createdAt: pastDateAsString(dagerSidenHendelse),
     sistVurdert: pastDateAsString(dagerSidenHendelse),
     journalpostId: null,
