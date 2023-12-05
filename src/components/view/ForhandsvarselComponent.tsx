@@ -1,17 +1,16 @@
-import { DocumentComponent } from "@/schema/documentComponentSchema";
-import { BodyLong, Heading, Link } from "@navikt/ds-react";
-import { Page } from "@/components/page/Page";
-import { useEffect } from "react";
+import { BodyLong, Heading, Link, Tag } from "@navikt/ds-react";
+import React, { useEffect } from "react";
 import { post } from "@/data/api";
+import { AktivitetskravVurdering } from "@/schema/aktivitetskravVurderingSchema";
+import { getShortDateFormat } from "@/utils/dateUtils";
+import { ComponentHeader } from "@/components/header/ComponentHeader";
 
 interface Props {
-  document?: DocumentComponent[] | null;
+  vurdering: AktivitetskravVurdering;
 }
 
 const ferdigstiltSessionStorageKey = "ferdigstilt-forhandsvarsel";
-export const forhandsVarselHeaderText = "Varsel om stans av sykepenger";
-
-export const ForhandsvarselComponent = ({ document }: Props) => {
+export const ForhandsvarselComponent = ({ vurdering }: Props) => {
   useEffect(() => {
     const hasAlreadyFerdigstilt = sessionStorage.getItem(
       ferdigstiltSessionStorageKey,
@@ -22,16 +21,29 @@ export const ForhandsvarselComponent = ({ document }: Props) => {
     }
   }, []);
 
+  if (vurdering.status !== "FORHANDSVARSEL") return null;
+
   return (
-    <Page headerText={forhandsVarselHeaderText}>
-      <div className="flex flex-col gap-4">
-        {document?.map((d) => {
+    <div>
+      <div className="flex flex-col gap-4 mb-4">
+        {vurdering.document?.map((d, index) => {
           switch (d.type) {
             case "HEADER_H1":
-              return null;
+              return (
+                <div className="mt-4" key={index}>
+                  {d.texts.map((text, index) => (
+                    <ComponentHeader
+                      key={index}
+                      headerText={text}
+                      createdAt={vurdering.createdAt}
+                      alertStyle="warning"
+                    />
+                  ))}
+                </div>
+              );
             case "HEADER_H2":
               return (
-                <div className="mt-4">
+                <div className="mt-4" key={index}>
                   {d.texts.map((text, index) => (
                     <Heading size="large" level="2" key={index}>
                       {text}
@@ -41,7 +53,7 @@ export const ForhandsvarselComponent = ({ document }: Props) => {
               );
             case "HEADER_H3":
               return (
-                <div className="mt-4">
+                <div className="mt-4" key={index}>
                   {d.texts.map((text, index) => (
                     <Heading size="medium" level="3" key={index}>
                       {text}
@@ -51,7 +63,7 @@ export const ForhandsvarselComponent = ({ document }: Props) => {
               );
             case "LINK":
               return (
-                <div>
+                <div key={index}>
                   {d.title && (
                     <Heading size="xsmall" level="3" spacing>
                       {d.title}
@@ -66,7 +78,7 @@ export const ForhandsvarselComponent = ({ document }: Props) => {
               );
             case "BULLET_POINTS":
               return (
-                <ul className="list-disc list-inside">
+                <ul className="list-disc list-inside" key={index}>
                   {d.texts.map((text, index) => (
                     <BodyLong size="small" key={index} as={"li"}>
                       {text}
@@ -76,17 +88,21 @@ export const ForhandsvarselComponent = ({ document }: Props) => {
               );
             case "PARAGRAPH":
               return (
-                <>
+                <div key={index}>
                   {d.texts.map((text, index) => (
                     <BodyLong size="small" key={index}>
                       {text}
                     </BodyLong>
                   ))}
-                </>
+                </div>
               );
           }
         })}
       </div>
-    </Page>
+
+      <Tag variant="warning-moderate" className="w-fit mt-4">
+        Svarfrist: {getShortDateFormat(vurdering.fristDato)}
+      </Tag>
+    </div>
   );
 };

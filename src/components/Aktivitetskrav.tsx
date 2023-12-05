@@ -1,20 +1,25 @@
 import { AktivitetskravVurdering } from "@/schema/aktivitetskravVurderingSchema";
-import { AktivitetskravInfoComponent } from "@/components/view/AktivitetskravInfoComponent";
-import { ForhandsvarselComponent } from "@/components/view/ForhandsvarselComponent";
+import { Page } from "@/components/page/Page";
+import { AktivitetskravBox } from "@/components/box/AktivitetskravBox";
+import React from "react";
+import { HistoricEventsSummary } from "@/components/history/HistoricEventsSummary";
+import { getViewItems } from "@/components/view/viewUtils";
+import { Vurdering } from "@/components/view/Vurdering";
 
 interface Props {
-  aktivitetskrav: AktivitetskravVurdering;
+  aktivitetskrav: AktivitetskravVurdering[];
 }
+
 export const Aktivitetskrav = ({ aktivitetskrav }: Props) => {
-  switch (aktivitetskrav.status) {
-    case "FORHANDSVARSEL": {
-      if (!aktivitetskrav.document) {
-        return <AktivitetskravInfoComponent />;
-      }
-      return <ForhandsvarselComponent document={aktivitetskrav.document} />;
-    }
-    default: {
-      return <AktivitetskravInfoComponent />;
-    }
-  }
+  const { activeVurdering, historicVurderinger } = getViewItems(aktivitetskrav);
+
+  return (
+    <Page>
+      <AktivitetskravBox>
+        <Vurdering viewItem={activeVurdering} />
+      </AktivitetskravBox>
+
+      <HistoricEventsSummary historicVurderinger={historicVurderinger} />
+    </Page>
+  );
 };

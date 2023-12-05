@@ -1,7 +1,7 @@
 import { loginUser } from "@/utils/urlUtils";
 import {
+  ForhandsvarselTestScenario,
   getTestScenario,
-  InfoSideTestScenario,
 } from "@/utils/testScenarioUtils";
 
 const testScenarioHeaders = (): Record<string, string> | undefined => {
@@ -10,10 +10,10 @@ const testScenarioHeaders = (): Record<string, string> | undefined => {
     process.env.NEXT_PUBLIC_RUNTIME_ENVIRONMENT === "demo"
   ) {
     const headers: Record<string, string> = {
-      "testscenario": getTestScenario() || InfoSideTestScenario,
+      testscenario: getTestScenario() || ForhandsvarselTestScenario,
     };
 
-    return headers
+    return headers;
   }
 };
 

@@ -11,7 +11,7 @@ export const IconRow = ({ icon, displaySkeleton = false, children }: Props) => {
   return (
     <div className="flex flex-row gap-4">
       {displaySkeleton ? (
-        <div>
+        <div className="hidden sm:flex">
           <Skeleton variant="circle" width={60} height={60} />
         </div>
       ) : (

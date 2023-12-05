@@ -6,18 +6,20 @@ import styles from "./testscenarioselector.module.css";
 import {
   ForhandsvarselTestScenario,
   getTestScenario,
+  IkkeAktuellTestScenario,
+  IkkeOppfyltTestScenario,
   InfoSideTestScenario,
+  OppfyltTestScenario,
   setTestScenario,
   TestScenario,
+  UnntakTestScenario,
 } from "@/utils/testScenarioUtils";
-import { useQueryClient } from "@tanstack/react-query";
 
 export const TestScenarioSelector = () => {
   const [open, setOpen] = useState(false);
   const [selectedScenario, setSelectedScenario] = useState<
     TestScenario | undefined
   >();
-  const queryClient = useQueryClient();
 
   useEffect(() => {
     setSelectedScenario(getTestScenario());
@@ -45,9 +47,12 @@ export const TestScenarioSelector = () => {
                 setSelectedScenario(val);
               }}
             >
-              <Radio value={InfoSideTestScenario}>Infosiden</Radio>
-
+              <Radio value={InfoSideTestScenario}>Ny kandidat</Radio>
               <Radio value={ForhandsvarselTestScenario}>Forhåndsvarsel</Radio>
+              <Radio value={IkkeAktuellTestScenario}>Ikke aktuell</Radio>
+              <Radio value={IkkeOppfyltTestScenario}>Ikke oppfylt</Radio>
+              <Radio value={UnntakTestScenario}>Unntak</Radio>
+              <Radio value={OppfyltTestScenario}>Oppfylt</Radio>
             </RadioGroup>
           </div>
 
@@ -58,8 +63,7 @@ export const TestScenarioSelector = () => {
               // disabled={!setActiveTestScenario}
               onClick={() => {
                 setTestScenario(selectedScenario);
-                queryClient.invalidateQueries();
-                setOpen(false);
+                window.location.reload();
               }}
             >
               Velg scenario

@@ -16,6 +16,10 @@ const config: Config = {
       colors: {
         'ds-gray-50': '#f7f7f7',
         'header-color': '#d1eff9',
+        'aksel-info-color': 'var(--ac-alert-icon-info-color, var(--a-icon-info))',
+        'aksel-warning-color': 'var(--ac-alert-icon-warning-color, var(--a-icon-warning))',
+        'aksel-success-color': 'var(--ac-alert-icon-success-color, var(--a-icon-success))',
+        'aksel-error-color': 'var(--ac-alert-icon-error-color, var(--a-icon-danger))',
       },
     },
   },

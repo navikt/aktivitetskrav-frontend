@@ -1,0 +1,27 @@
+.roundedIcon {
+  flex-shrink: 0;
+  font-size: 2rem;
+  height: 30px;
+  margin-top: 0.2rem;
+  margin-left: auto;
+}
+
+.infoIcon {
+  composes: roundedIcon;
+  color: var(--a-icon-info);
+}
+
+.warningIcon {
+  composes: roundedIcon;
+  color: var(--a-icon-warning);
+}
+
+.successIcon {
+  composes: roundedIcon;
+  color: var(--a-icon-success);
+}
+
+.errorIcon {
+  composes: roundedIcon;
+  color: var(--a-icon-danger);
+}
