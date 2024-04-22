@@ -1,9 +1,9 @@
-import {BodyLong, Heading, Link, Tag} from "@navikt/ds-react";
-import React, {useEffect} from "react";
-import {AktivitetskravVurdering} from "@/schema/aktivitetskravVurderingSchema";
-import {getShortDateFormat} from "@/utils/dateUtils";
-import {ComponentHeader} from "@/components/header/ComponentHeader";
-import {ferdigstillVarsel} from "@/data/ferdigstillVarsel";
+import { BodyLong, Heading, Link, Tag } from "@navikt/ds-react";
+import React, { useEffect } from "react";
+import { AktivitetskravVurdering } from "@/schema/aktivitetskravVurderingSchema";
+import { getShortDateFormat } from "@/utils/dateUtils";
+import { ComponentHeader } from "@/components/header/ComponentHeader";
+import { ferdigstillVarsel } from "@/data/ferdigstillVarsel";
 
 interface Props {
   vurdering: AktivitetskravVurdering;
