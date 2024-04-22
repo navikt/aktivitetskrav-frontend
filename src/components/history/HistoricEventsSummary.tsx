@@ -25,10 +25,7 @@ interface Props {
 
 export const HistoricEventsSummary = ({ historicVurderinger }: Props) => {
   if (historicVurderinger && historicVurderinger.length > 0) {
-    const hasHistoricForhaandsvarsel = !!historicVurderinger.find(
-      (item) => item.type === "FORHANDSVARSEL",
-    );
-    if (hasHistoricForhaandsvarsel) {
+    if (historicVurderinger?.some((item) => item.type === "FORHANDSVARSEL")) {
       //Ferdigstiller tidligere forhåndsvarsel i tilfelle vurdering har endret seg før sykmeldt har lest forhåndsvarselet
       ferdigstillVarsel();
     }
