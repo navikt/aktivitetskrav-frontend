@@ -44,16 +44,11 @@ spec:
   env:
     - name: DECORATOR_URL
       value: "https://dekoratoren.dev.nav.no"
-    - name: AKTIVITETSKRAV_BACKEND_HOST
-      value: "http://aktivitetskrav-backend.team-esyfo"
-    - name: AKTIVITETSKRAV_BACKEND_CLIENT_ID
-      value: "dev-gcp:team-esyfo:aktivitetskrav-backend"
     - name: BASE_PATH
       value: "/syk/aktivitetskrav"
   accessPolicy:
     outbound:
       rules:
-        - application: aktivitetskrav-backend
         - application: nav-dekoratoren
           namespace: personbruker
       external:
