@@ -11,7 +11,7 @@ interface Props {
 
 export const ForhandsvarselComponent = ({ vurdering }: Props) => {
   useEffect(() => {
-      ferdigstillVarsel();
+    ferdigstillVarsel();
   }, []);
 
   if (vurdering.status !== "FORHANDSVARSEL") return null;
