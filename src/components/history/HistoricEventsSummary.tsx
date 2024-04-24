@@ -4,6 +4,7 @@ import NextLink from "next/link";
 import React from "react";
 import { getShortDateFormat } from "@/utils/dateUtils";
 import { AktivitetskravViewItem } from "@/components/view/viewUtils";
+import { ferdigstillVarsel } from "@/data/ferdigstillVarsel";
 
 const getHeaderText = (viewItem: AktivitetskravViewItem) => {
   switch (viewItem.type) {
@@ -24,6 +25,11 @@ interface Props {
 
 export const HistoricEventsSummary = ({ historicVurderinger }: Props) => {
   if (historicVurderinger && historicVurderinger.length > 0) {
+    if (historicVurderinger?.some((item) => item.type === "FORHANDSVARSEL")) {
+      //Ferdigstiller tidligere forhåndsvarsel i tilfelle vurdering har endret seg før sykmeldt har lest forhåndsvarselet
+      ferdigstillVarsel();
+    }
+
     return (
       <AktivitetskravBox>
         <Heading size="medium" level="2" spacing>

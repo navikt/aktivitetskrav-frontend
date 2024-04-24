@@ -1,24 +1,17 @@
 import { BodyLong, Heading, Link, Tag } from "@navikt/ds-react";
 import React, { useEffect } from "react";
-import { post } from "@/data/api";
 import { AktivitetskravVurdering } from "@/schema/aktivitetskravVurderingSchema";
 import { getShortDateFormat } from "@/utils/dateUtils";
 import { ComponentHeader } from "@/components/header/ComponentHeader";
+import { ferdigstillVarsel } from "@/data/ferdigstillVarsel";
 
 interface Props {
   vurdering: AktivitetskravVurdering;
 }
 
-const ferdigstiltSessionStorageKey = "ferdigstilt-forhandsvarsel";
 export const ForhandsvarselComponent = ({ vurdering }: Props) => {
   useEffect(() => {
-    const hasAlreadyFerdigstilt = sessionStorage.getItem(
-      ferdigstiltSessionStorageKey,
-    );
-    if (!hasAlreadyFerdigstilt) {
-      post(`${process.env.NEXT_PUBLIC_ESYFO_PROXY_API_URL!}/les`);
-      sessionStorage.setItem(ferdigstiltSessionStorageKey, "true");
-    }
+    ferdigstillVarsel();
   }, []);
 
   if (vurdering.status !== "FORHANDSVARSEL") return null;
