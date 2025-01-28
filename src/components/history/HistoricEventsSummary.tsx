@@ -1,10 +1,11 @@
-import { AktivitetskravBox } from "@/components/box/AktivitetskravBox";
+import React from "react";
 import { Heading, LinkPanel } from "@navikt/ds-react";
 import NextLink from "next/link";
-import React from "react";
+
+import { AktivitetskravBox } from "@/components/box/AktivitetskravBox";
 import { getShortDateFormat } from "@/utils/dateUtils";
 import { AktivitetskravViewItem } from "@/components/view/viewUtils";
-import { ferdigstillVarsel } from "@/data/ferdigstillVarsel";
+import { useFerdigstillForhandsVarsel } from "@/data/ferdigstillVarsel";
 
 const getHeaderText = (viewItem: AktivitetskravViewItem) => {
   switch (viewItem.type) {
@@ -25,34 +26,41 @@ interface Props {
 
 export const HistoricEventsSummary = ({ historicVurderinger }: Props) => {
   if (historicVurderinger && historicVurderinger.length > 0) {
-    if (historicVurderinger?.some((item) => item.type === "FORHANDSVARSEL")) {
-      //Ferdigstiller tidligere forhåndsvarsel i tilfelle vurdering har endret seg før sykmeldt har lest forhåndsvarselet
-      ferdigstillVarsel();
-    }
-
     return (
-      <AktivitetskravBox>
-        <Heading size="medium" level="2" spacing>
-          Tidligere hendelser vedrørende din aktivitetsplikt
-        </Heading>
+      <>
+        {/* Ferdigstiller tidligere forhåndsvarsel i tilfelle vurdering har endret seg før sykmeldt har lest forhåndsvarselet */}
+        {historicVurderinger?.some(
+          (item) => item.type === "FORHANDSVARSEL",
+        ) && <FerdigstillForhandsVarsel />}
 
-        {historicVurderinger.map((item, index) => {
-          return (
-            <LinkPanel
-              href={`/${item.vurdering.internUuid}`}
-              border
-              as={NextLink}
-              key={index}
-            >
-              <LinkPanel.Title>
-                {getShortDateFormat(item.vurdering.createdAt)}:{" "}
-                {getHeaderText(item)}
-              </LinkPanel.Title>
-            </LinkPanel>
-          );
-        })}
-      </AktivitetskravBox>
+        <AktivitetskravBox>
+          <Heading size="medium" level="2" spacing>
+            Tidligere hendelser vedrørende din aktivitetsplikt
+          </Heading>
+
+          {historicVurderinger.map((item, index) => {
+            return (
+              <LinkPanel
+                href={`/${item.vurdering.internUuid}`}
+                border
+                as={NextLink}
+                key={index}
+              >
+                <LinkPanel.Title>
+                  {getShortDateFormat(item.vurdering.createdAt)}:{" "}
+                  {getHeaderText(item)}
+                </LinkPanel.Title>
+              </LinkPanel>
+            );
+          })}
+        </AktivitetskravBox>
+      </>
     );
   }
+  return null;
+};
+
+const FerdigstillForhandsVarsel = () => {
+  useFerdigstillForhandsVarsel();
   return null;
 };
