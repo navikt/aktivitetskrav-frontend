@@ -1,6 +1,16 @@
 import React from "react";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
 import { Aktivitetskrav } from "./Aktivitetskrav";
 import fixtures from "@/mocks/fixtures";
+
+const queryClient = new QueryClient();
+
+const mountWithQueryClient = (component: React.ReactNode) => {
+  cy.mount(
+    <QueryClientProvider client={queryClient}>{component}</QueryClientProvider>,
+  );
+};
 
 describe("<Aktivitetskrav />", () => {
   it("Displays infoside for vurdering ny kandidat", () => {
@@ -20,7 +30,7 @@ describe("<Aktivitetskrav />", () => {
   });
 
   it("Displays forhaandsvarsel for vurdering forhandsvarsel with document", () => {
-    cy.mount(
+    mountWithQueryClient(
       <Aktivitetskrav aktivitetskrav={fixtures.forhaandsvarselFixture} />,
     );
 
@@ -28,7 +38,9 @@ describe("<Aktivitetskrav />", () => {
   });
 
   it("Displays unntaksinfo with årsak for vurdering unntak", () => {
-    cy.mount(<Aktivitetskrav aktivitetskrav={fixtures.unntakFixture} />);
+    mountWithQueryClient(
+      <Aktivitetskrav aktivitetskrav={fixtures.unntakFixture} />,
+    );
 
     cy.contains("NAV har vurdert aktivitetsplikten din");
     cy.contains(
@@ -37,7 +49,9 @@ describe("<Aktivitetskrav />", () => {
   });
 
   it("Displays oppfyltinfo with årsak for vurdering oppfylt", () => {
-    cy.mount(<Aktivitetskrav aktivitetskrav={fixtures.oppfyltFixture} />);
+    mountWithQueryClient(
+      <Aktivitetskrav aktivitetskrav={fixtures.oppfyltFixture} />,
+    );
 
     cy.contains("NAV har vurdert aktivitetsplikten din");
     cy.contains("NAV vurderer at du oppfyller aktivitetsplikten siden du er");
