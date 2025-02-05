@@ -34,7 +34,7 @@ export default class MyDocument extends Document<Props> {
       env:
         process.env.NEXT_PUBLIC_RUNTIME_ENVIRONMENT === "prod" ? "prod" : "dev",
       params: {
-        context: "privatperson",
+        context: "arbeidsgiver",
         chatbot: true,
         feedback: false,
         redirectToApp: true,

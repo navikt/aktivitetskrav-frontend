@@ -4,17 +4,17 @@ interface Breadcrumb {
 }
 
 export const AktivitetspliktBaseCrumbs: Breadcrumb[] = [
-  {
-    url: process.env.NEXT_PUBLIC_MIN_SIDE_URL!,
-    title: "Min side",
-  },
+  // {
+  //   url: process.env.NEXT_PUBLIC_MIN_SIDE_URL!,
+  //   title: "Min side arbeidsgiver",
+  // },
   {
     url: process.env.NEXT_PUBLIC_DITT_SYKEFRAVAER_URL!,
-    title: "Ditt sykefravær",
+    title: "Dine sykmeldte",
   },
   {
     url: "/syk/aktivitetskrav",
-    title: "Din aktivitetsplikt",
+    title: "Per Persen",
   },
 ];
 

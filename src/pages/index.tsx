@@ -1,20 +1,24 @@
 import React from "react";
-import { Aktivitetskrav } from "@/components/Aktivitetskrav";
 import { NextPage } from "next";
-import { AktivitetskravSkeletonComponent } from "@/components/skeleton/AktivitetskravSkeletonComponent";
-import { useAktivitetskravData } from "@/data/dataHooks";
+import { BodyLong } from "@navikt/ds-react";
+import { AktivitetskravBox } from "@/components/box/AktivitetskravBox";
+import { Page } from "@/components/page/Page";
+import { SykemeldtHeader } from "@/components/designsprint/SykemeldtHeader";
+import { Tidslinje } from "@/components/designsprint/Tidslinje";
 
 const Home: NextPage = () => {
-  const { isPending, error, data } = useAktivitetskravData();
+  return (
+    <Page>
+      <AktivitetskravBox>
+        <div className="flex flex-col gap-4 mb-4">
+          <div className="flex flex-col gap-4">
+            <SykemeldtHeader />
 
-  if (error) {
-    throw error;
-  }
-
-  return isPending ? (
-    <AktivitetskravSkeletonComponent />
-  ) : (
-    <Aktivitetskrav aktivitetskrav={data} />
+            <Tidslinje />
+          </div>
+        </div>
+      </AktivitetskravBox>
+    </Page>
   );
 };
 

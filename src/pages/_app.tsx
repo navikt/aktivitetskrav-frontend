@@ -68,7 +68,6 @@ function MyApp({
           <HydrationBoundary state={pageProps.dehydratedState}>
             <Component {...pageProps} />
           </HydrationBoundary>
-          <TestScenarioDevTools />
         </main>
       </QueryClientProvider>
     </ErrorBoundary>
