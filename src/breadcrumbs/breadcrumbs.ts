@@ -4,10 +4,10 @@ interface Breadcrumb {
 }
 
 export const AktivitetspliktBaseCrumbs: Breadcrumb[] = [
-  // {
-  //   url: process.env.NEXT_PUBLIC_MIN_SIDE_URL!,
-  //   title: "Min side arbeidsgiver",
-  // },
+  {
+    url: process.env.NEXT_PUBLIC_MIN_SIDE_URL!,
+    title: "Min side arbeidsgiver",
+  },
   {
     url: process.env.NEXT_PUBLIC_DITT_SYKEFRAVAER_URL!,
     title: "Dine sykmeldte",
@@ -27,12 +27,5 @@ export const AktivitetspliktHistorikkCrumbs: Breadcrumb[] = [
 ];
 
 export function createBreadcrumbs(pathname: string) {
-  switch (pathname) {
-    case "/":
-      return AktivitetspliktBaseCrumbs;
-    case "/[uuid]":
-      return AktivitetspliktHistorikkCrumbs;
-    default:
-      return [];
-  }
+  return AktivitetspliktBaseCrumbs
 }

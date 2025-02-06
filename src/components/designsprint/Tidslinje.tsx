@@ -54,7 +54,7 @@ export const Tidslinje = () => {
               betydning for saken.
             </BodyShort>
 
-            <HStack gap="4" spacing className="mb-4 mt-4">
+            <HStack gap="4" className="mb-4 mt-4">
               <Button>Opprett en oppfølgingsplan</Button>
               <Button variant="secondary">Ikke aktuelt nå</Button>
             </HStack>
