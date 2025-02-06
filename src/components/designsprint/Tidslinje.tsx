@@ -8,6 +8,8 @@ import {
   HStack,
   Link,
 } from "@navikt/ds-react";
+import sirkelIkon from "../../../public/Circle.svg";
+import Image from "next/image";
 
 export const Tidslinje = () => {
   return (
@@ -17,13 +19,16 @@ export const Tidslinje = () => {
       </Heading>
       <BodyLong spacing textColor="subtle">
         {/* TODO */}
-        Hendelser og oppgaver tilknyttet oppfølging av Per.
+        Hendelser og oppgaver knyttet til oppfølgingen av Per.
       </BodyLong>
 
       <Accordion>
         <Accordion.Item defaultOpen>
           <Accordion.Header>
-            Uke 4: Nå kan du dele oppfølgingsplanen med fastlege
+            <div className="flex gap-2">
+              <Image src={sirkelIkon} alt="Kommunikasjon om aktivitetskravet" />
+              <span>Uke 4: Nå kan du dele oppfølgingsplanen med fastlege</span>
+            </div>
           </Accordion.Header>
 
           <Accordion.Content>
@@ -64,40 +69,34 @@ export const Tidslinje = () => {
 
         <Accordion.Item>
           <Accordion.Header>
-            Uke 8: NAV vurderer aktivitetskrav
+            <div className="flex gap-2">
+              <Image src={sirkelIkon} alt="Kommunikasjon om aktivitetskravet" />
+              <span>Uke 8: NAV vurderer aktivitetskrav</span>
+            </div>
           </Accordion.Header>
-          <Accordion.Content>
-            Med yrkesskade mener vi at du har fått en skade som følge av en
-            arbeidsulykke. Vi kan godkjenne en sykdom som yrkessykdom hvis den
-            kommer av skadelig påvirkning fra arbeidsmiljøet.
-          </Accordion.Content>
+          <Accordion.Content>Tekst</Accordion.Content>
         </Accordion.Item>
 
         <Accordion.Item>
           <Accordion.Header>
-            Uke 17: Ønsker dere et dialogmøte med NAV?
+            <div className="flex gap-2">
+              <Image src={sirkelIkon} alt="Kommunikasjon om aktivitetskravet" />
+              <span>Uke 17: Ønsker dere et dialogmøte med NAV?</span>
+            </div>
           </Accordion.Header>
-          <Accordion.Content>
-            Med yrkesskade mener vi at du har fått en skade som følge av en
-            arbeidsulykke. Vi kan godkjenne en sykdom som yrkessykdom hvis den
-            kommer av skadelig påvirkning fra arbeidsmiljøet.
-          </Accordion.Content>
+          <Accordion.Content>Tekst</Accordion.Content>
         </Accordion.Item>
 
         <Accordion.Item>
-          <Accordion.Header>Uke 26: Dialogmøte med NAV</Accordion.Header>
-          <Accordion.Content>
-            Med yrkesskade mener vi at du har fått en skade som følge av en
-            arbeidsulykke. Vi kan godkjenne en sykdom som yrkessykdom hvis den
-            kommer av skadelig påvirkning fra arbeidsmiljøet.
-          </Accordion.Content>
+          <Accordion.Header>
+            {" "}
+            <div className="flex gap-2">
+              <Image src={sirkelIkon} alt="Kommunikasjon om aktivitetskravet" />
+              <span>Uke 26: Dialogmøte med NAV</span>
+            </div>
+          </Accordion.Header>
+          <Accordion.Content>Tekst</Accordion.Content>
         </Accordion.Item>
-        {/* <Accordion.Item>
-          <Accordion.Header>TODO</Accordion.Header>
-          <Accordion.Content>
-            Da er det lite som trengs å gjøres.
-          </Accordion.Content>
-        </Accordion.Item> */}
       </Accordion>
     </Box>
   );
