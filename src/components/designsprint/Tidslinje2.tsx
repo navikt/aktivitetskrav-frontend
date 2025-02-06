@@ -1,14 +1,6 @@
-import {
-  Accordion,
-  BodyLong,
-  BodyShort,
-  Box,
-  Button,
-  Heading,
-  Link,
-} from "@navikt/ds-react";
-import { CheckmarkCircleIcon } from "@navikt/aksel-icons";
+import { Accordion, BodyLong, BodyShort, Box, Heading } from "@navikt/ds-react";
 import sirkelIkon from "../../../public/Circle.svg";
+import checkmark from "../../../public/Checkmark.svg";
 import Image from "next/image";
 
 export const Tidslinje = () => {
@@ -26,7 +18,11 @@ export const Tidslinje = () => {
         <Accordion.Item>
           <Accordion.Header>
             <div className="flex gap-2">
-              <CheckmarkCircleIcon title="a11y-title" fontSize="1.5rem" />
+              <Image
+                src={checkmark}
+                alt="Kommunikasjon om aktivitetskravet"
+                height="24"
+              />
               Uke 4: Nå kan du dele oppfølgingsplanen med fastlege
             </div>
           </Accordion.Header>
