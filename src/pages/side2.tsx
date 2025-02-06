@@ -1,9 +1,6 @@
 import React from "react";
 import { NextPage } from "next";
-import { BodyLong } from "@navikt/ds-react";
 import { AktivitetskravBox } from "@/components/box/AktivitetskravBox";
-import { Page } from "@/components/page/Page";
-import { SykemeldtHeader } from "@/components/designsprint/SykemeldtHeader";
 import { Tidslinje } from "@/components/designsprint/Tidslinje2";
 import { PersonIcon } from "@navikt/aksel-icons";
 import { PageContainer, RootPages, SideMenu } from "@navikt/dinesykmeldte-sidemeny";

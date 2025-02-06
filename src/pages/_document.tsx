@@ -36,6 +36,7 @@ export default class MyDocument extends Document<Props> {
       params: {
         context: "arbeidsgiver",
         chatbot: true,
+        chatbotVisible: true,
         feedback: false,
         redirectToApp: true,
         level: "Level4",
