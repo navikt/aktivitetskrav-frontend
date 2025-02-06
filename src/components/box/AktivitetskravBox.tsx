@@ -13,7 +13,7 @@ export const AktivitetskravBox = ({ children }: Props) => {
         padding="6"
         borderRadius="medium"
         shadow="small"
-        className="mx-4 mt-4 flex flex-col gap-4"
+        className="mx-4 flex flex-col gap-4"
       >
         {children}
       </Box>
