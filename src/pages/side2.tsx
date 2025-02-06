@@ -36,8 +36,6 @@ const Home: NextPage = () => {
       <AktivitetskravBox>
         <div className="flex flex-col gap-4 mb-4">
           <div className="flex flex-col gap-4">
-            <SykemeldtHeader />
-
             <Tidslinje />
           </div>
         </div>
