@@ -5,7 +5,8 @@ export interface AktivitetskravViewItem {
     | "UNDER_BEHANDLING"
     | "FORHANDSVARSEL"
     | "MOTTATT_VURDERING"
-    | "IKKE_OPPFYLT";
+    | "IKKE_OPPFYLT"
+    | "INNSTILLING_OM_STANS";
   vurdering: AktivitetskravVurdering;
 }
 
@@ -40,9 +41,10 @@ export const mapVurderingToViewItem = (
         type: "MOTTATT_VURDERING",
         vurdering: vurdering,
       };
+    case "INNSTILLING_OM_STANS":
     case "IKKE_OPPFYLT": {
       return {
-        type: "IKKE_OPPFYLT",
+        type: "INNSTILLING_OM_STANS",
         vurdering: vurdering,
       };
     }

@@ -9,6 +9,7 @@ const VurderingStatusSchema = z.union([
   literal("AVVENT"),
   literal("FORHANDSVARSEL"),
   literal("IKKE_OPPFYLT"),
+  literal("INNSTILLING_OM_STANS"),
   literal("IKKE_AKTUELL"),
 ]);
 
@@ -70,6 +71,11 @@ export const IkkeOppfyltSchema = BaseVurdering.extend({
   sistVurdert: string().datetime(),
 });
 
+export const InnstillingOmStansSchema = BaseVurdering.extend({
+  status: z.literal("INNSTILLING_OM_STANS"),
+  sistVurdert: string().datetime(),
+});
+
 export const IkkeAktuellSchema = BaseVurdering.extend({
   status: z.literal("IKKE_AKTUELL"),
   sistVurdert: string().datetime(),
@@ -83,6 +89,7 @@ export const aktivitetskravVurderingSchema = union([
   AvventSchema,
   ForhandsvarselSchema,
   IkkeOppfyltSchema,
+  InnstillingOmStansSchema,
   IkkeAktuellSchema,
 ]);
 
@@ -97,6 +104,7 @@ export type NyVurdering = z.infer<typeof NyVurderingSchema>;
 export type Avvent = z.infer<typeof AvventSchema>;
 export type Forhandsvarsel = z.infer<typeof ForhandsvarselSchema>;
 export type IkkeOppfylt = z.infer<typeof IkkeOppfyltSchema>;
+export type InnstillingOmStans = z.infer<typeof IkkeOppfyltSchema>;
 export type IkkeAktuell = z.infer<typeof IkkeAktuellSchema>;
 export type UnntakArsaker = z.infer<typeof unntakArsaker>;
 export type OppfyltArsaker = z.infer<typeof oppfyltArsaker>;
