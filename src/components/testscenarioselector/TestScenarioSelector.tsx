@@ -7,7 +7,7 @@ import {
   ForhandsvarselTestScenario,
   getTestScenario,
   IkkeAktuellTestScenario,
-  IkkeOppfyltTestScenario,
+  InnstillingOmStansTestScenario,
   InfoSideTestScenario,
   OppfyltTestScenario,
   setTestScenario,
@@ -50,7 +50,7 @@ export const TestScenarioSelector = () => {
               <Radio value={InfoSideTestScenario}>Ny kandidat</Radio>
               <Radio value={ForhandsvarselTestScenario}>Forhåndsvarsel</Radio>
               <Radio value={IkkeAktuellTestScenario}>Ikke aktuell</Radio>
-              <Radio value={IkkeOppfyltTestScenario}>Ikke oppfylt</Radio>
+              <Radio value={InnstillingOmStansTestScenario}>Innstilling om stans</Radio>
               <Radio value={UnntakTestScenario}>Unntak</Radio>
               <Radio value={OppfyltTestScenario}>Oppfylt</Radio>
             </RadioGroup>

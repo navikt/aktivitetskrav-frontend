@@ -11,6 +11,7 @@ const getHeaderText = (viewItem: AktivitetskravViewItem) => {
   switch (viewItem.type) {
     case "UNDER_BEHANDLING":
       return "NAV vurderer aktivitetsplikten din";
+    case "INNSTILLING_OM_STANS":
     case "IKKE_OPPFYLT":
       return "Svarfristen har gått ut";
     case "FORHANDSVARSEL":

@@ -20,6 +20,7 @@ export const Vurdering = ({ viewItem }: Props): ReactElement | null => {
       return <MottattVurderingComponent vurdering={viewItem.vurdering} />;
     case "UNDER_BEHANDLING":
       return <UnderBehandlingComponent vurdering={viewItem.vurdering} />;
+    case "INNSTILLING_OM_STANS":
     case "IKKE_OPPFYLT":
       return <IkkeOppfyltComponent vurdering={viewItem.vurdering} />;
     default:

@@ -4,7 +4,7 @@ import { AktivitetskravVurdering } from "@/schema/aktivitetskravVurderingSchema"
 export type TestScenario =
   | typeof InfoSideTestScenario
   | typeof IkkeAktuellTestScenario
-  | typeof IkkeOppfyltTestScenario
+  | typeof InnstillingOmStansTestScenario
   | typeof UnntakTestScenario
   | typeof OppfyltTestScenario
   | typeof ForhandsvarselTestScenario;
@@ -12,7 +12,7 @@ export type TestScenario =
 export const InfoSideTestScenario = "INFOSIDE";
 export const ForhandsvarselTestScenario = "FORHANDSVARSEL";
 export const IkkeAktuellTestScenario = "IKKEAKTUELL";
-export const IkkeOppfyltTestScenario = "IKKEOPPFYLT";
+export const InnstillingOmStansTestScenario = "INNSTILLING_OM_STANS";
 export const UnntakTestScenario = "UNNTAK";
 export const OppfyltTestScenario = "OPPFYLT";
 
