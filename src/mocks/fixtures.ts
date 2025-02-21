@@ -58,6 +58,17 @@ const ikkeOppfyltVurdering = (
   };
 };
 
+const innstillingOmStansVurdering = (
+  dagerSidenHendelse: number,
+): AktivitetskravVurdering => {
+  return {
+    status: "INNSTILLING_OM_STANS",
+    internUuid: "123123123",
+    createdAt: pastDateAsString(dagerSidenHendelse),
+    sistVurdert: pastDateAsString(dagerSidenHendelse),
+  };
+}
+
 const avventVurdering = (
   dagerSidenHendelse: number,
 ): AktivitetskravVurdering => {
@@ -126,6 +137,13 @@ const ikkeOppfyltFixture: AktivitetskravVurdering[] = [
   nyKandidatVurdering(14),
 ];
 
+const innstillingOmStansFixture: AktivitetskravVurdering[] = [
+  innstillingOmStansVurdering(1),
+  forhaandsvarselVurdering(4),
+  avventVurdering(7),
+  nyKandidatVurdering(14),
+];
+
 const ikkeAktuellFixture: AktivitetskravVurdering[] = [
   ikkeAktuellVurdering(13),
   forhaandsvarselVurdering(20),
@@ -145,6 +163,7 @@ const fixtures = {
   nyKandidatFixture,
   unntakFixture,
   ikkeAktuellFixture,
+  innstillingOmStansFixture,
   ikkeOppfyltFixture,
   oppfyltFixture,
 };
