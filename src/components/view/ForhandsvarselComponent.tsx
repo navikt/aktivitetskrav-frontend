@@ -1,5 +1,5 @@
 import React from "react";
-import { BodyLong, Heading, Link, Tag } from "@navikt/ds-react";
+import { Alert, BodyLong, Heading, Link, Tag } from "@navikt/ds-react";
 
 import { AktivitetskravVurdering } from "@/schema/aktivitetskravVurderingSchema";
 import { getShortDateFormat } from "@/utils/dateUtils";
@@ -15,8 +15,28 @@ export const ForhandsvarselComponent = ({ vurdering }: Props) => {
 
   if (vurdering.status !== "FORHANDSVARSEL") return null;
 
+  const showInformationForUsersThatDidNotGetVarselBetweenFeb27AndMarSomething =
+    true;
+  // (new Date(vurdering.createdAt) >= new Date("2025-02-27") &&
+  //   new Date(vurdering.createdAt) <= new Date("2025-03-?") &&
+  //   new Date(vurdering.fristDato) <= new Date("2021-03-30")); // ?
+
+  const informationForUsersThatDidNotGetVarselBetweenFeb27AndMarSomething = (
+    <BodyLong>
+      På grunn av en teknisk feil har du ikke fått varsel på SMS og på Din side
+      om denne vurderingen til riktig tidspunkt. Du har derfor senere frist enn
+      det som står... (TODO) Vi beklager feilen.
+    </BodyLong>
+  );
+
   return (
     <div>
+      {showInformationForUsersThatDidNotGetVarselBetweenFeb27AndMarSomething && (
+        <Alert variant="info">
+          {informationForUsersThatDidNotGetVarselBetweenFeb27AndMarSomething}
+        </Alert>
+      )}
+
       <div className="flex flex-col gap-4 mb-4">
         {vurdering.document?.map((d, index) => {
           switch (d.type) {
