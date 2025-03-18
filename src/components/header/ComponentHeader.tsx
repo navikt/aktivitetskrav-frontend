@@ -12,13 +12,13 @@ import styles from "./componentheader.module.css";
 interface Props {
   headerText: string;
   alertStyle: "info" | "success" | "warning" | "error";
-  createdAt: string;
+  utsendtDato?: string | null;
 }
 
 export const ComponentHeader = ({
   headerText,
   alertStyle,
-  createdAt,
+  utsendtDato,
 }: Props) => {
   return (
     <div className="mb-4">
@@ -42,9 +42,11 @@ export const ComponentHeader = ({
         </>
       </div>
 
-      <BodyLong textColor="subtle">
-        Utsendt {getShortDateFormat(createdAt)}
-      </BodyLong>
+      {utsendtDato && (
+        <BodyLong textColor="subtle">
+          Utsendt {getShortDateFormat(utsendtDato)}
+        </BodyLong>
+      )}
     </div>
   );
 };

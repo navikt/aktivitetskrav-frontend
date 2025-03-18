@@ -27,7 +27,7 @@ export const ForhandsvarselComponent = ({ vurdering }: Props) => {
                     <ComponentHeader
                       key={index}
                       headerText={text}
-                      createdAt={vurdering.createdAt}
+                      utsendtDato={vurdering.sistVurdert}
                       alertStyle="warning"
                     />
                   ))}

@@ -19,7 +19,7 @@ export const UnderBehandlingComponent = ({ vurdering }: Props) => {
     <>
       <ComponentHeader
         headerText={infoSideHeaderText}
-        createdAt={vurdering.createdAt}
+        utsendtDato={vurdering.sistVurdert}
         alertStyle="info"
       />
 

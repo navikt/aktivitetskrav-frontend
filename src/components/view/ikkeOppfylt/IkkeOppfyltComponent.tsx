@@ -13,7 +13,7 @@ export const IkkeOppfyltComponent = ({ vurdering }: Props) => {
     <>
       <ComponentHeader
         headerText={"Svarfristen har gått ut"}
-        createdAt={vurdering.createdAt}
+        utsendtDato={vurdering.sistVurdert}
         alertStyle="warning"
       />
 
