@@ -6,7 +6,7 @@ export const forhaandsvarselDocumentMock: DocumentComponent[] = [
     "key": null,
     "title": null,
     "texts": [
-      "Varsel om stans av sykepenger"
+      "Varsel om mulig stans av sykepenger"
     ]
   },
   {
@@ -14,7 +14,15 @@ export const forhaandsvarselDocumentMock: DocumentComponent[] = [
     "key": null,
     "title": null,
     "texts": [
-      "Du har nå vært sykmeldt i mer enn åtte uker. Da har du plikt til å være i aktivitet. Ut fra opplysningene NAV har i saken har vi vurdert at du ikke oppfyller vilkårene for å unntas aktivitetsplikten. Vi vurderer å stanse sykepengene dine fra og med 28. november 2023."
+      "Du har nå vært sykmeldt i mer enn åtte uker. Da har du plikt til å være i aktivitet."
+    ]
+  },
+  {
+    "type": "PARAGRAPH",
+    "key": null,
+    "title": null,
+    "texts": [
+      "Basert på opplysningene NAV har i saken er du ikke i arbeidsrelatert aktivitet, og det er heller ikke dokumentert at du oppfyller vilkårene for unntak fra aktivitetsplikten. Vi vurderer derfor å stanse sykepengene dine fra og med 24. mars 2025."
     ]
   },
   {
@@ -38,7 +46,7 @@ export const forhaandsvarselDocumentMock: DocumentComponent[] = [
     "key": null,
     "title": null,
     "texts": [
-      "Kommer du helt eller delvis tilbake i arbeid, oppfyller du aktivitetsplikten og kan fortsatt få sykepenger. Aktivitet kan dokumenteres med gradert sykmelding eller i søknaden",
+      "(Ikke oppdatert tekst.) Kommer du helt eller delvis tilbake i arbeid, oppfyller du aktivitetsplikten og kan fortsatt få sykepenger. Aktivitet kan dokumenteres med gradert sykmelding eller i søknaden",
       "Gir arbeidsgiveren din en skriftlig begrunnelse for at det ikke er mulig å legge til rette for at du kan jobbe, kan utbetalingen av sykepenger fortsette.",
       "Går det fram av sykmeldingen at du er for syk til å arbeide, får du fortsatt sykepenger."
     ]
@@ -56,7 +64,7 @@ export const forhaandsvarselDocumentMock: DocumentComponent[] = [
     "key": null,
     "title": null,
     "texts": [
-      "Vi må ha tilbakemelding fra deg, arbeidsgiveren din eller den som har sykmeldt deg innen 28. november 2023. Ellers vil sykepengene dine stanses fra denne datoen."
+      "Vi ber om tilbakemelding fra deg, arbeidsgiveren din, eller den som har sykmeldt deg innen 24. mars. Etter denne datoen vil NAV vurdere å stanse sykepengene dine."
     ]
   },
   {

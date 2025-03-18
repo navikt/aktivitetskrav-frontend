@@ -1,4 +1,4 @@
-import { Alert, BodyLong } from "@navikt/ds-react";
+import { Alert, BodyLong, BodyShort } from "@navikt/ds-react";
 
 import { Forhandsvarsel } from "@/schema/aktivitetskravVurderingSchema";
 
@@ -23,16 +23,31 @@ export const AlertForUsersAffectedByNoNotificationsBug = ({
   return (
     (isAffectedForhandsvarsel || true) && (
       <Alert variant="warning">
-        <BodyLong className={"mb-2"}>
-          I perioden 27.februar til 7.mars har vi hatt tekniske problemer med
-          varslinger på sms og e-post. Vi har derfor utsatt svarfristen til 1.
-          april. Du kan se vekk fra den opprinnelige svarfristen det vises til
-          nedenfor. Vi beklager feilen!
-        </BodyLong>
-        <BodyLong>
-          Har du ytterligere spørsmål om dette, ta kontakt med oss på 55 55 33
-          33 eller kontakt din veileder i Nav.
-        </BodyLong>
+        <BodyShort spacing>
+          <strong>
+            Hvis utsendt dato i brevet nedenfor er i perioden fra og med 27.
+            februar til og med 9. mars, gjelder følgende for deg:
+          </strong>
+        </BodyShort>
+        <BodyShort spacing>
+          Du har fått utsatt frist for å gi tilbakemelding til{" "}
+          <strong>9. april 2025</strong>. Du kan se bort fra fristen for å gi
+          tilbakemelding som står i brevet nedenfor. Vi vil ikke gjøre en
+          vurdering i saken din, før etter fristen for å gi tilbakemelding.
+        </BodyShort>
+        <BodyShort spacing>
+          Nav har hatt tekniske problemer med varslinger på sms og e-post. Dette
+          har medført at ikke alle brev fra oss har blitt varslet på riktig
+          måte. På grunn av denne feilen får du utsatt frist for å gi
+          tilbakemelding, dersom brevet nedenfor er datert mellom 27. februar og
+          9. mars.
+        </BodyShort>
+        <BodyShort>
+          Vi beklager feilen. Har du ytterligere spørsmål om dette, ta kontakt
+          med oss på 55&nbsp;55&nbsp;33&nbsp;33 eller kontakt din veileder i
+          Nav. Denne meldingen vil bli synlig for deg i 3 uker fra du logger deg
+          inn og sjekker meldingen.
+        </BodyShort>
       </Alert>
     )
   );
