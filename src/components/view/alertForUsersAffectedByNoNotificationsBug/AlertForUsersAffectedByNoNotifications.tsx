@@ -15,10 +15,9 @@ export const AlertForUsersAffectedByNoNotificationsBug = ({
 }: Props) => {
   // TODO: Sjekke at createdAt kan brukes til dette og at dette er ok periode,
   //  og at dette ikke gir informasjonen til flere enn de som faktisk får utsatt frist.
-  console.log("sistVurdert", vurdering.sistVurdert);
   const isAffectedForhandsvarsel =
-    new Date(vurdering.sistVurdert) >= new Date("2025-02-27T13:00:00") &&
-    new Date(vurdering.sistVurdert) < new Date("2025-03-08");
+    new Date(vurdering.sistVurdert) >= new Date("2025-02-27T12:59:00") &&
+    new Date(vurdering.sistVurdert) < new Date("2025-03-10");
   // && new Date(vurdering.fristDato) <= new Date("2025-03-31");
 
   return (
