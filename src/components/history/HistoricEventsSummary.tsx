@@ -48,7 +48,7 @@ export const HistoricEventsSummary = ({ historicVurderinger }: Props) => {
                 key={index}
               >
                 <LinkPanel.Title>
-                  {getShortDateFormat(item.vurdering.createdAt)}:{" "}
+                  {item.vurdering.sistVurdert ? getShortDateFormat(item.vurdering.sistVurdert) : item.vurdering.createdAt}:{" "}
                   {getHeaderText(item)}
                 </LinkPanel.Title>
               </LinkPanel>

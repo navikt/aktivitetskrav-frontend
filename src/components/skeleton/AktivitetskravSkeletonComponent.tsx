@@ -14,7 +14,7 @@ export const AktivitetskravSkeletonComponent = () => {
         <Skeletor displaySkeleton={true}>
           <ComponentHeader
             headerText={infoSideHeaderText}
-            createdAt={new Date().toISOString()}
+            utsendtDato={new Date().toISOString()}
             alertStyle="info"
           />
         </Skeletor>

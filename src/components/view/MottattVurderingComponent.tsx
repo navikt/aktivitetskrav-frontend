@@ -15,7 +15,7 @@ export const MottattVurderingComponent = ({ vurdering }: Props) => {
     <>
       <ComponentHeader
         headerText={"NAV har vurdert aktivitetsplikten din"}
-        createdAt={vurdering.createdAt}
+        utsendtDato={vurdering.sistVurdert}
         alertStyle="success"
       />
 
