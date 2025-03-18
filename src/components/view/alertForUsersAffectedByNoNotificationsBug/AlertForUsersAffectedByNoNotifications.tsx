@@ -15,25 +15,28 @@ export const AlertForUsersAffectedByNoNotificationsBug = ({
 }: Props) => {
   // TODO: Sjekke at createdAt kan brukes til dette og at dette er ok periode,
   //  og at dette ikke gir informasjonen til flere enn de som faktisk får utsatt frist.
+  console.log("sistVurdert", vurdering.sistVurdert);
   const isAffectedForhandsvarsel =
-    new Date(vurdering.createdAt) >= new Date("2025-02-27T13:00:00") &&
-    new Date(vurdering.createdAt) < new Date("2025-03-08");
+    new Date(vurdering.sistVurdert) >= new Date("2025-02-27T13:00:00") &&
+    new Date(vurdering.sistVurdert) < new Date("2025-03-08");
   // && new Date(vurdering.fristDato) <= new Date("2025-03-31");
 
   return (
-    (isAffectedForhandsvarsel || true) && (
+    isAffectedForhandsvarsel && (
       <Alert variant="warning">
-        <BodyShort spacing>
+       {/* <BodyShort spacing>
           <strong>
             Hvis utsendt dato i brevet nedenfor er i perioden fra og med 27.
             februar til og med 9. mars, gjelder følgende for deg:
           </strong>
-        </BodyShort>
+        </BodyShort>*/}
         <BodyShort spacing>
-          Du har fått utsatt frist for å gi tilbakemelding til{" "}
-          <strong>9. april 2025</strong>. Du kan se bort fra fristen for å gi
-          tilbakemelding som står i brevet nedenfor. Vi vil ikke gjøre en
-          vurdering i saken din, før etter fristen for å gi tilbakemelding.
+          <strong>
+            Du har fått utsatt frist for å gi tilbakemelding til 9. april 2025
+          . Du kan se bort fra fristen for å gi tilbakemelding som står i brevet
+          nedenfor. Vi vil ikke gjøre en vurdering i saken din, før etter
+          fristen for å gi tilbakemelding.
+          </strong>
         </BodyShort>
         <BodyShort spacing>
           Nav har hatt tekniske problemer med varslinger på sms og e-post. Dette
