@@ -34,7 +34,7 @@ describe("<Aktivitetskrav />", () => {
       <Aktivitetskrav aktivitetskrav={fixtures.forhaandsvarselFixture} />,
     );
 
-    cy.contains("Varsel om stans av sykepenger");
+    cy.contains("Varsel om mulig stans av sykepenger");
   });
 
   it("Displays unntaksinfo with årsak for vurdering unntak", () => {
