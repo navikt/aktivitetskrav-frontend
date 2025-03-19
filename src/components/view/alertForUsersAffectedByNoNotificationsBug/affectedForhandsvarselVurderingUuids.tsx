@@ -1,5 +1,5 @@
 export const forhandsvarselVurderingUuidsAffectedByNotificationBug = [
-  "be7cbd54-9b03-4ff3-b80a-d1f9ffa25303", // this one line is dev test data
+  "65d4b02a-3141-45d2-9a3a-939f6a86a539", // this one line is dev test data
   "3f00c184-0467-4187-95dd-c692109be074",
   "456d6965-145b-484d-9511-23ca0477e666",
   "28caa030-6533-494a-848c-d4bc7f1db24d",
