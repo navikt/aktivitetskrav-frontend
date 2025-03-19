@@ -5,7 +5,7 @@ import { AktivitetskravVurdering } from "@/schema/aktivitetskravVurderingSchema"
 import { getShortDateFormat } from "@/utils/dateUtils";
 import { ComponentHeader } from "@/components/header/ComponentHeader";
 import { useFerdigstillForhandsVarsel } from "@/data/ferdigstillVarsel";
-import { AlertForUsersAffectedByNoNotificationsBug } from "./alertForUsersAffectedByNoNotificationsBug/AlertForUsersAffectedByNoNotifications";
+import { AlertForUsersAffectedByNoNotificationsBug } from "./alertForUsersAffectedByNoNotificationsBug/AlertForUsersAffectedByNoNotificationsBug";
 
 interface Props {
   vurdering: AktivitetskravVurdering;
