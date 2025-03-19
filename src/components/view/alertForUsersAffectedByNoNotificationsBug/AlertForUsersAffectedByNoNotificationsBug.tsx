@@ -10,6 +10,8 @@ interface Props {
 /**
  * Informasjon til brukere som ble påvirket av en feil der vi ikke sendte ut varsler
  * en periode.
+ *
+ * Komponenten kan nok slettes en gang etter fristen har gått ut for å gi tilbakemelding for de som får meldingen.
  */
 export const AlertForUsersAffectedByNoNotificationsBug = ({
   forhandsvarselVurdering: vurdering,
