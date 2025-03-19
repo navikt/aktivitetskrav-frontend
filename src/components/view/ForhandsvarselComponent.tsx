@@ -1,10 +1,11 @@
 import React from "react";
-import { BodyLong, Heading, Link, Tag } from "@navikt/ds-react";
+import { Alert, BodyLong, Heading, Link, Tag } from "@navikt/ds-react";
 
 import { AktivitetskravVurdering } from "@/schema/aktivitetskravVurderingSchema";
 import { getShortDateFormat } from "@/utils/dateUtils";
 import { ComponentHeader } from "@/components/header/ComponentHeader";
 import { useFerdigstillForhandsVarsel } from "@/data/ferdigstillVarsel";
+import { AlertForUsersAffectedByNoNotificationsBug } from "./alertForUsersAffectedByNoNotificationsBug/AlertForUsersAffectedByNoNotificationsBug";
 
 interface Props {
   vurdering: AktivitetskravVurdering;
@@ -17,6 +18,10 @@ export const ForhandsvarselComponent = ({ vurdering }: Props) => {
 
   return (
     <div>
+      <AlertForUsersAffectedByNoNotificationsBug
+        forhandsvarselVurdering={vurdering}
+      />
+
       <div className="flex flex-col gap-4 mb-4">
         {vurdering.document?.map((d, index) => {
           switch (d.type) {
