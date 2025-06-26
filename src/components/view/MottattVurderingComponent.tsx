@@ -22,12 +22,21 @@ export const MottattVurderingComponent = ({ vurdering }: Props) => {
       <div className="flex flex-col gap-4">
         <BodyLong>Hei!</BodyLong>
 
+        <BodyLong>
+          Alle sykmeldte skal i utgangspunktet jobbe litt hvis de kan,
+          også hvis de er 100 % sykmeldt. Dette kalles aktivitetsplikten.
+        </BodyLong>
+
         <MottattVurderingDetaljer vurdering={vurdering} />
 
         <BodyLong>
           Aktivitetsplikten gjelder gjennom hele sykefraværet og det kan være at
-          NAV vurderer aktivitetsplikten din igjen på et senere tidspunkt. Du
-          vil da motta ny informasjon om det.
+          NAV vurderer aktivitetsplikten din igjen på et senere tidspunkt.
+        </BodyLong>
+
+        <BodyLong>
+          Selv om du har fått unntak fra aktivitetsplikten nå, skal du fremdeles
+          samarbeide med arbeidsgiver og/eller Nav for å komme tilbake i jobb. Dette kalles medvirkningsplikten.
         </BodyLong>
 
         <BodyLong>
