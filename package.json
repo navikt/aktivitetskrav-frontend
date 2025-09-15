@@ -36,7 +36,7 @@
     "cypress": "^13.17.0",
     "eslint": "^8",
     "eslint-config-next": "14.2.15",
-    "jsdom": "^25.0.1",
+    "jsdom": "^27.0.0",
     "next-router-mock": "^0.9.13",
     "postcss": "^8",
     "prettier": "3.6.2",
