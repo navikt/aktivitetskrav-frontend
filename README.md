@@ -44,7 +44,7 @@ This view provides detailed information about a specific assessment or event, su
 
 ## Backend API
 
-The frontend app communicates with the backend via `esyfo-proxy`.
+The frontend app communicates with the backend via [eSYFO proxy](https://github.com/navikt/esyfo-proxy).
 
 Used endpoints:
 
