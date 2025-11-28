@@ -1,30 +1,52 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Aktivitetskrav frontend app
 
-## Getting Started
+[![Build Status](https://github.com/navikt/aktivitetskrav-frontend/actions/workflows/build-and-deploy.yaml/badge.svg)](https://github.com/navikt/aktivitetskrav-frontend/actions/workflows/build-and-deploy.yaml)
 
-First, run the development server:
+[![Next.js](https://img.shields.io/badge/Next.js-000?logo=next.js&logoColor=white)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![Cypress](https://img.shields.io/badge/Cypress-17202C?logo=cypress&logoColor=white)](https://www.cypress.io/)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+**Important:** To get started with building and running the app, read our [wiki for Next.js apps](https://github.com/navikt/esyfo-dev-tools/wiki/nextjs-build-run).
+
+## Purpose of the app
+
+This app is used to show the status of the activity requirement for logged-in users on `Min Side`.
+
+```mermaid
+graph TD
+    MinSide[Min side] -->|"/syk/aktivitetskrav"| App[Aktivitetskrav frontend]
+    DittSykefravaer[Ditt sykefravær] -->|"/syk/aktivitetskrav"| App
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Activity requirement view
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The user gets an overview of their activity requirement (aktivitetsplikt). This includes:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- Advance warnings about possible stoppage of sick pay (Varsel om mulig stans av sykepenger).
+- Information about deadlines and how to avoid stoppage.
+- Legal basis for the requirement.
+- A timeline of previous events and assessments.
 
-## Learn More
+**Base path** `/syk/aktivitetskrav`
 
-To learn more about Next.js, take a look at the following resources:
+### Assessment details
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This view provides detailed information about a specific assessment or event, such as:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- Information letters about the activity requirement (Info om aktivitetsplikt).
+- Explanations of how Nav assesses the requirement.
+- Implications for the user (potential stoppage of sick pay).
+- Instructions on what the user needs to do.
+
+**Path** `/syk/aktivitetskrav/[uuid]`
+
+## Backend API
+
+The frontend app communicates with the backend via [eSYFO proxy](https://github.com/navikt/esyfo-proxy).
+
+Used endpoints:
+
+- **GET** `/historikk` - Fetches history of activity requirement assessments
+- **POST** `/les` - Marks advance warning as read
