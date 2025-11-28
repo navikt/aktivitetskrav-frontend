@@ -22,7 +22,7 @@ graph TD
 
 ### Activity requirement view
 
-The user gets an overview of their activity duty (aktivitetsplikt). This includes:
+The user gets an overview of their activity requirement (aktivitetsplikt). This includes:
 
 - Advance warnings about possible stoppage of sick pay (Varsel om mulig stans av sykepenger).
 - Information about deadlines and how to avoid stoppage.
@@ -35,8 +35,8 @@ The user gets an overview of their activity duty (aktivitetsplikt). This include
 
 This view provides detailed information about a specific assessment or event, such as:
 
-- Information letters about the activity duty (Info om aktivitetsplikt).
-- Explanations of how NAV assesses the duty.
+- Information letters about the activity requirement (Info om aktivitetsplikt).
+- Explanations of how Nav assesses the requirement.
 - Implications for the user (potential stoppage of sick pay).
 - Instructions on what the user needs to do.
 
