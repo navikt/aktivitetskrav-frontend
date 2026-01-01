@@ -8,10 +8,12 @@ interface Props {
 
 const CircledIcon = ({ icon, className }: Props) => {
     return (
-        <div className={`w-16 ${className}`}>
-            <span className={styles.circle}>{icon}</span>
-        </div>
-    )
+      <div className={`w-16 ${className}`}>
+        <span className={styles.circle} aria-hidden>
+          {icon}
+        </span>
+      </div>
+    );
 }
 
 export default CircledIcon
