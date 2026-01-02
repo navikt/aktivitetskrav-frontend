@@ -37,7 +37,7 @@ export const AktivitetskravInfo = ({
       <IconRow icon={<DocPencilIcon />} displaySkeleton={displaySkeleton}>
         <div>
           <Skeletor displaySkeleton={displaySkeleton}>
-            <Heading size="medium" level="3" spacing>
+            <Heading size="medium" level="2" spacing>
               Hvordan vurderer NAV aktivitetsplikten?
             </Heading>
           </Skeletor>
@@ -51,7 +51,7 @@ export const AktivitetskravInfo = ({
       <IconRow icon={<PersonIcon />} displaySkeleton={displaySkeleton}>
         <div>
           <Skeletor displaySkeleton={displaySkeleton}>
-            <Heading size="medium" level="3" spacing>
+            <Heading size="medium" level="2" spacing>
               Hva betyr det for deg?
             </Heading>
           </Skeletor>
@@ -65,7 +65,7 @@ export const AktivitetskravInfo = ({
       <IconRow icon={<Chat2Icon />} displaySkeleton={displaySkeleton}>
         <div>
           <Skeletor displaySkeleton={displaySkeleton}>
-            <Heading size="medium" level="3" spacing>
+            <Heading size="medium" level="2" spacing>
               Hva må du gjøre?
             </Heading>
           </Skeletor>

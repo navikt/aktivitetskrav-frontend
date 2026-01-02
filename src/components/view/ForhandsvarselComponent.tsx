@@ -52,7 +52,7 @@ export const ForhandsvarselComponent = ({ vurdering }: Props) => {
               return (
                 <div className="mt-4" key={index}>
                   {d.texts.map((text, index) => (
-                    <Heading size="medium" level="3" key={index}>
+                    <Heading size="medium" level="2" key={index}>
                       {text}
                     </Heading>
                   ))}

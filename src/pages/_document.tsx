@@ -56,6 +56,7 @@ export default class MyDocument extends Document<Props> {
       <Html lang="nb">
         <Head>
           <Decorator.HeadAssets />
+          <title>Nav - Aktivitetsplikt</title>
           <link
             rel="preload"
             href="https://cdn.nav.no/aksel/fonts/SourceSans3-normal.woff2"
