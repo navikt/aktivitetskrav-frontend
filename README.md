@@ -10,6 +10,14 @@
 
 **Viktig:** For å komme i gang med å bygge og kjøre appen, les vår [wiki for Next.js apps](https://github.com/navikt/esyfo-dev-tools/wiki/nextjs-build-run).
 
+## Miljøer
+
+[🚀 Produksjon](https://www.nav.no/syk/aktivitetskrav)
+
+[🛠️ Utvikling](https://www.ekstern.dev.nav.no/syk/aktivitetskrav)
+
+[🎬 Demo](https://demo.ekstern.dev.nav.no/syk/aktivitetskrav)
+
 ## Formål med appen
 
 Denne appen brukes til å vise status for aktivitetskravet for innloggede brukere på `Min side`.
