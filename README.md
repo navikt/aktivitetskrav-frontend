@@ -8,11 +8,17 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
 [![Cypress](https://img.shields.io/badge/Cypress-17202C?logo=cypress&logoColor=white)](https://www.cypress.io/)
 
-**Important:** To get started with building and running the app, read our [wiki for Next.js apps](https://github.com/navikt/esyfo-dev-tools/wiki/nextjs-build-run).
+## Miljøer
 
-## Purpose of the app
+[🚀 Produksjon](https://www.nav.no/syk/aktivitetskrav)
 
-This app is used to show the status of the activity requirement for logged-in users on `Min Side`.
+[🛠️ Utvikling](https://www.ekstern.dev.nav.no/syk/aktivitetskrav)
+
+[🎬 Demo](https://demo.ekstern.dev.nav.no/syk/aktivitetskrav)
+
+## Formål med appen
+
+Denne appen brukes til å vise status for aktivitetskravet for innloggede brukere på `Min side`.
 
 ```mermaid
 graph TD
@@ -20,33 +26,41 @@ graph TD
     DittSykefravaer[Ditt sykefravær] -->|"/syk/aktivitetskrav"| App
 ```
 
-### Activity requirement view
+### Visning av aktivitetskrav
 
-The user gets an overview of their activity requirement (aktivitetsplikt). This includes:
+Brukeren får en oversikt over sin aktivitetsplikt. Dette inkluderer:
 
-- Advance warnings about possible stoppage of sick pay (Varsel om mulig stans av sykepenger).
-- Information about deadlines and how to avoid stoppage.
-- Legal basis for the requirement.
-- A timeline of previous events and assessments.
+- Varsel om mulig stans av sykepenger.
+- Informasjon om frister og hvordan unngå stans.
+- Referanser til lovgrunnlag.
+- En tidslinje over tidligere hendelser og vurderinger.
 
-**Base path** `/syk/aktivitetskrav`
+**basePath**[^basepath] `/syk/aktivitetskrav`
 
-### Assessment details
+### Vurderingsdetaljer
 
-This view provides detailed information about a specific assessment or event, such as:
+Denne visningen gir detaljert informasjon om en spesifikk vurdering eller hendelse, som:
 
-- Information letters about the activity requirement (Info om aktivitetsplikt).
-- Explanations of how Nav assesses the requirement.
-- Implications for the user (potential stoppage of sick pay).
-- Instructions on what the user needs to do.
+- Info om aktivitetsplikt.
+- Forklaringer på hvordan Nav vurderer kravet.
+- Konsekvenser for brukeren (mulig stans av sykepenger).
+- Instruksjoner om hva brukeren må gjøre.
 
-**Path** `/syk/aktivitetskrav/[uuid]`
+**basePath**[^basepath] `/syk/aktivitetskrav/[uuid]`
 
-## Backend API
+## Backend-API
 
-The frontend app communicates with the backend via [eSYFO proxy](https://github.com/navikt/esyfo-proxy).
+Frontend-appen kommuniserer med backend via [eSYFO proxy](https://github.com/navikt/esyfo-proxy).
 
-Used endpoints:
+Endpoints som brukes:
 
-- **GET** `/historikk` - Fetches history of activity requirement assessments
-- **POST** `/les` - Marks advance warning as read
+- **GET** `/historikk` - Henter historikk over vurderinger av aktivitetskrav
+- **POST** `/les` - Markerer varsel som lest
+
+## Utvikling (kjøre lokalt)
+
+For å komme i gang med bygging og kjøring av appen, les vår [wiki for Next.js-applikasjoner](https://github.com/navikt/esyfo-dev-tools/wiki/nextjs-build-run).
+
+Når appen er startet, åpne http://localhost:3000/syk/aktivitetskrav
+
+[^basepath]: `basePath`-verdien settes i Next.js-konfigurasjonen i `next.config.ts` og angir URL-prefikset som hele appen lever under.
