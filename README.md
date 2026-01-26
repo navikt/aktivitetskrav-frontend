@@ -8,8 +8,6 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
 [![Cypress](https://img.shields.io/badge/Cypress-17202C?logo=cypress&logoColor=white)](https://www.cypress.io/)
 
-**Viktig:** For å komme i gang med å bygge og kjøre appen, les vår [wiki for Next.js apps](https://github.com/navikt/esyfo-dev-tools/wiki/nextjs-build-run).
-
 ## Miljøer
 
 [🚀 Produksjon](https://www.nav.no/syk/aktivitetskrav)
@@ -58,3 +56,9 @@ Endpoints som brukes:
 
 - **GET** `/historikk` - Henter historikk over vurderinger av aktivitetskrav
 - **POST** `/les` - Markerer varsel som lest
+
+## Utvikling (kjøre lokalt)
+
+For å komme i gang med bygging og kjøring av appen, les vår [wiki for Next.js-applikasjoner](https://github.com/navikt/esyfo-dev-tools/wiki/nextjs-build-run).
+
+Når appen er startet, åpne http://localhost:3000/syk/aktivitetskrav
