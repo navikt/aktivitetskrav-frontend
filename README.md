@@ -35,7 +35,7 @@ Brukeren får en oversikt over sin aktivitetsplikt. Dette inkluderer:
 - Lovgrunnlag for kravet.
 - En tidslinje over tidligere hendelser og vurderinger.
 
-**Base path** `/syk/aktivitetskrav`
+**basePath**[^basepath] `/syk/aktivitetskrav`
 
 ### Vurderingsdetaljer
 
@@ -46,9 +46,9 @@ Denne visningen gir detaljert informasjon om en spesifikk vurdering eller hendel
 - Konsekvenser for brukeren (mulig stans av sykepenger).
 - Instruksjoner om hva brukeren må gjøre.
 
-**Path** `/syk/aktivitetskrav/[uuid]`
+**basePath**[^basepath] `/syk/aktivitetskrav/[uuid]`
 
-## Backend API
+## Backend-API
 
 Frontend-appen kommuniserer med backend via [eSYFO proxy](https://github.com/navikt/esyfo-proxy).
 
@@ -62,3 +62,5 @@ Endpoints som brukes:
 For å komme i gang med bygging og kjøring av appen, les vår [wiki for Next.js-applikasjoner](https://github.com/navikt/esyfo-dev-tools/wiki/nextjs-build-run).
 
 Når appen er startet, åpne http://localhost:3000/syk/aktivitetskrav
+
+[^basepath]: `basePath`-verdien settes i Next.js-konfigurasjonen i `next.config.ts` og angir URL-prefikset som hele appen lever under.
