@@ -32,7 +32,7 @@ Brukeren får en oversikt over sin aktivitetsplikt. Dette inkluderer:
 
 - Varsel om mulig stans av sykepenger.
 - Informasjon om frister og hvordan unngå stans.
-- Lovgrunnlag for kravet.
+- Referanser til lovgrunnlag.
 - En tidslinje over tidligere hendelser og vurderinger.
 
 **basePath**[^basepath] `/syk/aktivitetskrav`
