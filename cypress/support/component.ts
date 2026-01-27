@@ -18,7 +18,7 @@ import "./commands";
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
-import { mount } from "cypress/react18";
+import { mount } from "cypress/react";
 import { mountWithMocks } from "../mocks/mountWithMocks";
 import { TestScenario } from "@/utils/testScenarioUtils";
 import { MountReturn } from "cypress/react";
