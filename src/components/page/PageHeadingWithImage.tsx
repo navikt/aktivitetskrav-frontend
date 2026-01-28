@@ -12,9 +12,9 @@ interface Props {
 // lex flex-row bg-white p-4 items-center justify-center
 export const PageHeadingWithImage = ({ headerText, image }: Props) => {
   return (
-    <div className="flex flex-row bg-white pt-4 items-center justify-center gap-8 md:pr-40">
+    <div className="flex flex-row bg-white pt-4 items-center justify-center gap-8 ax-md:pr-40">
       {image && (
-        <div className="border-solid border-2 border-white p-2 w-32 hidden md:flex">
+        <div className="border-solid border-2 border-white p-2 w-32 hidden ax-md:flex">
           <Image
             src={
               image === "MED_ARBEIDSGIVER" ? medarbeidsgiver : utenarbeidsgiver
