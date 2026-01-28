@@ -1,10 +1,10 @@
 import {
-  DecoratorComponentsReact,
+  type DecoratorComponentsReact,
   fetchDecoratorReact,
 } from "@navikt/nav-dekoratoren-moduler/ssr";
 import Document, {
-  DocumentContext,
-  DocumentInitialProps,
+  type DocumentContext,
+  type DocumentInitialProps,
   Head,
   Html,
   Main,

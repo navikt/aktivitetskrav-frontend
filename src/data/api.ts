@@ -1,8 +1,8 @@
-import { loginUser } from "@/utils/urlUtils";
 import {
   ForhandsvarselTestScenario,
   getTestScenario,
 } from "@/utils/testScenarioUtils";
+import { loginUser } from "@/utils/urlUtils";
 
 const testScenarioHeaders = (): Record<string, string> | undefined => {
   if (

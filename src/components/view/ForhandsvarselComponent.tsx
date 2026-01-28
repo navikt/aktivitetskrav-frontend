@@ -1,10 +1,9 @@
-import React from "react";
-import { Alert, BodyLong, Heading, Link, Tag } from "@navikt/ds-react";
-
-import { AktivitetskravVurdering } from "@/schema/aktivitetskravVurderingSchema";
-import { getShortDateFormat } from "@/utils/dateUtils";
+/** biome-ignore-all lint/suspicious/noArrayIndexKey: Key can be null in document also the text is maybe not unique */
+import { BodyLong, Heading, Link, Tag } from "@navikt/ds-react";
 import { ComponentHeader } from "@/components/header/ComponentHeader";
 import { useFerdigstillForhandsVarsel } from "@/data/ferdigstillVarsel";
+import type { AktivitetskravVurdering } from "@/schema/aktivitetskravVurderingSchema";
+import { getShortDateFormat } from "@/utils/dateUtils";
 import { AlertForUsersAffectedByNoNotificationsBug } from "./alertForUsersAffectedByNoNotificationsBug/AlertForUsersAffectedByNoNotificationsBug";
 
 interface Props {
@@ -93,6 +92,10 @@ export const ForhandsvarselComponent = ({ vurdering }: Props) => {
                   ))}
                 </div>
               );
+            default: {
+              const _exhaustive: never = d.type;
+              return _exhaustive;
+            }
           }
         })}
       </div>

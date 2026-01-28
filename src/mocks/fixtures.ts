@@ -1,6 +1,6 @@
-import { AktivitetskravVurdering } from "@/schema/aktivitetskravVurderingSchema";
-import { addDaysToDate, pastDateAsString } from "@/utils/dateUtils";
 import { forhaandsvarselDocumentMock } from "@/mocks/ForhaandsvarselDocumentMock";
+import type { AktivitetskravVurdering } from "@/schema/aktivitetskravVurderingSchema";
+import { addDaysToDate, pastDateAsString } from "@/utils/dateUtils";
 
 const nyKandidatVurdering = (
   dagerSidenOpprettetAktivitetskrav: number,
@@ -72,7 +72,7 @@ const innstillingOmStansVurdering = (
     createdAt: pastDateAsString(dagerSidenOpprettetAktivitetskrav),
     sistVurdert: pastDateAsString(dagerSidenHendelse),
   };
-}
+};
 
 const avventVurdering = (
   dagerSidenHendelse: number,

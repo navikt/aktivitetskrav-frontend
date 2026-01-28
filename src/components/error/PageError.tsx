@@ -1,9 +1,8 @@
-import React, { ReactNode } from "react";
-import Image from "next/legacy/image";
 import { BodyLong, Heading, Link } from "@navikt/ds-react";
-
-import pageErrorDad from "../../../public/page-error-dad.svg";
+import Image from "next/legacy/image";
+import type { ReactNode } from "react";
 import notFoundMom from "../../../public/not-found-mom.svg";
+import pageErrorDad from "../../../public/page-error-dad.svg";
 import styles from "./error.module.css";
 
 interface Props {
@@ -23,7 +22,7 @@ const PageError = ({
   const errorText = text ?? "Det har oppstått en uventet feil";
 
   return (
-    <div className={styles.errorcontainer} role="status" aria-live="polite">
+    <div className={styles.errorcontainer} role="alert" aria-live="polite">
       {graphic === "dad" ? (
         <Image className={styles.errorimage} src={pageErrorDad} alt="" />
       ) : (

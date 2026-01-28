@@ -1,13 +1,12 @@
-import React from "react";
-import { NextPage } from "next";
-import { AktivitetskravVurdering } from "@/schema/aktivitetskravVurderingSchema";
-import { AktivitetskravSkeletonComponent } from "@/components/skeleton/AktivitetskravSkeletonComponent";
-import { useAktivitetskravData } from "@/data/dataHooks";
-import { mapVurderingToViewItem } from "@/components/view/viewUtils";
-import { AktivitetskravBox } from "@/components/box/AktivitetskravBox";
-import { Vurdering } from "@/components/view/Vurdering";
+import type { NextPage } from "next";
 import { useRouter } from "next/router";
+import { AktivitetskravBox } from "@/components/box/AktivitetskravBox";
 import { Page } from "@/components/page/Page";
+import { AktivitetskravSkeletonComponent } from "@/components/skeleton/AktivitetskravSkeletonComponent";
+import { Vurdering } from "@/components/view/Vurdering";
+import { mapVurderingToViewItem } from "@/components/view/viewUtils";
+import { useAktivitetskravData } from "@/data/dataHooks";
+import type { AktivitetskravVurdering } from "@/schema/aktivitetskravVurderingSchema";
 
 interface Props {
   uuidToDisplay: string | string[] | undefined;

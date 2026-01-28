@@ -1,5 +1,5 @@
-import React, { ReactNode } from "react";
 import { Box } from "@navikt/ds-react";
+import type { ReactNode } from "react";
 
 interface Props {
   children: ReactNode;

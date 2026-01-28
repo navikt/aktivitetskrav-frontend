@@ -1,8 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { AktivitetskravVurdering } from "@/schema/aktivitetskravVurderingSchema";
+import type { AktivitetskravVurdering } from "@/schema/aktivitetskravVurderingSchema";
 import {
   getAktivitetskravVurderingForScenario,
-  TestScenario,
+  type TestScenario,
 } from "@/utils/testScenarioUtils";
 
 export default function handler(
@@ -13,9 +13,8 @@ export default function handler(
     process.env.NEXT_PUBLIC_RUNTIME_ENVIRONMENT === "local" ||
     process.env.NEXT_PUBLIC_RUNTIME_ENVIRONMENT === "demo"
   ) {
-    const testScenario: TestScenario = _req.headers[
-      "testscenario"
-    ] as TestScenario;
+    const testScenario: TestScenario = _req.headers
+      .testscenario as TestScenario;
 
     res.status(200).json(getAktivitetskravVurderingForScenario(testScenario));
   } else {

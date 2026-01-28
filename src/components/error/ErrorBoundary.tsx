@@ -1,7 +1,7 @@
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 import { ErrorBoundary as ReactErrorBoundary } from "react-error-boundary";
-import PageError from "./PageError";
 import { logError } from "@/utils/logUtils";
+import PageError from "./PageError";
 
 interface Props {
   children: ReactNode;

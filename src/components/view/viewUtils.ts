@@ -1,4 +1,4 @@
-import { AktivitetskravVurdering } from "@/schema/aktivitetskravVurderingSchema";
+import type { AktivitetskravVurdering } from "@/schema/aktivitetskravVurderingSchema";
 
 export interface AktivitetskravViewItem {
   type:
@@ -22,7 +22,7 @@ export const mapVurderingToViewItem = (
   switch (vurdering.status) {
     case "FORHANDSVARSEL": {
       return {
-        type: !!vurdering.document ? "FORHANDSVARSEL" : "UNDER_BEHANDLING",
+        type: vurdering.document ? "FORHANDSVARSEL" : "UNDER_BEHANDLING",
         vurdering: vurdering,
       };
     }

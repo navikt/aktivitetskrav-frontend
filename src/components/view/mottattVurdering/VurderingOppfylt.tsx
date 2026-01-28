@@ -1,8 +1,8 @@
-import {
+import { BodyLong } from "@navikt/ds-react";
+import type {
   Oppfylt,
   OppfyltArsaker,
 } from "@/schema/aktivitetskravVurderingSchema";
-import { BodyLong } from "@navikt/ds-react";
 
 const getAarsakAvsnitt = (arsak: OppfyltArsaker) => {
   switch (arsak) {

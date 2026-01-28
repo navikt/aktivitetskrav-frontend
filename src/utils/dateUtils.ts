@@ -78,5 +78,5 @@ export function subtractDaysFromDate(date: Date, daysToSubtract: number) {
 }
 
 export const pastDateAsString = (daysSince: number): string => {
-  return subtractDaysFromDate(new Date(), daysSince).toISOString()
-}
+  return subtractDaysFromDate(new Date(), daysSince).toISOString();
+};

@@ -1,8 +1,6 @@
 import { Button, Modal, Radio, RadioGroup } from "@navikt/ds-react";
-import SunImage from "../../../public/sun.svg";
-import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import styles from "./testscenarioselector.module.css";
+import { useEffect, useState } from "react";
 import {
   ForhandsvarselTestScenario,
   getTestScenario,
@@ -11,9 +9,11 @@ import {
   InnstillingOmStansTestScenario,
   OppfyltTestScenario,
   setTestScenario,
-  TestScenario,
-  UnntakTestScenario
+  type TestScenario,
+  UnntakTestScenario,
 } from "@/utils/testScenarioUtils";
+import SunImage from "../../../public/sun.svg";
+import styles from "./testscenarioselector.module.css";
 
 export const TestScenarioSelector = () => {
   const [open, setOpen] = useState(false);
@@ -50,7 +50,9 @@ export const TestScenarioSelector = () => {
               <Radio value={InfoSideTestScenario}>Ny kandidat</Radio>
               <Radio value={ForhandsvarselTestScenario}>Forhåndsvarsel</Radio>
               <Radio value={IkkeAktuellTestScenario}>Ikke aktuell</Radio>
-              <Radio value={InnstillingOmStansTestScenario}>Innstilling om stans</Radio>
+              <Radio value={InnstillingOmStansTestScenario}>
+                Innstilling om stans
+              </Radio>
               <Radio value={UnntakTestScenario}>Unntak</Radio>
               <Radio value={OppfyltTestScenario}>Oppfylt</Radio>
             </RadioGroup>
@@ -75,13 +77,15 @@ export const TestScenarioSelector = () => {
         </Modal.Body>
       </Modal>
 
-      <div
+      <button
+        type="button"
         id="TestScenarioSelector"
         onClick={() => setOpen(!open)}
         className={styles.testscenariocontainer}
+        aria-label="Åpne testscenariovelger"
       >
         <Image src={SunImage} alt="" width={40} height={40} />
-      </div>
+      </button>
     </>
   );
 };

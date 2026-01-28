@@ -1,5 +1,5 @@
-import { useEffect } from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useEffect } from "react";
 
 import { post } from "@/data/api";
 
@@ -17,7 +17,7 @@ export const useFerdigstillForhandsVarsel = () => {
   useEffect(() => {
     const ferdigstillForhandsvarselIfNotAlreadyDone = async () => {
       if (!hasFerdigstiltForhandsvarsel) {
-        await post(`${process.env.NEXT_PUBLIC_ESYFO_PROXY_API_URL!}/les`);
+        await post(`${process.env.NEXT_PUBLIC_ESYFO_PROXY_API_URL}/les`);
         queryClient.setQueryData(queryKeyHasFerdigstiltForhandsVarsel, true);
       }
     };

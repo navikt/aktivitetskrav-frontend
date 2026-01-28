@@ -1,6 +1,6 @@
-import { Alert, BodyLong, BodyShort } from "@navikt/ds-react";
+import { Alert, BodyShort } from "@navikt/ds-react";
 
-import { Forhandsvarsel } from "@/schema/aktivitetskravVurderingSchema";
+import type { Forhandsvarsel } from "@/schema/aktivitetskravVurderingSchema";
 import { forhandsvarselVurderingUuidsAffectedByNotificationBug } from "./affectedForhandsvarselVurderingUuids";
 
 interface Props {

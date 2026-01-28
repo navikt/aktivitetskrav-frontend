@@ -1,11 +1,11 @@
 "use client";
-import { Page } from "@/components/page/Page";
-import { AktivitetskravInfo } from "@/components/view/aktivitetskravInfo/AktivitetskravInfo";
 import { AktivitetskravBox } from "@/components/box/AktivitetskravBox";
-import { infoSideHeaderText } from "@/components/view/UnderBehandlingComponent";
 import { ComponentHeader } from "@/components/header/ComponentHeader";
-import { MedUtenArbeidsgiverToggleGroup } from "@/components/view/aktivitetskravInfo/MedUtenArbeidsgiverToggleGroup";
+import { Page } from "@/components/page/Page";
 import { Skeletor } from "@/components/skeleton/Skeletor";
+import { AktivitetskravInfo } from "@/components/view/aktivitetskravInfo/AktivitetskravInfo";
+import { MedUtenArbeidsgiverToggleGroup } from "@/components/view/aktivitetskravInfo/MedUtenArbeidsgiverToggleGroup";
+import { infoSideHeaderText } from "@/components/view/UnderBehandlingComponent";
 
 export const AktivitetskravSkeletonComponent = () => {
   return (

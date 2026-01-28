@@ -1,5 +1,8 @@
-import { Unntak, UnntakArsaker } from "@/schema/aktivitetskravVurderingSchema";
 import { BodyLong } from "@navikt/ds-react";
+import type {
+  Unntak,
+  UnntakArsaker,
+} from "@/schema/aktivitetskravVurderingSchema";
 
 const getAarsakAvsnitt = (arsak: UnntakArsaker) => {
   switch (arsak) {
@@ -16,5 +19,9 @@ interface Props {
   vurdering: Unntak;
 }
 export const VurderingUnntak = ({ vurdering }: Props) => {
-  return <BodyLong className="font-bold">{getAarsakAvsnitt(vurdering.arsaker[0])}</BodyLong>;
+  return (
+    <BodyLong className="font-bold">
+      {getAarsakAvsnitt(vurdering.arsaker[0])}
+    </BodyLong>
+  );
 };

@@ -1,21 +1,21 @@
 import "../styles/globals.css";
-import type { AppProps } from "next/app";
-import React, { useEffect, useState } from "react";
+import { setBreadcrumbs } from "@navikt/nav-dekoratoren-moduler";
+import { configureLogger } from "@navikt/next-logger";
 import {
-  DehydratedState,
+  type DehydratedState,
   HydrationBoundary,
   QueryClient,
   QueryClientProvider,
 } from "@tanstack/react-query";
-import { configureLogger } from "@navikt/next-logger";
-import { minutesToMillis } from "@/utils/dateUtils";
-import { ErrorBoundary } from "@/components/error/ErrorBoundary";
-import { initFaro } from "@/faro/initFaro";
-import { TestScenarioSelector } from "@/components/testscenarioselector/TestScenarioSelector";
-import { getTestScenario, setTestScenario } from "@/utils/testScenarioUtils";
-import { setBreadcrumbs } from "@navikt/nav-dekoratoren-moduler";
+import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 import { createBreadcrumbs } from "@/breadcrumbs/breadcrumbs";
+import { ErrorBoundary } from "@/components/error/ErrorBoundary";
+import { TestScenarioSelector } from "@/components/testscenarioselector/TestScenarioSelector";
+import { initFaro } from "@/faro/initFaro";
+import { minutesToMillis } from "@/utils/dateUtils";
+import { getTestScenario, setTestScenario } from "@/utils/testScenarioUtils";
 
 configureLogger({
   basePath: "/syk/aktivitetskrav",

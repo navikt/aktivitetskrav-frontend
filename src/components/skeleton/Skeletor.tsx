@@ -1,5 +1,5 @@
 import { Skeleton } from "@navikt/ds-react";
-import { SkeletonProps } from "@navikt/ds-react/src/skeleton/Skeleton";
+import type { SkeletonProps } from "@navikt/ds-react/src/skeleton/Skeleton";
 
 interface Props extends SkeletonProps {
   displaySkeleton: boolean;

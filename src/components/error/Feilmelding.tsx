@@ -1,4 +1,3 @@
-import React from "react";
 import { Alert, BodyLong, Heading } from "@navikt/ds-react";
 
 interface Props {

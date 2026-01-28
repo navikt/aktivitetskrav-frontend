@@ -1,9 +1,9 @@
-import Image from "next/image";
 import { Heading } from "@navikt/ds-react";
-import React, { ReactNode } from "react";
+import Image from "next/image";
+import type { ReactNode } from "react";
+import type { MedUtenAGVisning } from "@/components/view/UnderBehandlingComponent";
 import medarbeidsgiver from "../../../public/med_arbeidsgiver.svg";
 import utenarbeidsgiver from "../../../public/uten_arbeidsgiver.svg";
-import { MedUtenAGVisning } from "@/components/view/UnderBehandlingComponent";
 
 interface Props {
   headerText: ReactNode;
