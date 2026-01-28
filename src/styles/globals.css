@@ -1,6 +1,6 @@
-@config "../../tailwind.config.ts";
 @import "tailwindcss";
 @import "@navikt/ds-css" layer(components);
+@config "../../tailwind.config.ts";
 
 html {
   /* Will be set programatically by dekoratøren */
