@@ -38,13 +38,13 @@ export const HistoricEventsSummary = ({ historicVurderinger }: Props) => {
             Tidligere hendelser vedrørende din aktivitetsplikt
           </Heading>
 
-          {historicVurderinger.map((item, index) => {
+          {historicVurderinger.map((item) => {
             return (
               <LinkPanel
                 href={`/${item.vurdering.internUuid}`}
                 border
                 as={NextLink}
-                key={index}
+                key={item.vurdering.internUuid}
               >
                 <LinkPanel.Title>
                   {item.vurdering.sistVurdert

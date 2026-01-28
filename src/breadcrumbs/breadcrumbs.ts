@@ -5,11 +5,11 @@ interface Breadcrumb {
 
 export const AktivitetspliktBaseCrumbs: Breadcrumb[] = [
   {
-    url: process.env.NEXT_PUBLIC_MIN_SIDE_URL!,
+    url: process.env.NEXT_PUBLIC_MIN_SIDE_URL ?? "",
     title: "Min side",
   },
   {
-    url: process.env.NEXT_PUBLIC_DITT_SYKEFRAVAER_URL!,
+    url: process.env.NEXT_PUBLIC_DITT_SYKEFRAVAER_URL ?? "",
     title: "Ditt sykefravær",
   },
   {

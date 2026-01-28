@@ -1,7 +1,15 @@
 import { logger } from "@navikt/next-logger";
 
-// eslint-disable-next-line
-declare const window: any;
+declare global {
+  interface Window {
+    faro?: {
+      api: {
+        pushError: (error: Error) => void;
+      };
+    };
+  }
+}
+
 export const logError = (error: Error) => {
   if (typeof window !== "undefined" && !!window.faro) {
     window.faro.api.pushError(error);

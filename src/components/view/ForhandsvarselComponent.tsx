@@ -1,4 +1,4 @@
-import { Alert, BodyLong, Heading, Link, Tag } from "@navikt/ds-react";
+import { BodyLong, Heading, Link, Tag } from "@navikt/ds-react";
 import { ComponentHeader } from "@/components/header/ComponentHeader";
 import { useFerdigstillForhandsVarsel } from "@/data/ferdigstillVarsel";
 import type { AktivitetskravVurdering } from "@/schema/aktivitetskravVurderingSchema";
@@ -91,6 +91,10 @@ export const ForhandsvarselComponent = ({ vurdering }: Props) => {
                   ))}
                 </div>
               );
+            default: {
+              const _exhaustive: never = d.type;
+              return _exhaustive;
+            }
           }
         })}
       </div>

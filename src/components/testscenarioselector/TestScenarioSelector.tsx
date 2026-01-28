@@ -77,13 +77,15 @@ export const TestScenarioSelector = () => {
         </Modal.Body>
       </Modal>
 
-      <div
+      <button
+        type="button"
         id="TestScenarioSelector"
         onClick={() => setOpen(!open)}
         className={styles.testscenariocontainer}
+        aria-label="Åpne testscenariovelger"
       >
         <Image src={SunImage} alt="" width={40} height={40} />
-      </div>
+      </button>
     </>
   );
 };

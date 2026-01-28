@@ -25,29 +25,21 @@ export const ComponentHeader = ({
         <Heading size="large" level="1">
           {headerText}
         </Heading>
-        <>
-          {alertStyle === "info" && (
-            <InformationSquareFillIcon
-              aria-hidden
-              className={styles.infoIcon}
-            />
-          )}
-          {alertStyle === "warning" && (
-            <ExclamationmarkTriangleFillIcon
-              aria-hidden
-              className={styles.warningIcon}
-            />
-          )}
-          {alertStyle === "success" && (
-            <CheckmarkCircleFillIcon
-              aria-hidden
-              className={styles.successIcon}
-            />
-          )}
-          {alertStyle === "error" && (
-            <XMarkOctagonFillIcon aria-hidden className={styles.errorIcon} />
-          )}
-        </>
+        {alertStyle === "info" && (
+          <InformationSquareFillIcon aria-hidden className={styles.infoIcon} />
+        )}
+        {alertStyle === "warning" && (
+          <ExclamationmarkTriangleFillIcon
+            aria-hidden
+            className={styles.warningIcon}
+          />
+        )}
+        {alertStyle === "success" && (
+          <CheckmarkCircleFillIcon aria-hidden className={styles.successIcon} />
+        )}
+        {alertStyle === "error" && (
+          <XMarkOctagonFillIcon aria-hidden className={styles.errorIcon} />
+        )}
       </div>
 
       {utsendtDato && (

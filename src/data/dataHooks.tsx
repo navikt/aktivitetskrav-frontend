@@ -7,7 +7,7 @@ export const useAktivitetskravData = () => {
     queryKey: ["aktivitetskrav"],
     queryFn: () =>
       get<AktivitetskravVurdering[]>(
-        `${process.env.NEXT_PUBLIC_ESYFO_PROXY_API_URL}/historikk`!,
+        `${process.env.NEXT_PUBLIC_ESYFO_PROXY_API_URL}/historikk`,
       ),
   });
 };

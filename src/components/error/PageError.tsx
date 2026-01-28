@@ -22,7 +22,7 @@ const PageError = ({
   const errorText = text ?? "Det har oppstått en uventet feil";
 
   return (
-    <div className={styles.errorcontainer} role="status" aria-live="polite">
+    <div className={styles.errorcontainer} role="alert" aria-live="polite">
       {graphic === "dad" ? (
         <Image className={styles.errorimage} src={pageErrorDad} alt="" />
       ) : (

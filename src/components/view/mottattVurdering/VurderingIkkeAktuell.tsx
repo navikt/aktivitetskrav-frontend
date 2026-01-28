@@ -1,5 +1,4 @@
 import { BodyLong } from "@navikt/ds-react";
-import React from "react";
 
 export const VurderingIkkeAktuell = () => {
   return (
