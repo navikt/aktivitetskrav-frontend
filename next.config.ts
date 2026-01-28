@@ -1,4 +1,4 @@
-/** @type {import('next').NextConfig} */
+import type { NextConfig } from "next";
 
 const environment =
   process.env.NEXT_PUBLIC_RUNTIME_ENVIRONMENT === "prod" ? "prod" : "dev";
@@ -17,7 +17,7 @@ const appDirectives = {
   "connect-src": [SELF, "https://*.nav.no"],
 };
 
-const nextConfig = {
+const nextConfig: NextConfig = {
   async headers() {
     const { buildCspHeader } = await import(
       "@navikt/nav-dekoratoren-moduler/ssr/index.js"
@@ -42,4 +42,4 @@ const nextConfig = {
   productionBrowserSourceMaps: true,
 };
 
-module.exports = nextConfig;
+export default nextConfig;
