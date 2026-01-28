@@ -40,6 +40,10 @@ const nextConfig: NextConfig = {
   basePath: "/syk/aktivitetskrav",
   assetPrefix: process.env.NEXT_PUBLIC_ASSET_PREFIX || "",
   productionBrowserSourceMaps: true,
+  serverExternalPackages: [
+    "@navikt/nav-dekoratoren-moduler",
+    "@navikt/nav-dekoratoren-moduler/ssr",
+  ],
   experimental: {
     optimizePackageImports: ["@navikt/ds-react", "@navikt/aksel-icons"],
   },
