@@ -10,6 +10,7 @@ export const useFerdigstillForhandsVarsel = () => {
 
   const { data: hasFerdigstiltForhandsvarsel } = useQuery({
     queryKey: queryKeyHasFerdigstiltForhandsVarsel,
+    queryFn: () => false,
     initialData: false,
   });
 
