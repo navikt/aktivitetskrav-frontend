@@ -1,3 +1,4 @@
+/** biome-ignore-all lint/suspicious/noArrayIndexKey: Key can be null in document also the text is maybe not unique */
 import { BodyLong, Heading, Link, Tag } from "@navikt/ds-react";
 import { ComponentHeader } from "@/components/header/ComponentHeader";
 import { useFerdigstillForhandsVarsel } from "@/data/ferdigstillVarsel";
