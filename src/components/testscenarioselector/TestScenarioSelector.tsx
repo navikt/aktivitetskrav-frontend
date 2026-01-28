@@ -12,7 +12,7 @@ import {
   OppfyltTestScenario,
   setTestScenario,
   TestScenario,
-  UnntakTestScenario
+  UnntakTestScenario,
 } from "@/utils/testScenarioUtils";
 
 export const TestScenarioSelector = () => {
@@ -50,7 +50,9 @@ export const TestScenarioSelector = () => {
               <Radio value={InfoSideTestScenario}>Ny kandidat</Radio>
               <Radio value={ForhandsvarselTestScenario}>Forhåndsvarsel</Radio>
               <Radio value={IkkeAktuellTestScenario}>Ikke aktuell</Radio>
-              <Radio value={InnstillingOmStansTestScenario}>Innstilling om stans</Radio>
+              <Radio value={InnstillingOmStansTestScenario}>
+                Innstilling om stans
+              </Radio>
               <Radio value={UnntakTestScenario}>Unntak</Radio>
               <Radio value={OppfyltTestScenario}>Oppfylt</Radio>
             </RadioGroup>

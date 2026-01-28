@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
-import {ComponentHeader} from "@/components/header/ComponentHeader";
-import {BodyLong} from "@navikt/ds-react";
-import {AktivitetskravVurdering} from "@/schema/aktivitetskravVurderingSchema";
+import { ComponentHeader } from "@/components/header/ComponentHeader";
+import { BodyLong } from "@navikt/ds-react";
+import { AktivitetskravVurdering } from "@/schema/aktivitetskravVurderingSchema";
 
 interface Props {
   vurdering: AktivitetskravVurdering;

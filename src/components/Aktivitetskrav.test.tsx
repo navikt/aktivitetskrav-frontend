@@ -8,9 +8,7 @@ describe("Aktivitetskrav", () => {
   it("Displays infoside for vurdering ny kandidat", () => {
     render(<Aktivitetskrav aktivitetskrav={fixtures.nyKandidatFixture} />);
 
-    expect(
-      screen.getByText("Din aktivitetsplikt"),
-    ).toBeInTheDocument();
+    expect(screen.getByText("Din aktivitetsplikt")).toBeInTheDocument();
   });
 
   it("Displays infoside for vurdering forhandsvarsel with missing document", () => {
@@ -20,15 +18,11 @@ describe("Aktivitetskrav", () => {
       />,
     );
 
-    expect(
-      screen.getByText("Din aktivitetsplikt"),
-    ).toBeInTheDocument();
+    expect(screen.getByText("Din aktivitetsplikt")).toBeInTheDocument();
   });
 
   it("Displays forhaandsvarsel for vurdering forhandsvarsel with document", () => {
-    render(
-      <Aktivitetskrav aktivitetskrav={fixtures.forhaandsvarselFixture} />,
-    );
+    render(<Aktivitetskrav aktivitetskrav={fixtures.forhaandsvarselFixture} />);
 
     expect(
       screen.getByText("Varsel om mulig stans av sykepenger"),

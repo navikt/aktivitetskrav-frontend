@@ -15,7 +15,7 @@ export const IconRow = ({ icon, displaySkeleton = false, children }: Props) => {
           <Skeleton variant="circle" width={60} height={60} />
         </div>
       ) : (
-        <CircledIcon className="hidden sm:flex" icon={icon}/>
+        <CircledIcon className="hidden sm:flex" icon={icon} />
       )}
       {children}
     </div>

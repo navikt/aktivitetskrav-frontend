@@ -72,7 +72,7 @@ const innstillingOmStansVurdering = (
     createdAt: pastDateAsString(dagerSidenOpprettetAktivitetskrav),
     sistVurdert: pastDateAsString(dagerSidenHendelse),
   };
-}
+};
 
 const avventVurdering = (
   dagerSidenHendelse: number,

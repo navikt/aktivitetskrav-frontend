@@ -23,8 +23,8 @@ export const MottattVurderingComponent = ({ vurdering }: Props) => {
         <BodyLong>Hei!</BodyLong>
 
         <BodyLong>
-          Alle sykmeldte skal i utgangspunktet jobbe litt hvis de kan,
-          også hvis de er 100 % sykmeldt. Dette kalles aktivitetsplikten.
+          Alle sykmeldte skal i utgangspunktet jobbe litt hvis de kan, også hvis
+          de er 100 % sykmeldt. Dette kalles aktivitetsplikten.
         </BodyLong>
 
         <MottattVurderingDetaljer vurdering={vurdering} />
@@ -36,7 +36,8 @@ export const MottattVurderingComponent = ({ vurdering }: Props) => {
 
         <BodyLong>
           Selv om du har fått unntak fra aktivitetsplikten nå, skal du fremdeles
-          samarbeide med arbeidsgiver og/eller Nav for å komme tilbake i jobb. Dette kalles medvirkningsplikten.
+          samarbeide med arbeidsgiver og/eller Nav for å komme tilbake i jobb.
+          Dette kalles medvirkningsplikten.
         </BodyLong>
 
         <BodyLong>

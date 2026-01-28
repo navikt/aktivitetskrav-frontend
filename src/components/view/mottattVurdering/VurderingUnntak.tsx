@@ -16,5 +16,9 @@ interface Props {
   vurdering: Unntak;
 }
 export const VurderingUnntak = ({ vurdering }: Props) => {
-  return <BodyLong className="font-bold">{getAarsakAvsnitt(vurdering.arsaker[0])}</BodyLong>;
+  return (
+    <BodyLong className="font-bold">
+      {getAarsakAvsnitt(vurdering.arsaker[0])}
+    </BodyLong>
+  );
 };
