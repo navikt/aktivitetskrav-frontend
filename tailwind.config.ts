@@ -16,13 +16,13 @@ const config: Config = {
         "ds-gray-50": "#f7f7f7",
         "header-color": "#d1eff9",
         "aksel-info-color":
-          "var(--ac-alert-icon-info-color, var(--a-icon-info))",
+          "var(--ac-alert-icon-info-color, var(--ax-text-info-decoration))",
         "aksel-warning-color":
-          "var(--ac-alert-icon-warning-color, var(--a-icon-warning))",
+          "var(--ac-alert-icon-warning-color, var(--ax-text-warning-decoration))",
         "aksel-success-color":
-          "var(--ac-alert-icon-success-color, var(--a-icon-success))",
+          "var(--ac-alert-icon-success-color, var(--ax-text-success-decoration))",
         "aksel-error-color":
-          "var(--ac-alert-icon-error-color, var(--a-icon-danger))",
+          "var(--ac-alert-icon-error-color, var(--ax-text-danger-decoration))",
       },
     },
   },
