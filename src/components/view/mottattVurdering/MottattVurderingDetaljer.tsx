@@ -1,8 +1,7 @@
-import React from "react";
+import { VurderingIkkeAktuell } from "@/components/view/mottattVurdering/VurderingIkkeAktuell";
 import { VurderingOppfylt } from "@/components/view/mottattVurdering/VurderingOppfylt";
 import { VurderingUnntak } from "@/components/view/mottattVurdering/VurderingUnntak";
-import { VurderingIkkeAktuell } from "@/components/view/mottattVurdering/VurderingIkkeAktuell";
-import { AktivitetskravVurdering } from "@/schema/aktivitetskravVurderingSchema";
+import type { AktivitetskravVurdering } from "@/schema/aktivitetskravVurderingSchema";
 
 interface Props {
   vurdering: AktivitetskravVurdering;

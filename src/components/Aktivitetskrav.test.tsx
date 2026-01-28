@@ -1,8 +1,7 @@
-import { describe, it, expect } from "vitest";
-import { render, screen } from "@/test/test-utils";
-
-import { Aktivitetskrav } from "./Aktivitetskrav";
+import { describe, expect, it } from "vitest";
 import fixtures from "@/mocks/fixtures";
+import { render, screen } from "@/test/test-utils";
+import { Aktivitetskrav } from "./Aktivitetskrav";
 
 describe("Aktivitetskrav", () => {
   it("Displays infoside for vurdering ny kandidat", () => {

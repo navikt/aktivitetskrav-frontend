@@ -1,13 +1,12 @@
-import React from "react";
-import { BodyLong, Heading } from "@navikt/ds-react";
 import { Chat2Icon, DocPencilIcon, PersonIcon } from "@navikt/aksel-icons";
+import { BodyLong, Heading } from "@navikt/ds-react";
+import { IconRow } from "@/components/icons/IconRow";
+import { Skeletor } from "@/components/skeleton/Skeletor";
 import {
   hvaBetyrDetText,
   hvaMaDuGjoreText,
   hvordanVurdererText,
 } from "./InfoTexts";
-import { IconRow } from "@/components/icons/IconRow";
-import { Skeletor } from "@/components/skeleton/Skeletor";
 
 interface Props {
   harArbeidsgiver: boolean;

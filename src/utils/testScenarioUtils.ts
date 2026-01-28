@@ -1,5 +1,5 @@
 import fixtures from "@/mocks/fixtures";
-import { AktivitetskravVurdering } from "@/schema/aktivitetskravVurderingSchema";
+import type { AktivitetskravVurdering } from "@/schema/aktivitetskravVurderingSchema";
 
 export type TestScenario =
   | typeof InfoSideTestScenario

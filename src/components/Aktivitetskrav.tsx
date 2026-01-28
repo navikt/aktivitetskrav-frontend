@@ -1,10 +1,9 @@
-import { AktivitetskravVurdering } from "@/schema/aktivitetskravVurderingSchema";
-import { Page } from "@/components/page/Page";
 import { AktivitetskravBox } from "@/components/box/AktivitetskravBox";
-import React from "react";
 import { HistoricEventsSummary } from "@/components/history/HistoricEventsSummary";
-import { getViewItems } from "@/components/view/viewUtils";
+import { Page } from "@/components/page/Page";
 import { Vurdering } from "@/components/view/Vurdering";
+import { getViewItems } from "@/components/view/viewUtils";
+import type { AktivitetskravVurdering } from "@/schema/aktivitetskravVurderingSchema";
 
 interface Props {
   aktivitetskrav: AktivitetskravVurdering[];

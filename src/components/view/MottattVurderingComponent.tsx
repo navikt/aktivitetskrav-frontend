@@ -1,10 +1,9 @@
 "use client";
-import React from "react";
-import { ComponentHeader } from "@/components/header/ComponentHeader";
 import { BodyLong, Tag } from "@navikt/ds-react";
-import { AktivitetskravVurdering } from "@/schema/aktivitetskravVurderingSchema";
-import { getShortDateFormat } from "@/utils/dateUtils";
+import { ComponentHeader } from "@/components/header/ComponentHeader";
 import { MottattVurderingDetaljer } from "@/components/view/mottattVurdering/MottattVurderingDetaljer";
+import type { AktivitetskravVurdering } from "@/schema/aktivitetskravVurderingSchema";
+import { getShortDateFormat } from "@/utils/dateUtils";
 
 interface Props {
   vurdering: AktivitetskravVurdering;

@@ -1,10 +1,8 @@
-import React from "react";
 import { Alert, BodyLong, Heading, Link, Tag } from "@navikt/ds-react";
-
-import { AktivitetskravVurdering } from "@/schema/aktivitetskravVurderingSchema";
-import { getShortDateFormat } from "@/utils/dateUtils";
 import { ComponentHeader } from "@/components/header/ComponentHeader";
 import { useFerdigstillForhandsVarsel } from "@/data/ferdigstillVarsel";
+import type { AktivitetskravVurdering } from "@/schema/aktivitetskravVurderingSchema";
+import { getShortDateFormat } from "@/utils/dateUtils";
 import { AlertForUsersAffectedByNoNotificationsBug } from "./alertForUsersAffectedByNoNotificationsBug/AlertForUsersAffectedByNoNotificationsBug";
 
 interface Props {

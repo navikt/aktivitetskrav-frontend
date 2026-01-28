@@ -1,8 +1,6 @@
 import { Button, Modal, Radio, RadioGroup } from "@navikt/ds-react";
-import SunImage from "../../../public/sun.svg";
-import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import styles from "./testscenarioselector.module.css";
+import { useEffect, useState } from "react";
 import {
   ForhandsvarselTestScenario,
   getTestScenario,
@@ -11,9 +9,11 @@ import {
   InnstillingOmStansTestScenario,
   OppfyltTestScenario,
   setTestScenario,
-  TestScenario,
+  type TestScenario,
   UnntakTestScenario,
 } from "@/utils/testScenarioUtils";
+import SunImage from "../../../public/sun.svg";
+import styles from "./testscenarioselector.module.css";
 
 export const TestScenarioSelector = () => {
   const [open, setOpen] = useState(false);

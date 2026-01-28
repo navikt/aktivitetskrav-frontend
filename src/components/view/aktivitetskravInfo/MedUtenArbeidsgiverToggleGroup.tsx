@@ -1,7 +1,6 @@
-import { ToggleGroup } from "@navikt/ds-react";
-import React from "react";
 import { Buldings3Icon, PersonIcon } from "@navikt/aksel-icons";
-import { MedUtenAGVisning } from "@/components/view/UnderBehandlingComponent";
+import { ToggleGroup } from "@navikt/ds-react";
+import type { MedUtenAGVisning } from "@/components/view/UnderBehandlingComponent";
 
 interface Props {
   setVisning(val: MedUtenAGVisning): void;

@@ -1,5 +1,5 @@
 import { Heading } from "@navikt/ds-react";
-import React, { ReactNode } from "react";
+import type { ReactNode } from "react";
 
 interface Props {
   headerText: ReactNode;

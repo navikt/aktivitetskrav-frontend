@@ -1,4 +1,4 @@
-import { DocumentComponent } from "@/schema/documentComponentSchema";
+import type { DocumentComponent } from "@/schema/documentComponentSchema";
 
 export const forhaandsvarselDocumentMock: DocumentComponent[] = [
   {

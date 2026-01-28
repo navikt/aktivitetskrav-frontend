@@ -1,8 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { AktivitetskravVurdering } from "@/schema/aktivitetskravVurderingSchema";
+import type { AktivitetskravVurdering } from "@/schema/aktivitetskravVurderingSchema";
 import {
   getAktivitetskravVurderingForScenario,
-  TestScenario,
+  type TestScenario,
 } from "@/utils/testScenarioUtils";
 
 export default function handler(

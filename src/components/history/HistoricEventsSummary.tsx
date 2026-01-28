@@ -1,11 +1,10 @@
-import React from "react";
 import { Heading, LinkPanel } from "@navikt/ds-react";
 import NextLink from "next/link";
 
 import { AktivitetskravBox } from "@/components/box/AktivitetskravBox";
-import { getShortDateFormat } from "@/utils/dateUtils";
-import { AktivitetskravViewItem } from "@/components/view/viewUtils";
+import type { AktivitetskravViewItem } from "@/components/view/viewUtils";
 import { useFerdigstillForhandsVarsel } from "@/data/ferdigstillVarsel";
+import { getShortDateFormat } from "@/utils/dateUtils";
 
 const getHeaderText = (viewItem: AktivitetskravViewItem) => {
   switch (viewItem.type) {

@@ -1,5 +1,8 @@
-import { Unntak, UnntakArsaker } from "@/schema/aktivitetskravVurderingSchema";
 import { BodyLong } from "@navikt/ds-react";
+import type {
+  Unntak,
+  UnntakArsaker,
+} from "@/schema/aktivitetskravVurderingSchema";
 
 const getAarsakAvsnitt = (arsak: UnntakArsaker) => {
   switch (arsak) {

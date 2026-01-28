@@ -1,6 +1,6 @@
-import CircledIcon from "./CircledIcon";
-import React, { ReactElement } from "react";
 import { Skeleton } from "@navikt/ds-react";
+import type { ReactElement } from "react";
+import CircledIcon from "./CircledIcon";
 
 interface Props {
   icon: ReactElement;

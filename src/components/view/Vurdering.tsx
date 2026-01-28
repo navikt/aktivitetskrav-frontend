@@ -1,9 +1,9 @@
-import React, { ReactElement } from "react";
+import type { ReactElement } from "react";
 import { ForhandsvarselComponent } from "@/components/view/ForhandsvarselComponent";
-import { UnderBehandlingComponent } from "@/components/view/UnderBehandlingComponent";
-import { MottattVurderingComponent } from "@/components/view/MottattVurderingComponent";
-import { AktivitetskravViewItem } from "@/components/view/viewUtils";
 import { IkkeOppfyltComponent } from "@/components/view/ikkeOppfylt/IkkeOppfyltComponent";
+import { MottattVurderingComponent } from "@/components/view/MottattVurderingComponent";
+import { UnderBehandlingComponent } from "@/components/view/UnderBehandlingComponent";
+import type { AktivitetskravViewItem } from "@/components/view/viewUtils";
 
 interface Props {
   viewItem?: AktivitetskravViewItem | null;

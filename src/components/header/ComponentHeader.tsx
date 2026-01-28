@@ -1,12 +1,11 @@
-import { BodyLong, Heading } from "@navikt/ds-react";
-import React from "react";
-import { getShortDateFormat } from "@/utils/dateUtils";
 import {
   CheckmarkCircleFillIcon,
   ExclamationmarkTriangleFillIcon,
   InformationSquareFillIcon,
   XMarkOctagonFillIcon,
 } from "@navikt/aksel-icons";
+import { BodyLong, Heading } from "@navikt/ds-react";
+import { getShortDateFormat } from "@/utils/dateUtils";
 import styles from "./componentheader.module.css";
 
 interface Props {
