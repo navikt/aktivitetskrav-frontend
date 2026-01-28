@@ -1,4 +1,4 @@
-import { Buldings3Icon, PersonIcon } from "@navikt/aksel-icons";
+import { Buildings3Icon, PersonIcon } from "@navikt/aksel-icons";
 import { ToggleGroup } from "@navikt/ds-react";
 import type { MedUtenAGVisning } from "@/components/view/UnderBehandlingComponent";
 
@@ -14,7 +14,7 @@ export const MedUtenArbeidsgiverToggleGroup = ({ setVisning }: Props) => {
         onChange={(visning) => setVisning(visning as MedUtenAGVisning)}
       >
         <ToggleGroup.Item value="MED_ARBEIDSGIVER">
-          <Buldings3Icon aria-hidden />
+          <Buildings3Icon aria-hidden />
           Jeg har arbeidsgiver
         </ToggleGroup.Item>
         <ToggleGroup.Item value="UTEN_ARBEIDSGIVER">
