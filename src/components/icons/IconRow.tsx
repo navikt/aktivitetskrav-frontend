@@ -11,11 +11,11 @@ export const IconRow = ({ icon, displaySkeleton = false, children }: Props) => {
   return (
     <div className="flex flex-row gap-4">
       {displaySkeleton ? (
-        <div className="hidden sm:flex">
+        <div className="hidden ax-sm:flex">
           <Skeleton variant="circle" width={60} height={60} />
         </div>
       ) : (
-        <CircledIcon className="hidden sm:flex" icon={icon} />
+        <CircledIcon className="hidden ax-sm:flex" icon={icon} />
       )}
       {children}
     </div>

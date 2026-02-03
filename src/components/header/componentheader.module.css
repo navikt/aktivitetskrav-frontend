@@ -8,20 +8,20 @@
 
 .infoIcon {
   composes: roundedIcon;
-  color: var(--a-icon-info);
+  color: var(--ax-text-info-decoration);
 }
 
 .warningIcon {
   composes: roundedIcon;
-  color: var(--a-icon-warning);
+  color: var(--ax-text-warning-decoration);
 }
 
 .successIcon {
   composes: roundedIcon;
-  color: var(--a-icon-success);
+  color: var(--ax-text-success-decoration);
 }
 
 .errorIcon {
   composes: roundedIcon;
-  color: var(--a-icon-danger);
+  color: var(--ax-text-danger-decoration);
 }

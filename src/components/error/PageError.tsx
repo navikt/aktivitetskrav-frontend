@@ -1,6 +1,6 @@
 import { BodyLong, Heading, Link } from "@navikt/ds-react";
-import Image from "next/legacy/image";
-import type { ReactNode } from "react";
+import Image from "next/image";
+import type { ReactElement, ReactNode } from "react";
 import notFoundMom from "../../../public/not-found-mom.svg";
 import pageErrorDad from "../../../public/page-error-dad.svg";
 import styles from "./error.module.css";
@@ -18,15 +18,23 @@ const PageError = ({
   text,
   details,
   noReload = false,
-}: Props): JSX.Element => {
+}: Props): ReactElement => {
   const errorText = text ?? "Det har oppstått en uventet feil";
 
   return (
     <div className={styles.errorcontainer} role="alert" aria-live="polite">
       {graphic === "dad" ? (
-        <Image className={styles.errorimage} src={pageErrorDad} alt="" />
+        <Image
+          className={styles.errorimage}
+          src={pageErrorDad}
+          alt="Error bilde"
+        />
       ) : (
-        <Image className={styles.errorimage} src={notFoundMom} alt="" />
+        <Image
+          className={styles.errorimage}
+          src={notFoundMom}
+          alt="Ikke funnet bilde"
+        />
       )}
       <div>
         <Heading spacing size="large" level="1">
