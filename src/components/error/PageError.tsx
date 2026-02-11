@@ -24,11 +24,7 @@ const PageError = ({
   return (
     <div className={styles.errorcontainer} role="alert" aria-live="polite">
       {graphic === "dad" ? (
-        <Image
-          className={styles.errorimage}
-          src={pageErrorDad}
-          alt="Error bilde"
-        />
+        <Image className={styles.errorimage} src={pageErrorDad} alt="" />
       ) : (
         <Image
           className={styles.errorimage}
