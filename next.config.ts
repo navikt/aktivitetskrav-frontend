@@ -36,6 +36,7 @@ const nextConfig: NextConfig = {
     ];
   },
   reactStrictMode: true,
+  reactCompiler: true,
   output: "standalone",
   basePath: "/syk/aktivitetskrav",
   assetPrefix: process.env.NEXT_PUBLIC_ASSET_PREFIX || "",
