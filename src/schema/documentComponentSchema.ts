@@ -1,4 +1,4 @@
-import { literal, object, string, z } from "zod";
+import { literal, object, z } from "zod";
 
 const documentComponentType = z.union([
   literal("HEADER_H1"),
@@ -12,7 +12,7 @@ const documentComponentType = z.union([
 export const documentComponentSchema = object({
   type: documentComponentType,
   key: z.string().nullish(),
-  title: string().datetime().nullish(),
+  title: z.iso.datetime().nullish(),
   texts: z.array(z.string()),
 });
 
