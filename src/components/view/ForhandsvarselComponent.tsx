@@ -66,7 +66,7 @@ export const ForhandsvarselComponent = ({ vurdering }: Props) => {
                     </Heading>
                   )}
                   {d.texts.map((text, index) => (
-                    <Link className="break-words" key={index} href={text}>
+                    <Link className="wrap-break-word" key={index} href={text}>
                       {text}
                     </Link>
                   ))}
