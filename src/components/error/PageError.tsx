@@ -26,11 +26,7 @@ const PageError = ({
       {graphic === "dad" ? (
         <Image className={styles.errorimage} src={pageErrorDad} alt="" />
       ) : (
-        <Image
-          className={styles.errorimage}
-          src={notFoundMom}
-          alt="Ikke funnet bilde"
-        />
+        <Image className={styles.errorimage} src={notFoundMom} alt="" />
       )}
       <div>
         <Heading spacing size="large" level="1">
