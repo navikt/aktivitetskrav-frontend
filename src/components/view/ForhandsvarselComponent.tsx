@@ -66,7 +66,7 @@ export const ForhandsvarselComponent = ({ vurdering }: Props) => {
                     </Heading>
                   )}
                   {d.texts.map((text, index) => (
-                    <Link className="break-words" key={index} href={text}>
+                    <Link className="break-normal" key={index} href={text}>
                       {text}
                     </Link>
                   ))}
@@ -74,7 +74,7 @@ export const ForhandsvarselComponent = ({ vurdering }: Props) => {
               );
             case "BULLET_POINTS":
               return (
-                <ul className="list-disc list-inside" key={index}>
+                <ul className="list-disc list-outside ml-5" key={index}>
                   {d.texts.map((text, index) => (
                     <BodyLong size="small" key={index} as={"li"}>
                       {text}
