@@ -13,8 +13,8 @@
     "format": "biome format --write ."
   },
   "dependencies": {
-    "@grafana/faro-web-sdk": "^1.19.0",
-    "@grafana/faro-web-tracing": "^1.19.0",
+    "@grafana/faro-web-sdk": "^2.2.3",
+    "@grafana/faro-web-tracing": "^2.2.3",
     "@navikt/aksel-icons": "^8.1.0",
     "@navikt/ds-css": "^8.1.0",
     "@navikt/ds-react": "^8.1.0",
