@@ -1,4 +1,5 @@
 import { logger } from "@navikt/next-logger";
+import type { ErrorInfo } from "react";
 
 declare global {
   interface Window {
@@ -10,10 +11,16 @@ declare global {
   }
 }
 
-export const logError = (error: Error) => {
+export const logError = (error: unknown, info: ErrorInfo) => {
+  const errorInstance =
+    error instanceof Error ? error : new Error(String(error));
+
   if (typeof window !== "undefined" && !!window.faro) {
-    window.faro.api.pushError(error);
+    window.faro.api.pushError(errorInstance);
   } else {
-    logger.error(error.message);
+    logger.error(
+      { error, componentStack: info.componentStack },
+      "Component error details",
+    );
   }
 };
