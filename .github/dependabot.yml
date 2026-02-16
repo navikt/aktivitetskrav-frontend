@@ -24,6 +24,9 @@ updates:
       default-days: 7
     open-pull-requests-limit: 20
     registries: "*"
+    ignore:
+      - dependency-name: '@types/node'
+        update-types: ['version-update:semver-major']
     groups:
       aksel-dependencies:
         patterns:
