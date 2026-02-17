@@ -47,5 +47,10 @@
     "typescript": "^5",
     "vite-tsconfig-paths": "^6.1.0",
     "vitest": "^4.0.18"
+  },
+  "pnpm": {
+    "overrides": {
+      "jsdom": "26.1.0"
+    }
   }
 }
