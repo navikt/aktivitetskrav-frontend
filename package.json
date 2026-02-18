@@ -2,6 +2,8 @@
   "name": "aktivitetskrav-frontend",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.29.2",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -47,5 +49,10 @@
     "typescript": "^5",
     "vite-tsconfig-paths": "^6.1.0",
     "vitest": "^4.0.18"
+  },
+  "pnpm": {
+    "overrides": {
+      "jsdom": "26.1.0"
+    }
   }
 }
