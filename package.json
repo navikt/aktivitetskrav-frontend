@@ -48,7 +48,7 @@
     "babel-plugin-react-compiler": "^1.0.0",
     "next-router-mock": "^1.0.5",
     "postcss": "^8",
-    "tailwindcss": "^4.1.0",
+    "tailwindcss": "^4.2.0",
     "typescript": "^5",
     "vite-tsconfig-paths": "^6.1.0",
     "vitest": "^4.0.18"
