@@ -13,7 +13,7 @@ spec:
     cpuThresholdPercentage: 90
   port: 3000
   tokenx:
-    enabled: false
+    enabled: true
   idporten:
     enabled: true
     sidecar:
@@ -54,10 +54,13 @@ spec:
       value: "https://dekoratoren.dev.nav.no"
     - name: BASE_PATH
       value: "/syk/aktivitetskrav"
+    - name: AKTIVITETSKRAV_BACKEND_CLIENT_ID
+      value: "dev-gcp:team-esyfo:aktivitetskrav-backend"
   accessPolicy:
     outbound:
       rules:
         - application: nav-dekoratoren
           namespace: personbruker
+        - application: aktivitetskrav-backend
       external:
         - host: dekoratoren.dev.nav.no
