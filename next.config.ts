@@ -44,6 +44,7 @@ const nextConfig: NextConfig = {
   serverExternalPackages: [
     "@navikt/nav-dekoratoren-moduler",
     "@navikt/nav-dekoratoren-moduler/ssr",
+    "@navikt/oasis",
   ],
   experimental: {
     optimizePackageImports: ["@navikt/ds-react", "@navikt/aksel-icons"],
