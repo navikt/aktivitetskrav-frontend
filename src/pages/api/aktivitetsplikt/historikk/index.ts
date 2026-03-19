@@ -4,20 +4,38 @@ import {
   getAktivitetskravVurderingForScenario,
   type TestScenario,
 } from "@/utils/testScenarioUtils";
+import {
+  isMockRuntimeEnvironment,
+  proxyAktivitetskravBackendRequest,
+  respondMethodNotAllowed,
+} from "@/utils/aktivitetskravApiProxyUtils";
 
-export default function handler(
-  _req: NextApiRequest,
+export const config = {
+  api: {
+    bodyParser: false,
+    externalResolver: true,
+  },
+};
+
+export default async function handler(
+  req: NextApiRequest,
   res: NextApiResponse<AktivitetskravVurdering[] | null>,
 ) {
-  if (
-    process.env.NEXT_PUBLIC_RUNTIME_ENVIRONMENT === "local" ||
-    process.env.NEXT_PUBLIC_RUNTIME_ENVIRONMENT === "demo"
-  ) {
-    const testScenario: TestScenario = _req.headers
-      .testscenario as TestScenario;
+  if (req.method !== "GET") {
+    respondMethodNotAllowed(req, res, "GET");
+    return;
+  }
+
+  if (isMockRuntimeEnvironment()) {
+    const testScenario = req.headers.testscenario as TestScenario;
 
     res.status(200).json(getAktivitetskravVurderingForScenario(testScenario));
-  } else {
-    res.status(404).json(null);
+    return;
   }
+
+  await proxyAktivitetskravBackendRequest(
+    req,
+    res,
+    "/api/v1/aktivitetsplikt/historikk",
+  );
 }
