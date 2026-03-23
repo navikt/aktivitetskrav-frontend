@@ -1,4 +1,5 @@
 import { proxyApiRouteRequest } from "@navikt/next-api-proxy";
+import { logger } from "@navikt/next-logger";
 import { getToken, requestOboToken, validateToken } from "@navikt/oasis";
 import type { NextApiRequest, NextApiResponse } from "next";
 import { getServerEnv } from "@/env/serverEnv";
@@ -26,7 +27,7 @@ export async function proxyAktivitetskravBackendRequest(
   const token = getToken(req);
 
   if (!token) {
-    console.warn("Missing user token for aktivitetskrav proxy request");
+    logger.warn("Missing user token for aktivitetskrav proxy request");
     res.status(401).end("Unauthorized");
     return;
   }
@@ -34,9 +35,10 @@ export async function proxyAktivitetskravBackendRequest(
   const validationResult = await validateToken(token);
 
   if (!validationResult.ok) {
-    console.warn("Token validation failed for aktivitetskrav proxy request", {
-      errorType: validationResult.errorType,
-    });
+    logger.warn(
+      { errorType: validationResult.errorType },
+      "Token validation failed for aktivitetskrav proxy request",
+    );
     res.status(401).end("Unauthorized");
     return;
   }
@@ -47,9 +49,9 @@ export async function proxyAktivitetskravBackendRequest(
   );
 
   if (!oboTokenResult.ok) {
-    console.error(
-      "OBO token request failed for aktivitetskrav proxy request",
+    logger.error(
       { error: oboTokenResult.error.message },
+      "OBO token request failed for aktivitetskrav proxy request",
     );
     res.status(502).end("Bad Gateway");
     return;
@@ -65,9 +67,10 @@ export async function proxyAktivitetskravBackendRequest(
       https: false,
     });
   } catch (error) {
-    console.error("Proxy request to aktivitetskrav-backend failed", {
-      error: error instanceof Error ? error.message : "Unknown error",
-    });
+    logger.error(
+      { error: error instanceof Error ? error.message : "Unknown error" },
+      "Proxy request to aktivitetskrav-backend failed",
+    );
     if (!res.writableEnded) {
       res.status(502).end("Bad Gateway");
     }
