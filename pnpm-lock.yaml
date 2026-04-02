@@ -30,8 +30,8 @@ importers:
         specifier: ^8.8.0
         version: 8.8.0
       '@navikt/nav-dekoratoren-moduler':
-        specifier: ^3.6.3
-        version: 3.6.3(csp-header@6.3.0)(html-react-parser@5.2.17(@types/react@19.2.14)(react@19.2.4))(jsdom@26.1.0)(react@19.2.4)
+        specifier: ^3.7.0
+        version: 3.7.0(html-react-parser@5.2.17(@types/react@19.2.14)(react@19.2.4))(react@19.2.4)
       '@navikt/next-api-proxy':
         specifier: ^5.0.2
         version: 5.0.2(next@16.2.1(@babel/core@7.29.0)(@opentelemetry/api@1.9.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))
@@ -680,13 +680,11 @@ packages:
   '@navikt/ds-tokens@8.8.0':
     resolution: {integrity: sha512-xrX+4l4EOOSdLXy4NdIft87052I95m3tLDNPjTuyOBMyZZdEivLskc8KbemLhTGJJZ2TfiDe6jpkYwP0iFFLGA==, tarball: https://npm.pkg.github.com/download/@navikt/ds-tokens/8.8.0/1b64643ec409921069ede0fc5eab1850afa23393}
 
-  '@navikt/nav-dekoratoren-moduler@3.6.3':
-    resolution: {integrity: sha512-NDPgv2G0qlrfwurHAjeXo+0hXKCpWn0RxyCgRYmxLPeDJKEL0GC3EAMsvAKM+0eGQmeOkZFUb9DOoNowcCCDgg==, tarball: https://npm.pkg.github.com/download/@navikt/nav-dekoratoren-moduler/3.6.3/fe2fc4979ca3fbd5e38c2f25d985ae58e867a23f}
+  '@navikt/nav-dekoratoren-moduler@3.7.0':
+    resolution: {integrity: sha512-rjfxpj1Jp/x3P81ObKXLVlLoeO1Q0IJKiSHLVDGaLHKl5e6als5ulbF/+DkSeOrAUEVvVaFPOtEPlurHgAkUrA==, tarball: https://npm.pkg.github.com/download/@navikt/nav-dekoratoren-moduler/3.7.0/b952fa030ae739b3bddd270db628fa98c8f7554c}
     engines: {node: 24.x}
     peerDependencies:
-      csp-header: '>=5.x'
       html-react-parser: '>=5.x'
-      jsdom: 26.1.0
       react: '>=17.x'
 
   '@navikt/next-api-proxy@5.0.2':
@@ -1360,8 +1358,8 @@ packages:
   convert-source-map@2.0.0:
     resolution: {integrity: sha512-Kvp459HrV2FEJ1CAsi1Ku+MY3kasH19TFykTz2xWmMeq6bk2NU3XXvfJ+Q61m0xktWwt+1HSYf3JZsTms3aRJg==}
 
-  csp-header@6.3.0:
-    resolution: {integrity: sha512-sM0AKmeKcPelKjj4jgOVgBQO4J3tejn8c51lXg+OW9gdGQIV5MIZd/G5wfW0e73JOs/VLlj6UI+DRf4xvsiraw==}
+  csp-header@6.3.1:
+    resolution: {integrity: sha512-ykcqGMOGP/uU7RLXDD83k2Ge5Stgc/N3qgKgSN+dATDlNgLHnIoI1IdZBjOskD5Ev1RSKTabLdIETJ6VzXTmvA==}
     engines: {node: '>=18'}
 
   css.escape@1.5.1:
@@ -2176,6 +2174,7 @@ snapshots:
       '@csstools/css-parser-algorithms': 3.0.5(@csstools/css-tokenizer@3.0.4)
       '@csstools/css-tokenizer': 3.0.4
       lru-cache: 10.4.3
+    optional: true
 
   '@babel/code-frame@7.29.0':
     dependencies:
@@ -2328,12 +2327,14 @@ snapshots:
   '@biomejs/cli-win32-x64@2.4.9':
     optional: true
 
-  '@csstools/color-helpers@5.1.0': {}
+  '@csstools/color-helpers@5.1.0':
+    optional: true
 
   '@csstools/css-calc@2.1.4(@csstools/css-parser-algorithms@3.0.5(@csstools/css-tokenizer@3.0.4))(@csstools/css-tokenizer@3.0.4)':
     dependencies:
       '@csstools/css-parser-algorithms': 3.0.5(@csstools/css-tokenizer@3.0.4)
       '@csstools/css-tokenizer': 3.0.4
+    optional: true
 
   '@csstools/css-color-parser@3.1.0(@csstools/css-parser-algorithms@3.0.5(@csstools/css-tokenizer@3.0.4))(@csstools/css-tokenizer@3.0.4)':
     dependencies:
@@ -2341,12 +2342,15 @@ snapshots:
       '@csstools/css-calc': 2.1.4(@csstools/css-parser-algorithms@3.0.5(@csstools/css-tokenizer@3.0.4))(@csstools/css-tokenizer@3.0.4)
       '@csstools/css-parser-algorithms': 3.0.5(@csstools/css-tokenizer@3.0.4)
       '@csstools/css-tokenizer': 3.0.4
+    optional: true
 
   '@csstools/css-parser-algorithms@3.0.5(@csstools/css-tokenizer@3.0.4)':
     dependencies:
       '@csstools/css-tokenizer': 3.0.4
+    optional: true
 
-  '@csstools/css-tokenizer@3.0.4': {}
+  '@csstools/css-tokenizer@3.0.4':
+    optional: true
 
   '@date-fns/tz@1.2.0': {}
 
@@ -2619,12 +2623,11 @@ snapshots:
 
   '@navikt/ds-tokens@8.8.0': {}
 
-  '@navikt/nav-dekoratoren-moduler@3.6.3(csp-header@6.3.0)(html-react-parser@5.2.17(@types/react@19.2.14)(react@19.2.4))(jsdom@26.1.0)(react@19.2.4)':
+  '@navikt/nav-dekoratoren-moduler@3.7.0(html-react-parser@5.2.17(@types/react@19.2.14)(react@19.2.4))(react@19.2.4)':
     dependencies:
-      csp-header: 6.3.0
+      csp-header: 6.3.1
       html-react-parser: 5.2.17(@types/react@19.2.14)(react@19.2.4)
       js-cookie: 3.0.5
-      jsdom: 26.1.0
       react: 19.2.4
 
   '@navikt/next-api-proxy@5.0.2(next@16.2.1(@babel/core@7.29.0)(@opentelemetry/api@1.9.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))':
@@ -3145,7 +3148,8 @@ snapshots:
 
   acorn@8.16.0: {}
 
-  agent-base@7.1.4: {}
+  agent-base@7.1.4:
+    optional: true
 
   ansi-regex@5.0.1: {}
 
@@ -3203,7 +3207,7 @@ snapshots:
 
   convert-source-map@2.0.0: {}
 
-  csp-header@6.3.0: {}
+  csp-header@6.3.1: {}
 
   css.escape@1.5.1: {}
 
@@ -3211,6 +3215,7 @@ snapshots:
     dependencies:
       '@asamuzakjp/css-color': 3.2.0
       rrweb-cssom: 0.8.0
+    optional: true
 
   csstype@3.2.3: {}
 
@@ -3218,6 +3223,7 @@ snapshots:
     dependencies:
       whatwg-mimetype: 4.0.0
       whatwg-url: 14.2.0
+    optional: true
 
   date-fns-jalali@4.1.0-0: {}
 
@@ -3227,7 +3233,8 @@ snapshots:
     dependencies:
       ms: 2.1.3
 
-  decimal.js@10.6.0: {}
+  decimal.js@10.6.0:
+    optional: true
 
   dequal@2.0.3: {}
 
@@ -3269,7 +3276,8 @@ snapshots:
 
   entities@4.5.0: {}
 
-  entities@6.0.1: {}
+  entities@6.0.1:
+    optional: true
 
   entities@7.0.1: {}
 
@@ -3339,6 +3347,7 @@ snapshots:
   html-encoding-sniffer@4.0.0:
     dependencies:
       whatwg-encoding: 3.1.1
+    optional: true
 
   html-react-parser@5.2.17(@types/react@19.2.14)(react@19.2.4):
     dependencies:
@@ -3363,6 +3372,7 @@ snapshots:
       debug: 4.4.3
     transitivePeerDependencies:
       - supports-color
+    optional: true
 
   https-proxy-agent@7.0.6:
     dependencies:
@@ -3370,10 +3380,12 @@ snapshots:
       debug: 4.4.3
     transitivePeerDependencies:
       - supports-color
+    optional: true
 
   iconv-lite@0.6.3:
     dependencies:
       safer-buffer: 2.1.2
+    optional: true
 
   import-in-the-middle@3.0.0:
     dependencies:
@@ -3389,7 +3401,8 @@ snapshots:
 
   inline-style-parser@0.2.7: {}
 
-  is-potential-custom-element-name@1.0.1: {}
+  is-potential-custom-element-name@1.0.1:
+    optional: true
 
   jiti@2.6.1: {}
 
@@ -3425,6 +3438,7 @@ snapshots:
       - bufferutil
       - supports-color
       - utf-8-validate
+    optional: true
 
   jsesc@3.1.0: {}
 
@@ -3481,7 +3495,8 @@ snapshots:
 
   long@5.3.2: {}
 
-  lru-cache@10.4.3: {}
+  lru-cache@10.4.3:
+    optional: true
 
   lru-cache@5.1.1:
     dependencies:
@@ -3541,7 +3556,8 @@ snapshots:
       abbrev: 2.0.0
     optional: true
 
-  nwsapi@2.2.23: {}
+  nwsapi@2.2.23:
+    optional: true
 
   obug@2.1.1: {}
 
@@ -3555,6 +3571,7 @@ snapshots:
   parse5@7.3.0:
     dependencies:
       entities: 6.0.1
+    optional: true
 
   pathe@2.0.3: {}
 
@@ -3642,7 +3659,8 @@ snapshots:
       once: 1.4.0
     optional: true
 
-  punycode@2.3.1: {}
+  punycode@2.3.1:
+    optional: true
 
   quick-format-unescaped@4.0.4: {}
 
@@ -3722,18 +3740,21 @@ snapshots:
       '@rollup/rollup-win32-x64-msvc': 4.57.1
       fsevents: 2.3.3
 
-  rrweb-cssom@0.8.0: {}
+  rrweb-cssom@0.8.0:
+    optional: true
 
   safe-buffer@5.2.1:
     optional: true
 
   safe-stable-stringify@2.5.0: {}
 
-  safer-buffer@2.1.2: {}
+  safer-buffer@2.1.2:
+    optional: true
 
   saxes@6.0.0:
     dependencies:
       xmlchars: 2.2.0
+    optional: true
 
   scheduler@0.27.0: {}
 
@@ -3818,7 +3839,8 @@ snapshots:
     optionalDependencies:
       '@babel/core': 7.29.0
 
-  symbol-tree@3.2.4: {}
+  symbol-tree@3.2.4:
+    optional: true
 
   tabbable@6.4.0: {}
 
@@ -3850,21 +3872,25 @@ snapshots:
 
   tinyrainbow@3.0.3: {}
 
-  tldts-core@6.1.86: {}
+  tldts-core@6.1.86:
+    optional: true
 
   tldts@6.1.86:
     dependencies:
       tldts-core: 6.1.86
+    optional: true
 
   totalist@3.0.1: {}
 
   tough-cookie@5.1.2:
     dependencies:
       tldts: 6.1.86
+    optional: true
 
   tr46@5.1.1:
     dependencies:
       punycode: 2.3.1
+    optional: true
 
   tsconfck@3.1.6(typescript@5.9.3):
     optionalDependencies:
@@ -3954,21 +3980,26 @@ snapshots:
   w3c-xmlserializer@5.0.0:
     dependencies:
       xml-name-validator: 5.0.0
+    optional: true
 
   web-vitals@5.2.0: {}
 
-  webidl-conversions@7.0.0: {}
+  webidl-conversions@7.0.0:
+    optional: true
 
   whatwg-encoding@3.1.1:
     dependencies:
       iconv-lite: 0.6.3
+    optional: true
 
-  whatwg-mimetype@4.0.0: {}
+  whatwg-mimetype@4.0.0:
+    optional: true
 
   whatwg-url@14.2.0:
     dependencies:
       tr46: 5.1.1
       webidl-conversions: 7.0.0
+    optional: true
 
   why-is-node-running@2.3.0:
     dependencies:
@@ -3978,11 +4009,14 @@ snapshots:
   wrappy@1.0.2:
     optional: true
 
-  ws@8.20.0: {}
+  ws@8.20.0:
+    optional: true
 
-  xml-name-validator@5.0.0: {}
+  xml-name-validator@5.0.0:
+    optional: true
 
-  xmlchars@2.2.0: {}
+  xmlchars@2.2.0:
+    optional: true
 
   yallist@3.1.1: {}
 
