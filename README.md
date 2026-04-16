@@ -24,6 +24,8 @@ Denne appen brukes til å vise status for aktivitetskravet for innloggede bruker
 graph TD
     MinSide[Min side] -->|"/syk/aktivitetskrav"| App[Aktivitetskrav frontend]
     DittSykefravaer[Ditt sykefravær] -->|"/syk/aktivitetskrav"| App
+    App -->|"/syk/aktivitetskrav/api/aktivitetsplikt/*"| ApiRoutes[Frontendens API-ruter]
+    ApiRoutes -->|"/api/v1/aktivitetsplikt/*"| Backend[aktivitetskrav-backend]
 ```
 
 ### Visning av aktivitetskrav
@@ -50,12 +52,12 @@ Denne visningen gir detaljert informasjon om en spesifikk vurdering eller hendel
 
 ## Backend-API
 
-Frontend-appen kommuniserer med backend via [eSYFO proxy](https://github.com/navikt/esyfo-proxy).
+Frontend-appen kommuniserer med `aktivitetskrav-backend` via egne API-ruter i Next.js.
 
 Endpoints som brukes:
 
-- **GET** `/historikk` - Henter historikk over vurderinger av aktivitetskrav
-- **POST** `/les` - Markerer varsel som lest
+- **Frontend:** `GET /syk/aktivitetskrav/api/aktivitetsplikt/historikk` → **Backend:** `GET /api/v1/aktivitetsplikt/historikk` - Henter historikk over vurderinger av aktivitetskrav
+- **Frontend:** `POST /syk/aktivitetskrav/api/aktivitetsplikt/les` → **Backend:** `POST /api/v1/aktivitetsplikt/les` - Markerer varsel som lest
 
 ## Utvikling (kjøre lokalt)
 
