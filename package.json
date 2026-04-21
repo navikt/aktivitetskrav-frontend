@@ -46,7 +46,7 @@
     "@types/react-dom": "^19",
     "@vitejs/plugin-react": "^5.1.4",
     "@vitest/ui": "^4.0.18",
-    "autoprefixer": "^10.4.27",
+    "autoprefixer": "^10.5.0",
     "babel-plugin-react-compiler": "^1.0.0",
     "next-router-mock": "^1.0.5",
     "postcss": "^8",
