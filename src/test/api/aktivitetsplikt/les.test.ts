@@ -1,7 +1,7 @@
-import type { NextApiRequest, NextApiResponse } from "next";
-import { beforeEach, describe, expect, it, vi } from "vitest";
 import { proxyApiRouteRequest } from "@navikt/next-api-proxy";
 import { getToken, requestOboToken, validateToken } from "@navikt/oasis";
+import type { NextApiRequest, NextApiResponse } from "next";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 import { _resetServerEnvCache } from "@/env/serverEnv";
 import handler from "@/pages/api/aktivitetsplikt/les";
 
@@ -65,19 +65,19 @@ describe("les API route", () => {
     _resetServerEnvCache();
   });
 
-  it.each(["local", "demo"])(
-    "returns OK in %s runtime",
-    async (runtimeEnvironment) => {
-      process.env.NEXT_PUBLIC_RUNTIME_ENVIRONMENT = runtimeEnvironment;
-      const response = createMockResponse();
+  it.each([
+    "local",
+    "demo",
+  ])("returns OK in %s runtime", async (runtimeEnvironment) => {
+    process.env.NEXT_PUBLIC_RUNTIME_ENVIRONMENT = runtimeEnvironment;
+    const response = createMockResponse();
 
-      await handler(createMockRequest(), response);
+    await handler(createMockRequest(), response);
 
-      expect(response.statusCode).toBe(200);
-      expect(response.jsonBody).toBe("OK");
-      expect(proxyApiRouteRequest).not.toHaveBeenCalled();
-    },
-  );
+    expect(response.statusCode).toBe(200);
+    expect(response.jsonBody).toBe("OK");
+    expect(proxyApiRouteRequest).not.toHaveBeenCalled();
+  });
 
   it("returns 401 when user token is missing in dev", async () => {
     process.env.NEXT_PUBLIC_RUNTIME_ENVIRONMENT = "dev";

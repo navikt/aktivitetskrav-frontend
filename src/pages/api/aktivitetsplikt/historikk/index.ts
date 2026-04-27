@@ -1,14 +1,14 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import type { AktivitetskravVurdering } from "@/schema/aktivitetskravVurderingSchema";
 import {
-  getAktivitetskravVurderingForScenario,
-  type TestScenario,
-} from "@/utils/testScenarioUtils";
-import {
   isMockRuntimeEnvironment,
   proxyAktivitetskravBackendRequest,
   respondMethodNotAllowed,
 } from "@/utils/aktivitetskravApiProxyUtils";
+import {
+  getAktivitetskravVurderingForScenario,
+  type TestScenario,
+} from "@/utils/testScenarioUtils";
 
 export const config = {
   api: {

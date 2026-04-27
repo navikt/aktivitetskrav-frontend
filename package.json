@@ -18,8 +18,8 @@
     "check:fix": "biome check --write ."
   },
   "dependencies": {
-    "@grafana/faro-web-sdk": "^2.3.1",
-    "@grafana/faro-web-tracing": "^2.3.1",
+    "@grafana/faro-web-sdk": "^2.4.0",
+    "@grafana/faro-web-tracing": "^2.4.0",
     "@navikt/aksel-icons": "^8.9.1",
     "@navikt/ds-css": "^8.9.1",
     "@navikt/ds-react": "^8.9.1",
@@ -44,7 +44,7 @@
     "@types/node": "^24.12.2",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@vitejs/plugin-react": "^5.1.4",
+    "@vitejs/plugin-react": "^6.0.1",
     "@vitest/ui": "^4.0.18",
     "autoprefixer": "^10.5.0",
     "babel-plugin-react-compiler": "^1.0.0",
@@ -52,8 +52,8 @@
     "postcss": "^8",
     "tailwindcss": "^4.2.2",
     "typescript": "^5",
-    "vite-tsconfig-paths": "^6.1.0",
-    "vitest": "^4.0.18"
+    "vite": "^8.0.10",
+    "vitest": "^4.1.4"
   },
   "pnpm": {
     "overrides": {
