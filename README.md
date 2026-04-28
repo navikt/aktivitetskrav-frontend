@@ -10,11 +10,11 @@
 
 ## Miljøer
 
-[🚀 Produksjon](https://www.nav.no/syk/aktivitetskrav)
+🚀 [Produksjon](https://www.nav.no/syk/aktivitetskrav)
 
-[🛠️ Utvikling](https://www.ekstern.dev.nav.no/syk/aktivitetskrav)
+🛠️ [Utvikling](https://www.ekstern.dev.nav.no/syk/aktivitetskrav)
 
-[🎬 Demo](https://demo.ekstern.dev.nav.no/syk/aktivitetskrav)
+🎬 [Demo](https://demo.ekstern.dev.nav.no/syk/aktivitetskrav)
 
 ## Formål med appen
 
