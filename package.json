@@ -31,8 +31,8 @@
     "@tanstack/react-query": "^5.100.9",
     "@tanstack/react-query-devtools": "^5.100.9",
     "next": "16.2.6",
-    "react": "19.2.5",
-    "react-dom": "19.2.5",
+    "react": "19.2.6",
+    "react-dom": "19.2.6",
     "react-error-boundary": "^6.1.0",
     "zod": "^4.4.3"
   },
