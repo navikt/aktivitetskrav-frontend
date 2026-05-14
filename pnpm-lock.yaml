@@ -25,40 +25,40 @@ importers:
         version: 8.10.5
       '@navikt/ds-react':
         specifier: ^8.10.5
-        version: 8.10.5(@types/react@19.2.14)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
+        version: 8.10.5(@types/react@19.2.14)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
       '@navikt/ds-tokens':
         specifier: ^8.10.5
         version: 8.10.5
       '@navikt/nav-dekoratoren-moduler':
         specifier: ^3.7.1
-        version: 3.7.1(html-react-parser@5.2.17(@types/react@19.2.14)(react@19.2.5))(react@19.2.5)
+        version: 3.7.1(html-react-parser@5.2.17(@types/react@19.2.14)(react@19.2.6))(react@19.2.6)
       '@navikt/next-api-proxy':
         specifier: ^5.0.2
-        version: 5.0.2(next@16.2.6(@opentelemetry/api@1.9.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))
+        version: 5.0.2(next@16.2.6(@opentelemetry/api@1.9.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))
       '@navikt/next-logger':
         specifier: ^5.0.0
-        version: 5.0.0(next@16.2.6(@opentelemetry/api@1.9.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(pino@10.3.1)
+        version: 5.0.0(next@16.2.6(@opentelemetry/api@1.9.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(pino@10.3.1)
       '@navikt/oasis':
         specifier: ^4.1.4
         version: 4.1.4
       '@tanstack/react-query':
         specifier: ^5.100.9
-        version: 5.100.9(react@19.2.5)
+        version: 5.100.9(react@19.2.6)
       '@tanstack/react-query-devtools':
         specifier: ^5.100.9
-        version: 5.100.9(@tanstack/react-query@5.100.9(react@19.2.5))(react@19.2.5)
+        version: 5.100.9(@tanstack/react-query@5.100.9(react@19.2.6))(react@19.2.6)
       next:
         specifier: 16.2.6
-        version: 16.2.6(@opentelemetry/api@1.9.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
+        version: 16.2.6(@opentelemetry/api@1.9.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
       react:
-        specifier: 19.2.5
-        version: 19.2.5
+        specifier: 19.2.6
+        version: 19.2.6
       react-dom:
-        specifier: 19.2.5
-        version: 19.2.5(react@19.2.5)
+        specifier: 19.2.6
+        version: 19.2.6(react@19.2.6)
       react-error-boundary:
         specifier: ^6.1.0
-        version: 6.1.1(react@19.2.5)
+        version: 6.1.1(react@19.2.6)
       zod:
         specifier: ^4.4.3
         version: 4.4.3
@@ -74,7 +74,7 @@ importers:
         version: 6.9.1
       '@testing-library/react':
         specifier: ^16.1.0
-        version: 16.3.2(@testing-library/dom@10.4.1)(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
+        version: 16.3.2(@testing-library/dom@10.4.1)(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
       '@types/node':
         specifier: ^24.12.2
         version: 24.12.2
@@ -98,7 +98,7 @@ importers:
         version: 1.0.0
       next-router-mock:
         specifier: ^1.0.5
-        version: 1.0.5(next@16.2.6(@opentelemetry/api@1.9.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(react@19.2.5)
+        version: 1.0.5(next@16.2.6(@opentelemetry/api@1.9.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react@19.2.6)
       postcss:
         specifier: ^8
         version: 8.5.14
@@ -1692,10 +1692,10 @@ packages:
     peerDependencies:
       react: '>=16.8.0'
 
-  react-dom@19.2.5:
-    resolution: {integrity: sha512-J5bAZz+DXMMwW/wV3xzKke59Af6CHY7G4uYLN1OvBcKEsWOs4pQExj86BBKamxl/Ik5bx9whOrvBlSDfWzgSag==}
+  react-dom@19.2.6:
+    resolution: {integrity: sha512-0prMI+hvBbPjsWnxDLxlCGyM8PN6UuWjEUCYmZhO67xIV9Xasa/r/vDnq+Xyq4Lo27g8QSbO5YzARu0D1Sps3g==}
     peerDependencies:
-      react: ^19.2.5
+      react: ^19.2.6
 
   react-error-boundary@6.1.1:
     resolution: {integrity: sha512-BrYwPOdXi5mqkk5lw+Uvt0ThHx32rCt3BkukS4X23A2AIWDPSGX6iaWTc0y9TU/mHDA/6qOSGel+B2ERkOvD1w==}
@@ -1708,8 +1708,8 @@ packages:
   react-property@2.0.2:
     resolution: {integrity: sha512-+PbtI3VuDV0l6CleQMsx2gtK0JZbZKbpdu5ynr+lbsuvtmgbNcS3VM0tuY2QjFNOcWxvXeHjDpy42RO+4U2rug==}
 
-  react@19.2.5:
-    resolution: {integrity: sha512-llUJLzz1zTUBrskt2pwZgLq59AemifIftw4aB7JxOqf1HY2FDaGDxgwpAPVzHU1kdWabH7FauP4i1oEeer2WCA==}
+  react@19.2.6:
+    resolution: {integrity: sha512-sfWGGfavi0xr8Pg0sVsyHMAOziVYKgPLNrS7ig+ivMNb3wbCBw3KxtflsGBAwD3gYQlE/AEZsTLgToRrSCjb0Q==}
     engines: {node: '>=0.10.0'}
 
   readable-stream@3.6.2:
@@ -2237,18 +2237,18 @@ snapshots:
       '@floating-ui/core': 1.7.5
       '@floating-ui/utils': 0.2.11
 
-  '@floating-ui/react-dom@2.1.8(react-dom@19.2.5(react@19.2.5))(react@19.2.5)':
+  '@floating-ui/react-dom@2.1.8(react-dom@19.2.6(react@19.2.6))(react@19.2.6)':
     dependencies:
       '@floating-ui/dom': 1.7.6
-      react: 19.2.5
-      react-dom: 19.2.5(react@19.2.5)
+      react: 19.2.6
+      react-dom: 19.2.6(react@19.2.6)
 
-  '@floating-ui/react@0.27.19(react-dom@19.2.5(react@19.2.5))(react@19.2.5)':
+  '@floating-ui/react@0.27.19(react-dom@19.2.6(react@19.2.6))(react@19.2.6)':
     dependencies:
-      '@floating-ui/react-dom': 2.1.8(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
+      '@floating-ui/react-dom': 2.1.8(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
       '@floating-ui/utils': 0.2.11
-      react: 19.2.5
-      react-dom: 19.2.5(react@19.2.5)
+      react: 19.2.6
+      react-dom: 19.2.6(react@19.2.6)
       tabbable: 6.4.0
 
   '@floating-ui/utils@0.2.11': {}
@@ -2407,35 +2407,35 @@ snapshots:
 
   '@navikt/ds-css@8.10.5': {}
 
-  '@navikt/ds-react@8.10.5(@types/react@19.2.14)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)':
+  '@navikt/ds-react@8.10.5(@types/react@19.2.14)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)':
     dependencies:
-      '@floating-ui/react': 0.27.19(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
-      '@floating-ui/react-dom': 2.1.8(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
+      '@floating-ui/react': 0.27.19(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
+      '@floating-ui/react-dom': 2.1.8(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
       '@navikt/aksel-icons': 8.10.5
       '@navikt/ds-tokens': 8.10.5
       '@types/react': 19.2.14
       date-fns: 4.1.0
-      react: 19.2.5
-      react-day-picker: 9.14.0(react@19.2.5)
-      react-dom: 19.2.5(react@19.2.5)
+      react: 19.2.6
+      react-day-picker: 9.14.0(react@19.2.6)
+      react-dom: 19.2.6(react@19.2.6)
 
   '@navikt/ds-tokens@8.10.5': {}
 
-  '@navikt/nav-dekoratoren-moduler@3.7.1(html-react-parser@5.2.17(@types/react@19.2.14)(react@19.2.5))(react@19.2.5)':
+  '@navikt/nav-dekoratoren-moduler@3.7.1(html-react-parser@5.2.17(@types/react@19.2.14)(react@19.2.6))(react@19.2.6)':
     dependencies:
       csp-header: 6.3.1
-      html-react-parser: 5.2.17(@types/react@19.2.14)(react@19.2.5)
+      html-react-parser: 5.2.17(@types/react@19.2.14)(react@19.2.6)
       js-cookie: 3.0.5
-      react: 19.2.5
+      react: 19.2.6
 
-  '@navikt/next-api-proxy@5.0.2(next@16.2.6(@opentelemetry/api@1.9.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))':
+  '@navikt/next-api-proxy@5.0.2(next@16.2.6(@opentelemetry/api@1.9.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))':
     dependencies:
-      next: 16.2.6(@opentelemetry/api@1.9.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
+      next: 16.2.6(@opentelemetry/api@1.9.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
 
-  '@navikt/next-logger@5.0.0(next@16.2.6(@opentelemetry/api@1.9.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(pino@10.3.1)':
+  '@navikt/next-logger@5.0.0(next@16.2.6(@opentelemetry/api@1.9.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(pino@10.3.1)':
     dependencies:
       '@navikt/pino-logger': 5.0.0(pino@10.3.1)
-      next: 16.2.6(@opentelemetry/api@1.9.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
+      next: 16.2.6(@opentelemetry/api@1.9.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
       pino: 10.3.1
 
   '@navikt/oasis@4.1.4':
@@ -2769,16 +2769,16 @@ snapshots:
 
   '@tanstack/query-devtools@5.100.9': {}
 
-  '@tanstack/react-query-devtools@5.100.9(@tanstack/react-query@5.100.9(react@19.2.5))(react@19.2.5)':
+  '@tanstack/react-query-devtools@5.100.9(@tanstack/react-query@5.100.9(react@19.2.6))(react@19.2.6)':
     dependencies:
       '@tanstack/query-devtools': 5.100.9
-      '@tanstack/react-query': 5.100.9(react@19.2.5)
-      react: 19.2.5
+      '@tanstack/react-query': 5.100.9(react@19.2.6)
+      react: 19.2.6
 
-  '@tanstack/react-query@5.100.9(react@19.2.5)':
+  '@tanstack/react-query@5.100.9(react@19.2.6)':
     dependencies:
       '@tanstack/query-core': 5.100.9
-      react: 19.2.5
+      react: 19.2.6
 
   '@testing-library/dom@10.4.1':
     dependencies:
@@ -2800,12 +2800,12 @@ snapshots:
       picocolors: 1.1.1
       redent: 3.0.0
 
-  '@testing-library/react@16.3.2(@testing-library/dom@10.4.1)(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)':
+  '@testing-library/react@16.3.2(@testing-library/dom@10.4.1)(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)':
     dependencies:
       '@babel/runtime': 7.28.6
       '@testing-library/dom': 10.4.1
-      react: 19.2.5
-      react-dom: 19.2.5(react@19.2.5)
+      react: 19.2.6
+      react-dom: 19.2.6(react@19.2.6)
     optionalDependencies:
       '@types/react': 19.2.14
       '@types/react-dom': 19.2.3(@types/react@19.2.14)
@@ -3104,11 +3104,11 @@ snapshots:
       whatwg-encoding: 3.1.1
     optional: true
 
-  html-react-parser@5.2.17(@types/react@19.2.14)(react@19.2.5):
+  html-react-parser@5.2.17(@types/react@19.2.14)(react@19.2.6):
     dependencies:
       domhandler: 5.0.3
       html-dom-parser: 5.1.8
-      react: 19.2.5
+      react: 19.2.6
       react-property: 2.0.2
       style-to-js: 1.1.21
     optionalDependencies:
@@ -3265,21 +3265,21 @@ snapshots:
 
   nanoid@3.3.12: {}
 
-  next-router-mock@1.0.5(next@16.2.6(@opentelemetry/api@1.9.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(react@19.2.5):
+  next-router-mock@1.0.5(next@16.2.6(@opentelemetry/api@1.9.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react@19.2.6):
     dependencies:
-      next: 16.2.6(@opentelemetry/api@1.9.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
-      react: 19.2.5
+      next: 16.2.6(@opentelemetry/api@1.9.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
+      react: 19.2.6
 
-  next@16.2.6(@opentelemetry/api@1.9.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5):
+  next@16.2.6(@opentelemetry/api@1.9.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6):
     dependencies:
       '@next/env': 16.2.6
       '@swc/helpers': 0.5.15
       baseline-browser-mapping: 2.10.29
       caniuse-lite: 1.0.30001792
       postcss: 8.4.31
-      react: 19.2.5
-      react-dom: 19.2.5(react@19.2.5)
-      styled-jsx: 5.1.6(react@19.2.5)
+      react: 19.2.6
+      react-dom: 19.2.6(react@19.2.6)
+      styled-jsx: 5.1.6(react@19.2.6)
     optionalDependencies:
       '@next/swc-darwin-arm64': 16.2.6
       '@next/swc-darwin-x64': 16.2.6
@@ -3413,28 +3413,28 @@ snapshots:
 
   quick-format-unescaped@4.0.4: {}
 
-  react-day-picker@9.14.0(react@19.2.5):
+  react-day-picker@9.14.0(react@19.2.6):
     dependencies:
       '@date-fns/tz': 1.4.1
       '@tabby_ai/hijri-converter': 1.0.5
       date-fns: 4.1.0
       date-fns-jalali: 4.1.0-0
-      react: 19.2.5
+      react: 19.2.6
 
-  react-dom@19.2.5(react@19.2.5):
+  react-dom@19.2.6(react@19.2.6):
     dependencies:
-      react: 19.2.5
+      react: 19.2.6
       scheduler: 0.27.0
 
-  react-error-boundary@6.1.1(react@19.2.5):
+  react-error-boundary@6.1.1(react@19.2.6):
     dependencies:
-      react: 19.2.5
+      react: 19.2.6
 
   react-is@17.0.2: {}
 
   react-property@2.0.2: {}
 
-  react@19.2.5: {}
+  react@19.2.6: {}
 
   readable-stream@3.6.2:
     dependencies:
@@ -3570,10 +3570,10 @@ snapshots:
     dependencies:
       inline-style-parser: 0.2.7
 
-  styled-jsx@5.1.6(react@19.2.5):
+  styled-jsx@5.1.6(react@19.2.6):
     dependencies:
       client-only: 0.0.1
-      react: 19.2.5
+      react: 19.2.6
 
   symbol-tree@3.2.4:
     optional: true
