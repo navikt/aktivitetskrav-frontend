@@ -1,0 +1,12 @@
+allowBuilds:
+  esbuild: true
+  protobufjs: true
+  sharp: true
+minimumReleaseAge: 4320
+minimumReleaseAgeExclude:
+  - '@babel/code-frame@7.29.7'
+  - '@babel/helper-validator-identifier@7.29.7'
+  - '@babel/runtime@7.29.7'
+blockExoticSubdeps: true
+overrides:
+  jsdom: 26.1.0
