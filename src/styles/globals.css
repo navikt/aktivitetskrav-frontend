@@ -7,18 +7,33 @@
 @theme {
   --color-ds-gray-50: #f7f7f7;
   --color-header-color: #d1eff9;
-  --color-aksel-info-color: var(--ac-alert-icon-info-color, var(--ax-text-info-decoration));
-  --color-aksel-warning-color: var(--ac-alert-icon-warning-color, var(--ax-text-warning-decoration));
-  --color-aksel-error-color: var(--ac-alert-icon-error-color, var(--ax-text-error-decoration));
-  --color-aksel-success-color: var(--ac-alert-icon-success-color, var(--ax-text-success-decoration));
+  --color-aksel-info-color: var(
+    --ac-alert-icon-info-color,
+    var(--ax-text-info-decoration)
+  );
+  --color-aksel-warning-color: var(
+    --ac-alert-icon-warning-color,
+    var(--ax-text-warning-decoration)
+  );
+  --color-aksel-error-color: var(
+    --ac-alert-icon-error-color,
+    var(--ax-text-error-decoration)
+  );
+  --color-aksel-success-color: var(
+    --ac-alert-icon-success-color,
+    var(--ax-text-success-decoration)
+  );
 }
 
 @utility gradient-radial {
-  background-image: radial-gradient(var(--tw-gradient-stops))
+  background-image: radial-gradient(var(--tw-gradient-stops));
 }
 
 @utility gradient-conic {
-  background-image: conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))
+  background-image: conic-gradient(
+    from 180deg at 50% 50%,
+    var(--tw-gradient-stops)
+  );
 }
 
 html {

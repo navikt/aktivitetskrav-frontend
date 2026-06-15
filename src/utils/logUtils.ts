@@ -15,7 +15,7 @@ export const logError = (error: unknown, info: ErrorInfo) => {
   const errorInstance =
     error instanceof Error ? error : new Error(String(error));
 
-  if (typeof window !== "undefined" && !!window.faro) {
+  if (typeof window !== "undefined" && window.faro) {
     window.faro.api.pushError(errorInstance);
   } else {
     logger.error(
