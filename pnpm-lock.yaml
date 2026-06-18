@@ -33,8 +33,8 @@ importers:
         specifier: ^4.2.2
         version: 4.2.2(html-react-parser@5.2.17(@types/react@19.2.17)(react@19.2.7))(react@19.2.7)
       '@navikt/next-api-proxy':
-        specifier: ^5.0.2
-        version: 5.0.2(next@16.2.9(@opentelemetry/api@1.9.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))
+        specifier: ^5.0.5
+        version: 5.0.5(next@16.2.9(@opentelemetry/api@1.9.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))
       '@navikt/next-logger':
         specifier: ^5.0.0
         version: 5.0.0(next@16.2.9(@opentelemetry/api@1.9.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))(pino@10.3.1)
@@ -519,8 +519,8 @@ packages:
       html-react-parser: '>=5.x'
       react: '>=17.x'
 
-  '@navikt/next-api-proxy@5.0.2':
-    resolution: {integrity: sha512-bgwfS9uh5Ptl9tTUJGde5+Wdzfhr20w5+/xid1CLpVRa0DLOb3GTtxe0s7P2R6X/HW8s3QlVaVVc4BBkYJx1fA==, tarball: https://npm.pkg.github.com/download/@navikt/next-api-proxy/5.0.2/b500c8a7e19829b6c84eaee2afc219f818363a9d}
+  '@navikt/next-api-proxy@5.0.5':
+    resolution: {integrity: sha512-Iu2hR3RSDqK9rvDGIHFQz5/sSlJ5NgoHr6tzjyyxa+jcvO5S0SivQcgxV1EAt6GkiMn99V8Fj74dT94RsabmIg==, tarball: https://npm.pkg.github.com/download/@navikt/next-api-proxy/5.0.5/6eb78866c7048f224e66d01d89e9e2669043cc69}
     engines: {node: 22 || 24}
     peerDependencies:
       next: 14 || 15 || 16
@@ -2198,7 +2198,7 @@ snapshots:
       js-cookie: 3.0.7
       react: 19.2.7
 
-  '@navikt/next-api-proxy@5.0.2(next@16.2.9(@opentelemetry/api@1.9.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))':
+  '@navikt/next-api-proxy@5.0.5(next@16.2.9(@opentelemetry/api@1.9.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7))':
     dependencies:
       next: 16.2.9(@opentelemetry/api@1.9.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
 
