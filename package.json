@@ -52,7 +52,7 @@
     "next-router-mock": "^1.0.5",
     "postcss": "^8",
     "tailwindcss": "^4.3.3",
-    "typescript": "^6",
+    "typescript": "^7",
     "vite": "^8.1.5",
     "vitest": "^4.1.10"
   }
