@@ -173,6 +173,12 @@ export const scrubBrowserTelemetry: BeforeSend = (item) => {
 
   const meta = { ...item.meta };
   delete meta.user;
+  if (meta.session?.attributes) {
+    const { isSampled } = meta.session.attributes;
+    const session = { ...meta.session };
+    session.attributes = isSampled ? { isSampled } : undefined;
+    meta.session = session;
+  }
   if (meta.page && rawPageUrl) {
     meta.page = {
       ...meta.page,

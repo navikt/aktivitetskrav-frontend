@@ -102,7 +102,10 @@ describe("appens beforeSend-policy", () => {
         user: { id: "01017012345", email: "ola@nav.no" },
         session: {
           id: "short-lived-session",
-          attributes: { isSampled: "true" },
+          attributes: {
+            isSampled: "true",
+            decorator_env: "støy som appen ikke trenger",
+          },
         },
       },
     };
