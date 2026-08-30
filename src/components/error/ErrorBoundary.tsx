@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
 import { ErrorBoundary as ReactErrorBoundary } from "react-error-boundary";
-import { logError } from "@/utils/logUtils";
 import PageError from "./PageError";
 
 interface Props {
@@ -8,11 +7,10 @@ interface Props {
 }
 
 export const ErrorBoundary = ({ children }: Props) => {
+  // React 19 reports caught render errors to console; @nais/apm captures that
+  // signal. An onError reporter here would emit the same exception twice.
   return (
-    <ReactErrorBoundary
-      FallbackComponent={() => <PageError />}
-      onError={logError}
-    >
+    <ReactErrorBoundary FallbackComponent={() => <PageError />}>
       {children}
     </ReactErrorBoundary>
   );
