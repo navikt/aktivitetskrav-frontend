@@ -104,6 +104,7 @@ describe("appens beforeSend-policy", () => {
           id: "short-lived-session",
           attributes: {
             isSampled: "true",
+            previousSession: "previous-session",
             decorator_env: "støy som appen ikke trenger",
           },
         },
@@ -121,7 +122,10 @@ describe("appens beforeSend-policy", () => {
     // Faro bruker isSampled i en etterfølgende hook og fjerner feltet før send.
     expect(result.meta.session).toEqual({
       id: "short-lived-session",
-      attributes: { isSampled: "true" },
+      attributes: {
+        isSampled: "true",
+        previousSession: "previous-session",
+      },
     });
     expect(result.payload.stacktrace.frames[0]).toEqual({
       filename:
