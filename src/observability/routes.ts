@@ -1,32 +1,14 @@
 export const BROWSER_BASE_PATH = "/syk/aktivitetskrav";
+export const UUID_PAGE_ID = `${BROWSER_BASE_PATH}/{uuid}`;
 export const UNKNOWN_PAGE_ID = `${BROWSER_BASE_PATH}/{unknown}`;
-export const UNKNOWN_RESOURCE_PATH = `${BROWSER_BASE_PATH}/{unknown-resource}`;
 
 const pageIdsByNextRoute = {
   "/": BROWSER_BASE_PATH,
-  "/[uuid]": `${BROWSER_BASE_PATH}/{uuid}`,
+  "/[uuid]": UUID_PAGE_ID,
 } as const;
 
-const apiRoutes: ReadonlyArray<readonly [RegExp, string]> = [
-  [
-    /^\/api\/aktivitetsplikt\/historikk\/?$/,
-    `${BROWSER_BASE_PATH}/api/aktivitetsplikt/historikk`,
-  ],
-  [
-    /^\/api\/aktivitetsplikt\/les\/?$/,
-    `${BROWSER_BASE_PATH}/api/aktivitetsplikt/les`,
-  ],
-  [/^\/api\/isAlive\/?$/, `${BROWSER_BASE_PATH}/api/isAlive`],
-  [/^\/api\/isReady\/?$/, `${BROWSER_BASE_PATH}/api/isReady`],
-  [/^\/api\/logger\/?$/, `${BROWSER_BASE_PATH}/api/logger`],
-];
-
-export const withoutBasePath = (pathname: string): string => {
-  if (pathname === BROWSER_BASE_PATH) return "/";
-  return pathname.startsWith(`${BROWSER_BASE_PATH}/`)
-    ? pathname.slice(BROWSER_BASE_PATH.length)
-    : pathname;
-};
+const pathOnly = (pathname: string): string =>
+  pathname.split(/[?#]/, 1)[0] || "/";
 
 export function pageIdFromNextRoute(pathname: string): string {
   return (
@@ -36,50 +18,29 @@ export function pageIdFromNextRoute(pathname: string): string {
 }
 
 export function pageIdFromBrowserPath(pathname: string): string {
-  const path = pathname.split(/[?#]/, 1)[0] || "/";
+  const path = pathOnly(pathname);
   if (path === BROWSER_BASE_PATH || path === `${BROWSER_BASE_PATH}/`) {
     return BROWSER_BASE_PATH;
   }
-  if (new RegExp(`^${BROWSER_BASE_PATH}/[^/]+/?$`).test(path)) {
-    return pageIdsByNextRoute["/[uuid]"];
+  if (path.startsWith(`${BROWSER_BASE_PATH}/`)) {
+    const remainder = path
+      .slice(BROWSER_BASE_PATH.length + 1)
+      .replace(/\/$/, "");
+    if (remainder !== "" && !remainder.includes("/")) return UUID_PAGE_ID;
   }
   return UNKNOWN_PAGE_ID;
 }
 
-export function normalizeTelemetryPath(pathname: string): string {
-  const path = pathname.split(/[?#]/, 1)[0] || "/";
-  const hasBasePath =
-    path === BROWSER_BASE_PATH || path.startsWith(`${BROWSER_BASE_PATH}/`);
-  const relativePath = withoutBasePath(path);
+export function sensitiveRouteValues(pathname: string): string[] {
+  if (pageIdFromBrowserPath(pathname) !== UUID_PAGE_ID) return [];
 
-  if (hasBasePath && relativePath === "/") return BROWSER_BASE_PATH;
-  if (hasBasePath && /^\/[^/]+\/?$/.test(relativePath)) {
-    return pageIdsByNextRoute["/[uuid]"];
-  }
-
-  const apiRoute = apiRoutes.find(([pattern]) => pattern.test(relativePath));
-  if (apiRoute) return apiRoute[1];
-
-  if (/\/_next(?:\/.*)?$/i.test(path)) {
-    return `${BROWSER_BASE_PATH}/_next/{asset}`;
-  }
-  return UNKNOWN_RESOURCE_PATH;
-}
-
-export function sensitiveValuesFromBrowserPath(pathname: string): string[] {
-  if (pageIdFromBrowserPath(pathname) !== pageIdsByNextRoute["/[uuid]"]) {
-    return [];
-  }
-
-  const value = withoutBasePath(pathname.split(/[?#]/, 1)[0])
-    .split("/")
-    .filter(Boolean)[0];
-  if (!value) return [];
-
+  const raw = pathOnly(pathname)
+    .slice(BROWSER_BASE_PATH.length + 1)
+    .replace(/\/$/, "");
   try {
-    const decoded = decodeURIComponent(value);
-    return decoded === value ? [value] : [value, decoded];
+    const decoded = decodeURIComponent(raw);
+    return decoded === raw ? [raw] : [raw, decoded];
   } catch {
-    return [value];
+    return [raw];
   }
 }

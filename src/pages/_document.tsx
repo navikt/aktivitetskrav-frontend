@@ -12,7 +12,6 @@ import Document, {
   NextScript,
 } from "next/document";
 import { AktivitetspliktBaseCrumbs } from "@/breadcrumbs/breadcrumbs";
-import { resolveApmEnvironment } from "@/observability/environment";
 
 // The 'head'-field of the document initialProps contains data from <head> (meta-tags etc)
 const getDocumentParameter = (
@@ -57,10 +56,9 @@ export default class MyDocument extends Document<Props> {
       app: "aktivitetskrav-frontend",
       namespace: "team-esyfo",
       version: process.env.NEXT_PUBLIC_VERSION,
-      environment: resolveApmEnvironment(
-        process.env.NAIS_CLUSTER_NAME,
+      environment:
+        process.env.NAIS_CLUSTER_NAME ??
         process.env.NEXT_PUBLIC_NAIS_CLUSTER_NAME,
-      ),
       telemetryUrl: process.env.NEXT_PUBLIC_TELEMETRY_URL,
     });
 

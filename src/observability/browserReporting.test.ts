@@ -8,9 +8,9 @@ const { init, isInitialized, pushEvent } = vi.hoisted(() => ({
 
 vi.mock("@nais/apm", () => ({
   init,
+  isLocalHost: (hostname: string) => hostname === "localhost",
   isInitialized,
   pushEvent,
-  scrubString: (value: string) => value,
 }));
 
 describe("browser reporting", () => {

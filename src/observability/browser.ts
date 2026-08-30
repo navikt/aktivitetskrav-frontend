@@ -1,300 +1,207 @@
 import {
   type InitOptions,
   init,
+  isLocalHost,
   isInitialized,
   pushEvent,
-  scrubString,
 } from "@nais/apm";
-import { resolveApmEnvironment } from "./environment";
 import {
-  normalizeTelemetryPath,
+  BROWSER_BASE_PATH,
   pageIdFromBrowserPath,
-  sensitiveValuesFromBrowserPath,
+  sensitiveRouteValues,
+  UNKNOWN_PAGE_ID,
 } from "./routes";
 
 export {
   BROWSER_BASE_PATH,
-  normalizeTelemetryPath,
   pageIdFromBrowserPath,
   pageIdFromNextRoute,
   UNKNOWN_PAGE_ID,
-  UNKNOWN_RESOURCE_PATH,
+  UUID_PAGE_ID,
 } from "./routes";
 
 export const BROWSER_APM_APP = "aktivitetskrav-frontend";
 export const BROWSER_APM_NAMESPACE = "team-esyfo";
-export const BROWSER_SESSION_SAMPLING_RATE = 1;
 
+const APP_CDN_PREFIX =
+  "https://cdn.nav.no/team-esyfo/aktivitetskrav-frontend/_next/static/";
+const UNKNOWN_RESOURCE_URL = `${BROWSER_BASE_PATH}/{resource}`;
 const UUID =
   /\b[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\b/gi;
-const ORGANIZATION_NUMBER = /\b\d{9}\b/g;
-const ACTOR_ID = /\b\d{13}\b/g;
-const NAV_IDENT = /\b[A-Z]\d{6}\b/gi;
-const SCHEME_URL = /\b[A-Za-z][A-Za-z0-9+.-]*:[^\s"'<>]+/g;
-const RELATIVE_URL = /(^|[\s("'=])((?:\/\/|\/(?!\/))[^\s"'<>]+)/gi;
-const URL_DETAIL = /(^|[\s("'=])([?#][^\s"'<>]+)/g;
-const TRAILING_PUNCTUATION = /[),.;!?]+$/;
-const NEXT_CHUNK_WITH_POSITION = /^(.*\.js(?:\?[^#\s]*?)?)(:\d+:\d+)?$/i;
-const NEXT_CHUNK_PATH =
-  /^\/(?:(?:syk\/aktivitetskrav|team-esyfo\/aktivitetskrav-frontend)\/)?_next\/static\/chunks\/(?:(?:[a-z0-9._[\]-]|%5b|%5d)+\/)*(?:[a-z0-9._[\]-]|%5b|%5d)+\.js$/i;
-const MAX_SCRUB_DEPTH = 10;
+const KNOWN_RESOURCE_PATHS = new Set([
+  `${BROWSER_BASE_PATH}/api/aktivitetsplikt/historikk`,
+  `${BROWSER_BASE_PATH}/api/aktivitetsplikt/les`,
+  `${BROWSER_BASE_PATH}/api/isAlive`,
+  `${BROWSER_BASE_PATH}/api/isReady`,
+  `${BROWSER_BASE_PATH}/api/logger`,
+]);
 
-const sensitiveValuesFromCurrentRoute = (): string[] =>
-  typeof location === "undefined"
-    ? []
-    : sensitiveValuesFromBrowserPath(location.pathname);
+const currentOrigin = (): string | undefined =>
+  typeof location === "undefined" ? undefined : location.origin;
+
+const parseUrl = (value: string): URL | undefined => {
+  try {
+    return new URL(value, currentOrigin());
+  } catch {
+    return undefined;
+  }
+};
+
+const safeOrigin = (url: URL): string =>
+  url.origin === currentOrigin() ? url.origin : "[url-origin]";
+
+export function normalizePageUrl(value: string): string {
+  const url = parseUrl(value);
+  if (!url || url.username || url.password) return "[page-url]";
+  return `${safeOrigin(url)}${pageIdFromBrowserPath(url.pathname)}`;
+}
+
+const normalizeResourceUrl = (value: string): string => {
+  const url = parseUrl(value);
+  if (!url || url.username || url.password) return "[resource-url]";
+
+  const pageId = pageIdFromBrowserPath(url.pathname);
+  const cleanPath = url.pathname.replace(/\/$/, "");
+  const path =
+    pageId !== UNKNOWN_PAGE_ID
+      ? pageId
+      : KNOWN_RESOURCE_PATHS.has(cleanPath)
+        ? cleanPath
+        : UNKNOWN_RESOURCE_URL;
+  return `${safeOrigin(url)}${path}`;
+};
+
+export function normalizeStackFrameFilename(value: string): string {
+  const url = parseUrl(value);
+  if (
+    !url ||
+    url.username ||
+    url.password ||
+    url.hash ||
+    !url.href.startsWith(APP_CDN_PREFIX)
+  ) {
+    return "[stack-frame]";
+  }
+  return `${url.origin}${url.pathname}`;
+}
 
 const escapeRegExp = (value: string): string =>
   value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
-const redactSensitiveValues = (
+const redactAppValues = (
   value: string,
-  sensitiveValues: readonly string[],
-): string =>
-  sensitiveValues.reduce(
-    (result, sensitiveValue) =>
-      result.replace(
-        new RegExp(
-          `(?<![A-Za-z0-9_-])${escapeRegExp(sensitiveValue)}(?![A-Za-z0-9_-])`,
-          "g",
-        ),
-        "[route-id]",
+  routeValues: string[],
+  urlDetails: string[],
+): string => {
+  let result = value;
+  for (const detail of urlDetails.filter(Boolean)) {
+    result = result.replaceAll(detail, "[url-detail]");
+  }
+  for (const routeValue of routeValues.filter(Boolean)) {
+    result = result.replace(
+      new RegExp(
+        `(?<![A-Za-z0-9_-])${escapeRegExp(routeValue)}(?![A-Za-z0-9_-])`,
+        "g",
       ),
-    value,
-  );
-
-const withoutTrailingPunctuation = (
-  value: string,
-): { url: string; suffix: string } => {
-  const suffix = value.match(TRAILING_PUNCTUATION)?.[0] ?? "";
-  return { url: suffix ? value.slice(0, -suffix.length) : value, suffix };
-};
-
-const observedScriptUrls = (): Set<string> => {
-  const values =
-    typeof document === "undefined"
-      ? []
-      : Array.from(document.scripts, (script) => script.src).filter(Boolean);
-  if (
-    typeof performance !== "undefined" &&
-    typeof performance.getEntriesByType === "function"
-  ) {
-    values.push(
-      ...performance
-        .getEntriesByType("resource")
-        .filter(
-          (entry): entry is PerformanceResourceTiming =>
-            "initiatorType" in entry && entry.initiatorType === "script",
-        )
-        .map((entry) => entry.name),
+      "[route-id]",
     );
   }
-
-  const urls = new Set<string>();
-  for (const value of values) {
-    try {
-      urls.add(new URL(value, location.href).href);
-    } catch {
-      // A malformed resource entry must not disable telemetry scrubbing.
-    }
-  }
-  return urls;
+  return result.replace(UUID, "[uuid]");
 };
 
-const trustedNextChunk = (value: string): string | null => {
-  const match = value.match(NEXT_CHUNK_WITH_POSITION);
-  const resourceUrl = match?.[1];
-  if (!resourceUrl || typeof location === "undefined") return null;
-
-  try {
-    const url = new URL(resourceUrl, location.href);
-    if (url.username || url.password || url.hash) return null;
-    if (!NEXT_CHUNK_PATH.test(url.pathname)) return null;
-
-    const query = Array.from(url.searchParams.entries());
-    const expectedDeploymentId = process.env.NEXT_PUBLIC_VERSION;
-    const allowedQuery =
-      query.length === 0 ||
-      (query.length === 1 &&
-        query[0][0] === "dpl" &&
-        expectedDeploymentId !== undefined &&
-        query[0][1] === expectedDeploymentId);
-    if (!allowedQuery) return null;
-
-    const configuredAssetPrefix = process.env.NEXT_PUBLIC_ASSET_PREFIX;
-    const assetPrefix = configuredAssetPrefix
-      ? new URL(configuredAssetPrefix, location.href)
-      : undefined;
-    const prefixPath = assetPrefix?.pathname.replace(/\/$/, "");
-    const allowedOrigin =
-      url.origin === location.origin ||
-      (assetPrefix !== undefined &&
-        url.origin === assetPrefix.origin &&
-        url.pathname.startsWith(`${prefixPath}/_next/static/chunks/`));
-    if (!allowedOrigin || !observedScriptUrls().has(url.href)) return null;
-
-    const prefix =
-      resourceUrl.startsWith("/") && !resourceUrl.startsWith("//")
-        ? ""
-        : url.origin;
-    return `${prefix}${url.pathname}${match[2] ?? ""}`;
-  } catch {
-    return null;
-  }
-};
-
-const sanitizeUrl = (value: string): string => {
-  const { url: candidate, suffix } = withoutTrailingPunctuation(value);
-  const chunk = trustedNextChunk(candidate);
-  if (chunk) return `${chunk}${suffix}`;
-
-  try {
-    const protocolRelative = candidate.startsWith("//");
-    const url = new URL(protocolRelative ? `https:${candidate}` : candidate);
-    if (!["http:", "https:", "ws:", "wss:"].includes(url.protocol)) {
-      return `[url]${suffix}`;
-    }
-    const sameOrigin =
-      typeof location !== "undefined" &&
-      (protocolRelative
-        ? url.host === location.host
-        : url.origin === location.origin);
-    const prefix = sameOrigin
-      ? protocolRelative
-        ? `//${url.host}`
-        : url.origin
-      : "[url-origin]";
-    return `${prefix}${normalizeTelemetryPath(url.pathname)}${suffix}`;
-  } catch {
-    return `[url]${suffix}`;
-  }
-};
-
-const sanitizeRelativeUrl = (value: string): string => {
-  const { url, suffix } = withoutTrailingPunctuation(value);
-  if (url.startsWith("//")) return `${sanitizeUrl(url)}${suffix}`;
-  const chunk = trustedNextChunk(url);
-  return `${chunk ?? normalizeTelemetryPath(url)}${suffix}`;
-};
-
-export function scrubTelemetryString(
-  value: string,
-  sensitiveValues: readonly string[] = sensitiveValuesFromCurrentRoute(),
-): string {
-  let marker = "\u{e000}";
-  while (value.includes(marker)) marker += "\u{e001}";
-  const protectedValues: string[] = [];
-  const protect = (sanitized: string): string => {
-    const token = `${marker}${protectedValues.length}${marker}`;
-    protectedValues.push(sanitized);
-    return token;
-  };
-
-  let scrubbed = redactSensitiveValues(value, sensitiveValues);
-  scrubbed = scrubbed.replace(SCHEME_URL, (url) => protect(sanitizeUrl(url)));
-  scrubbed = scrubbed.replace(
-    RELATIVE_URL,
-    (_, prefix: string, url: string) =>
-      `${prefix}${protect(sanitizeRelativeUrl(url))}`,
-  );
-  scrubbed = scrubbed.replace(
-    URL_DETAIL,
-    (_, prefix: string) => `${prefix}[url-detail]`,
-  );
-  protectedValues.forEach((sanitized, index) => {
-    scrubbed = scrubbed.replaceAll(`${marker}${index}${marker}`, sanitized);
-  });
-
-  return scrubString(
-    scrubbed
-      .replace(UUID, "[uuid]")
-      .replace(ACTOR_ID, "[aktor-id]")
-      .replace(ORGANIZATION_NUMBER, "[orgnr]")
-      .replace(NAV_IDENT, "[nav-ident]"),
-  );
-}
-
-const scrubTelemetryValue = (
+const mapStringValues = (
   value: unknown,
-  sensitiveValues: readonly string[],
-  depth = 0,
-  seen = new WeakSet<object>(),
+  transform: (value: string) => string,
 ): unknown => {
-  if (typeof value === "string") {
-    return scrubTelemetryString(value, sensitiveValues);
+  if (typeof value === "string") return transform(value);
+  if (Array.isArray(value)) {
+    return value.map((entry) => mapStringValues(entry, transform));
   }
   if (value === null || typeof value !== "object") return value;
-  if (depth >= MAX_SCRUB_DEPTH) return "[truncated]";
-  if (seen.has(value)) return "[circular]";
-  seen.add(value);
+  return Object.fromEntries(
+    Object.entries(value).map(([key, entry]) => [
+      key,
+      mapStringValues(entry, transform),
+    ]),
+  );
+};
 
-  if (Array.isArray(value)) {
-    return value.map((item) =>
-      scrubTelemetryValue(item, sensitiveValues, depth + 1, seen),
-    );
+const sanitizePayload = <Payload>(
+  payload: Payload,
+  routeValues: string[],
+  urlDetails: string[],
+): Payload => {
+  const scrubbed = mapStringValues(payload, (value) =>
+    redactAppValues(value, routeValues, urlDetails),
+  ) as Record<string, unknown>;
+
+  const stacktrace = scrubbed.stacktrace as
+    | { frames?: Array<Record<string, unknown>> }
+    | undefined;
+  if (stacktrace?.frames) {
+    stacktrace.frames = stacktrace.frames.map((frame) => ({
+      ...frame,
+      ...(typeof frame.filename === "string"
+        ? { filename: normalizeStackFrameFilename(frame.filename) }
+        : {}),
+    }));
   }
 
-  const copy: Record<string, unknown> = {};
-  for (const [key, item] of Object.entries(value)) {
-    copy[scrubTelemetryString(key, sensitiveValues)] = scrubTelemetryValue(
-      item,
-      sensitiveValues,
-      depth + 1,
-      seen,
-    );
+  if (
+    (scrubbed.name === "faro.performance.navigation" ||
+      scrubbed.name === "faro.performance.resource") &&
+    typeof (scrubbed.attributes as Record<string, unknown> | undefined)
+      ?.name === "string"
+  ) {
+    scrubbed.attributes = {
+      ...(scrubbed.attributes as Record<string, unknown>),
+      name: normalizeResourceUrl(
+        (scrubbed.attributes as Record<string, string>).name,
+      ),
+    };
   }
-  return copy;
+  return scrubbed as Payload;
 };
 
 type BeforeSend = NonNullable<InitOptions["beforeSend"]>;
 
 export const scrubBrowserTelemetry: BeforeSend = (item) => {
-  const scrubbed = scrubTelemetryValue(
-    item,
-    sensitiveValuesFromCurrentRoute(),
-  ) as typeof item;
-  if (scrubbed.meta?.user) {
-    const meta = { ...scrubbed.meta };
-    delete meta.user;
-    return { ...scrubbed, meta };
+  const rawPageUrl = item.meta.page?.url;
+  const pageUrl = rawPageUrl ? parseUrl(rawPageUrl) : undefined;
+  const routeValues = pageUrl ? sensitiveRouteValues(pageUrl.pathname) : [];
+  const urlDetails = [pageUrl?.search ?? "", pageUrl?.hash ?? ""];
+
+  const meta = { ...item.meta };
+  delete meta.user;
+  if (meta.page && rawPageUrl) {
+    meta.page = {
+      ...meta.page,
+      id: pageIdFromBrowserPath(pageUrl?.pathname ?? ""),
+      url: normalizePageUrl(rawPageUrl),
+    };
   }
-  return scrubbed;
+
+  return {
+    ...item,
+    payload: sanitizePayload(item.payload, routeValues, urlDetails),
+    meta,
+  };
 };
 
 export const browserApmOptions = {
   app: BROWSER_APM_APP,
   namespace: BROWSER_APM_NAMESPACE,
-  version: process.env.NEXT_PUBLIC_VERSION,
-  environment: resolveApmEnvironment(
-    undefined,
-    process.env.NEXT_PUBLIC_NAIS_CLUSTER_NAME,
-  ),
-  telemetryUrl: process.env.NEXT_PUBLIC_TELEMETRY_URL,
   beforeSend: scrubBrowserTelemetry,
-  dangerouslyDisablePiiScrubbing: false,
   faro: {
     pageTracking: {
       generatePageId: (currentLocation) =>
         pageIdFromBrowserPath(currentLocation.pathname),
     },
-    sessionTracking: {
-      samplingRate: BROWSER_SESSION_SAMPLING_RATE,
-    },
-    trackGeolocation: false,
   },
   tracing: false,
   sessionReplay: { enabled: false },
   screenshotOnError: false,
-  devConsoleEcho: false,
 } satisfies InitOptions;
-
-const isLocalBrowser = (): boolean =>
-  typeof location !== "undefined" &&
-  (location.hostname === "localhost" ||
-    location.hostname === "127.0.0.1" ||
-    location.hostname === "[::1]" ||
-    location.hostname.endsWith(".localhost") ||
-    location.hostname.endsWith(".local"));
 
 export const isBrowserTelemetryEnvironment = (
   environment: string | undefined,
@@ -306,7 +213,7 @@ export function initBrowserObservability() {
     !isBrowserTelemetryEnvironment(
       process.env.NEXT_PUBLIC_RUNTIME_ENVIRONMENT,
     ) ||
-    isLocalBrowser()
+    isLocalHost(location.hostname)
   ) {
     return undefined;
   }
