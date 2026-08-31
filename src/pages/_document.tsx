@@ -56,9 +56,6 @@ export default class MyDocument extends Document<Props> {
       app: "aktivitetskrav-frontend",
       namespace: "team-esyfo",
       version: process.env.NEXT_PUBLIC_VERSION,
-      environment:
-        process.env.NAIS_CLUSTER_NAME ??
-        process.env.NEXT_PUBLIC_NAIS_CLUSTER_NAME,
       telemetryUrl: process.env.NEXT_PUBLIC_TELEMETRY_URL,
     });
 

@@ -13,7 +13,6 @@ import { useEffect, useState } from "react";
 import { createBreadcrumbs } from "@/breadcrumbs/breadcrumbs";
 import { ErrorBoundary } from "@/components/error/ErrorBoundary";
 import { TestScenarioSelector } from "@/components/testscenarioselector/TestScenarioSelector";
-import { ApmRouteTracker } from "@/observability/ApmRouteTracker";
 import { minutesToMillis } from "@/utils/dateUtils";
 import { getTestScenario, setTestScenario } from "@/utils/testScenarioUtils";
 
@@ -59,7 +58,6 @@ function MyApp({
 
   return (
     <ErrorBoundary>
-      <ApmRouteTracker />
       <QueryClientProvider client={queryClient}>
         <main tabIndex={-1} id="maincontent">
           <HydrationBoundary state={pageProps.dehydratedState}>
