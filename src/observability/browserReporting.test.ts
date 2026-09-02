@@ -16,7 +16,11 @@ describe("browser reporting", () => {
     vi.unstubAllEnvs();
   });
 
-  it.each(["dev", "prod"])("initialiserer i %s", async (environment) => {
+  it.each([
+    "dev",
+    "demo",
+    "prod",
+  ])("initialiserer i %s", async (environment) => {
     vi.stubEnv("NEXT_PUBLIC_RUNTIME_ENVIRONMENT", environment);
     const { browserApmOptions, initBrowserObservability } = await import(
       "./browser"
@@ -29,7 +33,6 @@ describe("browser reporting", () => {
   });
 
   it.each([
-    "demo",
     "local",
     "test",
     "ukjent",

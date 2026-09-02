@@ -141,7 +141,8 @@ export const browserApmOptions = {
 
 export const isBrowserTelemetryEnvironment = (
   environment: string | undefined,
-): boolean => environment === "dev" || environment === "prod";
+): boolean =>
+  environment === "dev" || environment === "demo" || environment === "prod";
 
 export function initBrowserObservability() {
   if (
