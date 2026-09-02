@@ -158,7 +158,7 @@ describe("APM-konfigurasjon", () => {
       beforeSend: normalizeBrowserTelemetry,
       faro: { pageTracking: { generatePageId: expect.any(Function) } },
     });
-    expect(browserApmOptions).not.toHaveProperty("tracing");
+    expect(browserApmOptions.tracing).toBe(true);
     expect(browserApmOptions).not.toHaveProperty("sessionReplay");
     expect(browserApmOptions).not.toHaveProperty("screenshotOnError");
   });

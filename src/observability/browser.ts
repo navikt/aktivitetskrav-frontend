@@ -130,6 +130,7 @@ export const browserApmOptions = {
   app: BROWSER_APM_APP,
   namespace: BROWSER_APM_NAMESPACE,
   beforeSend: normalizeBrowserTelemetry,
+  tracing: true,
   faro: {
     pageTracking: {
       generatePageId: (currentLocation) =>
