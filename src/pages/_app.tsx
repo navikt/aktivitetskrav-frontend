@@ -13,7 +13,6 @@ import { useEffect, useState } from "react";
 import { createBreadcrumbs } from "@/breadcrumbs/breadcrumbs";
 import { ErrorBoundary } from "@/components/error/ErrorBoundary";
 import { TestScenarioSelector } from "@/components/testscenarioselector/TestScenarioSelector";
-import { initFaro } from "@/faro/initFaro";
 import { minutesToMillis } from "@/utils/dateUtils";
 import { getTestScenario, setTestScenario } from "@/utils/testScenarioUtils";
 
@@ -37,10 +36,6 @@ function MyApp({
         },
       }),
   );
-
-  useEffect(() => {
-    initFaro();
-  }, []);
 
   useEffect(() => {
     setBreadcrumbs(createBreadcrumbs(pathname));

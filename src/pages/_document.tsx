@@ -1,3 +1,4 @@
+import { getNaisMetaTags } from "@nais/apm";
 import {
   type DecoratorComponentsReact,
   fetchDecoratorReact,
@@ -51,10 +52,22 @@ export default class MyDocument extends Document<Props> {
 
   render() {
     const { Decorator } = this.props;
+    const apmMetaTags = getNaisMetaTags({
+      app: "aktivitetskrav-frontend",
+      namespace: "team-esyfo",
+      version: process.env.NEXT_PUBLIC_VERSION,
+      environment:
+        process.env.NAIS_CLUSTER_NAME ??
+        process.env.NEXT_PUBLIC_NAIS_CLUSTER_NAME,
+      telemetryUrl: process.env.NEXT_PUBLIC_TELEMETRY_URL,
+    });
 
     return (
       <Html lang="nb">
         <Head>
+          {apmMetaTags.map(({ name, content }) => (
+            <meta key={name} name={name} content={content} />
+          ))}
           <Decorator.HeadAssets />
           <title>Nav - Aktivitetsplikt</title>
           <link
