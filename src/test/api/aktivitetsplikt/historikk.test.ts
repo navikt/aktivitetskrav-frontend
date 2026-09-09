@@ -24,6 +24,10 @@ interface MockResponseBody {
   headers: Record<string, string>;
   jsonBody?: unknown;
   endedBody?: string;
+  status(code: number): MockResponseBody;
+  json(body: unknown): MockResponseBody;
+  end(body?: string): MockResponseBody;
+  setHeader(name: string, value: string): MockResponseBody;
 }
 
 const createMockRequest = (
@@ -37,7 +41,7 @@ const createMockRequest = (
   }) as NextApiRequest;
 
 const createMockResponse = (): NextApiResponse & MockResponseBody => {
-  const response = {
+  const response: MockResponseBody = {
     statusCode: 200,
     headers: {},
     status(code: number) {
@@ -58,7 +62,7 @@ const createMockResponse = (): NextApiResponse & MockResponseBody => {
     },
   };
 
-  return response as NextApiResponse & MockResponseBody;
+  return response as unknown as NextApiResponse & MockResponseBody;
 };
 
 describe("historikk API route", () => {
@@ -106,7 +110,7 @@ describe("historikk API route", () => {
     vi.mocked(validateToken).mockResolvedValue({
       ok: false,
       error: new Error("token expired"),
-      errorType: "EXPIRED",
+      errorType: "token expired",
     });
     const response = createMockResponse();
 
