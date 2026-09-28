@@ -42,11 +42,11 @@ importers:
         specifier: ^4.2.2
         version: 4.2.2
       '@tanstack/react-query':
-        specifier: ^5.103.1
-        version: 5.103.1(react@19.3.0)
+        specifier: ^5.103.2
+        version: 5.103.2(react@19.3.0)
       '@tanstack/react-query-devtools':
         specifier: ^5.103.1
-        version: 5.103.1(@tanstack/react-query@5.103.1(react@19.3.0))(@types/react@19.3.0)(csstype@3.2.3)(react@19.3.0)
+        version: 5.103.1(@tanstack/react-query@5.103.2(react@19.3.0))(@types/react@19.3.0)(csstype@3.2.3)(react@19.3.0)
       next:
         specifier: 16.3.5
         version: 16.3.5(@opentelemetry/api@1.9.1)(@types/node@24.13.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
@@ -307,6 +307,9 @@ packages:
   '@grafana/faro-core@2.11.0':
     resolution: {integrity: sha512-vaqko2foixRC9uZyqc4KzCUYqd21t27LhVgQ6hI6cmS3vRSMBoIgEg1FIrOOkT9KNRTpbKASE7iYn3QtHtq7zQ==}
 
+  '@grafana/faro-core@2.12.0':
+    resolution: {integrity: sha512-xKt83b7bOVyjWyVardTE3UaOFPnxwLFaBF7JHRS5Rl8cps15biRNqLMbHuk3eEe+PbVMRL/vNfP0EB0BSjXyEw==}
+
   '@grafana/faro-react@2.11.0':
     resolution: {integrity: sha512-x6lhs8raKlqdGXYcNGTWZhqGumRMbcQDe/Qr2RK2o0q42SFy3grfVA7KDTUjE21hPngmUHgfzY2MwldHzE9f/A==}
     peerDependencies:
@@ -325,8 +328,14 @@ packages:
   '@grafana/faro-web-sdk@2.11.0':
     resolution: {integrity: sha512-oGwdqlFJkIrK6V45wDlPaggNXOJCcXRFobho0PBQvohAB4Y4UTyMH18Sr1Tznp3z6POr/zh7RUtB0L/iN2X+HA==}
 
+  '@grafana/faro-web-sdk@2.12.0':
+    resolution: {integrity: sha512-Up7fvGND54qszlbSEuTCTXGwhg7Bk3QpU+DKYVFVGFmJUdfvZ9zpQEQtaaINJ4EyHH2oGS4YEmdehDbcd6UulA==}
+
   '@grafana/faro-web-tracing@2.11.0':
     resolution: {integrity: sha512-/n7Bf0rmBENQ3q3Mxe8siFPrfNF1nzlsMDVUUkKsnz9z9cdLD0b0z4jwCJ0OA9xIf1/XsMCBtINMAH4OPTtNlA==}
+
+  '@grafana/faro-web-tracing@2.12.0':
+    resolution: {integrity: sha512-gyalCBXw0pdN0olbKa/jrYLwnA6jeBZUDVrcbyHmdY+3F/ERClkFvmjTKv3bXiKty/32NW2ZQaygA++vE8RPlA==}
 
   '@grafana/rrdom@2.0.0-grafana.2':
     resolution: {integrity: sha512-eZFrDVTaoaiERuKyxv378XyzndcLz/oji8aWIIv9PD0yzCAnNA9jL9pCZvwrbas86ZEJmwKISWhioHAycPF2VA==}
@@ -1052,6 +1061,9 @@ packages:
   '@tanstack/query-core@5.103.1':
     resolution: {integrity: sha512-rms8HqTGp6zA00dM+cUQ2eBcgzNJefuu5CAMB37i/6MiGT1zulPOytCFu2a0qjLqVR2n1jENPj9woqFQNuCzWA==}
 
+  '@tanstack/query-core@5.103.2':
+    resolution: {integrity: sha512-I8DkFXls5jXLqtm8+QpOhEmG07hIblhSZFzafg9wHsMSEvMzULy9hK17wU1T/ahfhMbtITJhbxutwwCoihkR7A==}
+
   '@tanstack/query-devtools@5.103.1':
     resolution: {integrity: sha512-xMOcnULRPEjww0A/0RnweNmcZ5hesLjTekqf8SHxf+BJH729qz6sUu5TsOWFo7J4fu3OR50MeuJUsM3BN78Kfw==}
 
@@ -1062,8 +1074,8 @@ packages:
       '@types/react': ^18 || ^19
       react: ^18 || ^19
 
-  '@tanstack/react-query@5.103.1':
-    resolution: {integrity: sha512-rmAPPApNEK17VXRJhtE1rja53n23VV5w30C0saCgJhhX+EpdUnVqMGV/s5nnzV43X75KTHKzuoiuxSzGTBIkag==}
+  '@tanstack/react-query@5.103.2':
+    resolution: {integrity: sha512-B+fWiYZBc+0uUD5zDZAeLw9dKj7XEsdnuu6zRZ+no6LNKpeE3P3bJ+N6HINjcIlWR6fW3vUoTneEaGa2V6ehqw==}
     peerDependencies:
       react: ^18 || ^19
 
@@ -2255,6 +2267,9 @@ packages:
   web-vitals@6.2.1:
     resolution: {integrity: sha512-rLcLXA2sx6+9dE88NHFubwTtGxpK4yYBLj6qHPdFoCaLr0cXGb4efOqtKLlm4loGA4OEKHIQKMKzZkKyOh5ctw==}
 
+  web-vitals@6.2.2:
+    resolution: {integrity: sha512-oto5x6dLEgrRqfcWed+pZEUb2q6ikbFmqF54CRDhI/QGbn+qxC49b4C4OkbH+kb9C3a8shpFD3SgR9kRcs80ZQ==}
+
   webidl-conversions@8.0.1:
     resolution: {integrity: sha512-BMhLD/Sw+GbJC21C/UgyaZX41nPt8bUTg+jWyDeg7e7YN4xOM05YPSIXceACnXVtqyEw/LMClUQMtMZ+PGGpqQ==}
     engines: {node: '>=20'}
@@ -2437,10 +2452,15 @@ snapshots:
       '@opentelemetry/api': 1.9.1
       '@opentelemetry/otlp-transformer': 0.221.0(@opentelemetry/api@1.9.1)
 
+  '@grafana/faro-core@2.12.0':
+    dependencies:
+      '@opentelemetry/api': 1.9.1
+      '@opentelemetry/otlp-transformer': 0.221.0(@opentelemetry/api@1.9.1)
+
   '@grafana/faro-react@2.11.0(react-dom@19.3.0(react@19.3.0))(react-router-dom@7.18.3(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-router@8.3.1(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react@19.3.0)':
     dependencies:
-      '@grafana/faro-web-sdk': 2.11.0
-      '@grafana/faro-web-tracing': 2.11.0
+      '@grafana/faro-web-sdk': 2.12.0
+      '@grafana/faro-web-tracing': 2.12.0
       hoist-non-react-statics: 3.3.2
       react: 19.3.0
     optionalDependencies:
@@ -2456,9 +2476,31 @@ snapshots:
       ua-parser-js: 1.0.41
       web-vitals: 6.2.1
 
+  '@grafana/faro-web-sdk@2.12.0':
+    dependencies:
+      '@grafana/faro-core': 2.12.0
+      ua-parser-js: 1.0.41
+      web-vitals: 6.2.2
+
   '@grafana/faro-web-tracing@2.11.0':
     dependencies:
       '@grafana/faro-web-sdk': 2.11.0
+      '@opentelemetry/api': 1.9.1
+      '@opentelemetry/core': 2.11.0(@opentelemetry/api@1.9.1)
+      '@opentelemetry/exporter-trace-otlp-http': 0.221.0(@opentelemetry/api@1.9.1)
+      '@opentelemetry/instrumentation': 0.221.0(@opentelemetry/api@1.9.1)
+      '@opentelemetry/instrumentation-fetch': 0.221.0(@opentelemetry/api@1.9.1)
+      '@opentelemetry/instrumentation-xml-http-request': 0.221.0(@opentelemetry/api@1.9.1)
+      '@opentelemetry/otlp-transformer': 0.221.0(@opentelemetry/api@1.9.1)
+      '@opentelemetry/resources': 2.11.0(@opentelemetry/api@1.9.1)
+      '@opentelemetry/sdk-trace-web': 2.11.0(@opentelemetry/api@1.9.1)
+      '@opentelemetry/semantic-conventions': 1.43.0
+    transitivePeerDependencies:
+      - supports-color
+
+  '@grafana/faro-web-tracing@2.12.0':
+    dependencies:
+      '@grafana/faro-web-sdk': 2.12.0
       '@opentelemetry/api': 1.9.1
       '@opentelemetry/core': 2.11.0(@opentelemetry/api@1.9.1)
       '@opentelemetry/exporter-trace-otlp-http': 0.221.0(@opentelemetry/api@1.9.1)
@@ -3085,6 +3127,8 @@ snapshots:
 
   '@tanstack/query-core@5.103.1': {}
 
+  '@tanstack/query-core@5.103.2': {}
+
   '@tanstack/query-devtools@5.103.1(csstype@3.2.3)':
     dependencies:
       '@kobalte/core': 0.13.14(solid-js@1.9.15)
@@ -3101,18 +3145,18 @@ snapshots:
     transitivePeerDependencies:
       - csstype
 
-  '@tanstack/react-query-devtools@5.103.1(@tanstack/react-query@5.103.1(react@19.3.0))(@types/react@19.3.0)(csstype@3.2.3)(react@19.3.0)':
+  '@tanstack/react-query-devtools@5.103.1(@tanstack/react-query@5.103.2(react@19.3.0))(@types/react@19.3.0)(csstype@3.2.3)(react@19.3.0)':
     dependencies:
       '@tanstack/query-devtools': 5.103.1(csstype@3.2.3)
-      '@tanstack/react-query': 5.103.1(react@19.3.0)
+      '@tanstack/react-query': 5.103.2(react@19.3.0)
       '@types/react': 19.3.0
       react: 19.3.0
     transitivePeerDependencies:
       - csstype
 
-  '@tanstack/react-query@5.103.1(react@19.3.0)':
+  '@tanstack/react-query@5.103.2(react@19.3.0)':
     dependencies:
-      '@tanstack/query-core': 5.103.1
+      '@tanstack/query-core': 5.103.2
       react: 19.3.0
 
   '@testing-library/dom@10.4.1':
@@ -4123,6 +4167,8 @@ snapshots:
       xml-name-validator: 5.0.0
 
   web-vitals@6.2.1: {}
+
+  web-vitals@6.2.2: {}
 
   webidl-conversions@8.0.1: {}
 
