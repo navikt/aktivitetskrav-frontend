@@ -138,11 +138,17 @@ describe("les API route", () => {
       ok: true,
       token: "obo-token",
     });
-    const request = createMockRequest();
+    const request = createMockRequest({
+      headers: {
+        "accept-language":
+          "nb-NO,en-US,en-GB,de-DE,fr-FR,es-ES,it-IT,sv-SE,da-DK,fi-FI,pt-PT",
+      },
+    });
     const response = createMockResponse();
 
     await handler(request, response);
 
+    expect(request.headers["accept-language"]).toBeUndefined();
     expect(proxyApiRouteRequest).toHaveBeenCalledWith(
       expect.objectContaining({
         req: request,
