@@ -58,6 +58,8 @@ export async function proxyAktivitetskravBackendRequest(
   }
 
   try {
+    delete req.headers["accept-language"];
+
     await proxyApiRouteRequest({
       req,
       res,
