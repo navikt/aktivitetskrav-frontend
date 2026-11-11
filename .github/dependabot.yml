@@ -16,7 +16,7 @@ updates:
     groups:
       actions:
         patterns:
-          - '*'
+          - "*"
 
   - package-ecosystem: npm
     directory: "/"
@@ -29,8 +29,8 @@ updates:
     open-pull-requests-limit: 20
     registries: "*"
     ignore:
-      - dependency-name: '@types/node'
-        update-types: ['version-update:semver-major']
+      - dependency-name: "@types/node"
+        update-types: ["version-update:semver-major"]
     groups:
       aksel-dependencies:
         patterns:

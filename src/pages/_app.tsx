@@ -12,9 +12,8 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { createBreadcrumbs } from "@/breadcrumbs/breadcrumbs";
 import { ErrorBoundary } from "@/components/error/ErrorBoundary";
-import { TestScenarioSelector } from "@/components/testscenarioselector/TestScenarioSelector";
+import { TestScenarioDevTools } from "@/components/testscenarioselector/TestScenarioDevTools";
 import { minutesToMillis } from "@/utils/dateUtils";
-import { getTestScenario, setTestScenario } from "@/utils/testScenarioUtils";
 
 configureLogger({
   basePath: "/syk/aktivitetskrav",
@@ -40,21 +39,6 @@ function MyApp({
   useEffect(() => {
     setBreadcrumbs(createBreadcrumbs(pathname));
   }, [pathname]);
-
-  const TestScenarioDevTools = () => {
-    if (
-      process.env.NEXT_PUBLIC_RUNTIME_ENVIRONMENT === "local" ||
-      process.env.NEXT_PUBLIC_RUNTIME_ENVIRONMENT === "demo"
-    ) {
-      const hasActiveScenario = !!getTestScenario();
-      if (!hasActiveScenario) {
-        setTestScenario("FORHANDSVARSEL");
-      }
-
-      return <TestScenarioSelector />;
-    }
-    return null;
-  };
 
   return (
     <ErrorBoundary>
