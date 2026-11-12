@@ -1,4 +1,8 @@
-import { getTestScenario, setTestScenario } from "@/utils/testScenarioUtils";
+import {
+  getTestScenario,
+  InfoSideTestScenario,
+  setTestScenario,
+} from "@/utils/testScenarioUtils";
 import { TestScenarioSelector } from "./TestScenarioSelector";
 
 export const TestScenarioDevTools = () => {
@@ -8,7 +12,7 @@ export const TestScenarioDevTools = () => {
   ) {
     const hasActiveScenario = !!getTestScenario();
     if (!hasActiveScenario) {
-      setTestScenario("FORHANDSVARSEL");
+      setTestScenario(InfoSideTestScenario);
     }
 
     return <TestScenarioSelector />;

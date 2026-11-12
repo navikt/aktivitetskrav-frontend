@@ -1,6 +1,6 @@
 import {
-  ForhandsvarselTestScenario,
   getTestScenario,
+  InfoSideTestScenario,
 } from "@/utils/testScenarioUtils";
 import { loginUser } from "@/utils/urlUtils";
 
@@ -10,7 +10,7 @@ const testScenarioHeaders = (): Record<string, string> | undefined => {
     process.env.NEXT_PUBLIC_RUNTIME_ENVIRONMENT === "demo"
   ) {
     const headers: Record<string, string> = {
-      testscenario: getTestScenario() || ForhandsvarselTestScenario,
+      testscenario: getTestScenario() || InfoSideTestScenario,
     };
 
     return headers;
