@@ -1,5 +1,5 @@
 import { renderToString } from "react-dom/server";
-import { afterEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { AktivitetskravSkeletonComponent } from "./AktivitetskravSkeletonComponent";
 
 const renderOn = (date: string) => {
@@ -8,13 +8,15 @@ const renderOn = (date: string) => {
 };
 
 describe("AktivitetskravSkeletonComponent", () => {
+  beforeEach(() => {
+    vi.useFakeTimers();
+  });
+
   afterEach(() => {
     vi.useRealTimers();
   });
 
   it("rendrer lik markup uavhengig av dagens dato, så forhåndsrendret HTML hydrerer", () => {
-    vi.useFakeTimers();
-
     expect(renderOn("2026-11-18T10:00:00.000Z")).toBe(
       renderOn("2026-11-17T10:00:00.000Z"),
     );
