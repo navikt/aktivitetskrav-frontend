@@ -40,6 +40,9 @@ const nextConfig: NextConfig = {
   output: "standalone",
   basePath: "/syk/aktivitetskrav",
   assetPrefix: process.env.NEXT_PUBLIC_ASSET_PREFIX || "",
+  // Assets load from the CDN; without CORS mode browsers hide error details
+  // from cross-origin scripts and Faro only sees "Script error.".
+  crossOrigin: "anonymous",
   productionBrowserSourceMaps: true,
   serverExternalPackages: [
     "@navikt/nav-dekoratoren-moduler",

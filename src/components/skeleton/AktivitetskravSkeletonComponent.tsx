@@ -7,6 +7,10 @@ import { AktivitetskravInfo } from "@/components/view/aktivitetskravInfo/Aktivit
 import { MedUtenArbeidsgiverToggleGroup } from "@/components/view/aktivitetskravInfo/MedUtenArbeidsgiverToggleGroup";
 import { infoSideHeaderText } from "@/components/view/UnderBehandlingComponent";
 
+// The skeleton is prerendered at build time, so a date from the clock would
+// differ from the browser's render and break hydration. The text is hidden.
+const PLACEHOLDER_UTSENDT_DATO = "2000-01-01T12:00:00.000Z";
+
 export const AktivitetskravSkeletonComponent = () => {
   return (
     <Page>
@@ -14,7 +18,7 @@ export const AktivitetskravSkeletonComponent = () => {
         <Skeletor displaySkeleton={true}>
           <ComponentHeader
             headerText={infoSideHeaderText}
-            utsendtDato={new Date().toISOString()}
+            utsendtDato={PLACEHOLDER_UTSENDT_DATO}
             alertStyle="info"
           />
         </Skeletor>
